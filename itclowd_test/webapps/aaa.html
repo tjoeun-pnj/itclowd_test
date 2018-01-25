@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>html5 반응형 달력 코딩</title>
+<!--[if lt IE 9]>
+<script src="http://cdn.dontorz.com/js/html5shiv.js"></script>
+<script src="http://cdn.dontorz.com/js/respond.js"></script>
+<![endif]-->
+<link rel="stylesheet" type="text/css" href="./aaa.css">
+<style type="text/css">
+.calendar > p{width:100%;font-size:0px;margin-bottom:10px;}
+.calendar > p span.Ym{font-size:23px;margin:0px 10px;font-weight:bold;}
+.calendar > p a{display:inline-block;vertical-align:bottom;line-height:23px;font-weight:bold;}
+@media only screen and (min-width : 761px){
+  .calendar > p{text-align:center;}
+  .calendar > ul{display:table;width:100%;font-size:0px;margin-bottom:15px;}
+  .calendar > ul > li{display:table-row;width:100%;}
+  .calendar > ul > li > div{display:table-cell;width:14%;min-height:80px;height:80px;border-right:1px solid #dfd8c6;border-bottom:1px solid #dfd8c6;}
+  .calendar > ul > li > div:last-child{border-right:0px;}
+  .calendar > ul > li.header > div{height:30px;line-height:30px;min-height:0px;border-top:1px solid #dfd8c6;border-right:1px solid #dfd8c6;border-bottom:1px solid #dfd8c6background:#fbfaf7;color:#777777;font-weight:bold;text-align:center;}
+  .calendar > ul > li.header > div:last-child{border-right:0px;}
+  .calendar > ul > li.header > div.Sun{color:#cc2220;}
+  .calendar > ul > li.header > div.Sat{color:#2453a5;}
+  .calendar > ul > li > div.empty{background:#fbfaf7;}
+  .calendar > ul > li > div > time{display:block;padding:3px 0 3px 3px;font-weight:bold;min-height:15px;}
+  .calendar > ul > li > div > time span{display:none;}
+  .calendar > ul > li > div ul{width:100%;font-size:0px;text-align:right;padding:0 3px;min-height:60px;}
+  .calendar > ul > li > div ul li{margin:0px 3px 3px 0px;padding:3px;}
+}
+@media only screen and (max-width : 760px){
+  .calendar > p{text-align:left;}
+  .calendar > ul{width:100%;display:block;border-top:2px solid #dfd8c6;margin-bottom:15px;}
+  .calendar > ul > li{display:block;}
+  .calendar > ul > li > div{width:100%;border-bottom:1px solid #dfd8c6;}
+  .calendar > ul > li.header{display:none;}
+  .calendar > ul > li > div.empty{display:none;}
+  .calendar > ul > li > div > time{display:table-cell;vertical-align:middle;border-right:1px solid #dfd8c6;width:80px;text-align:right;padding:10px 5px 10px 0;background:#fbfaf7;font-weight:bold;}
+  .calendar > ul > li > div > time span.Ym{font-size:10px;display:block;margin-bottom:5px;}
+  .calendar > ul > li > div > time span.W{margin-left:5px;}
+  .calendar > ul > li > div > div {display:table-cell;}
+  .calendar > ul > li > div ul{display:table-cell;padding:5px 10px;vertical-align:middle;}
+  .calendar > ul > li > div ul li{margin:2px 2px 2px 0px;padding:3px;}
+}
+.calendar > ul > li > div.today{background:#fff8cf !important;}
+.calendar > ul > li > div.Sun > time, .calendar > ul > li > div.Sun > time span{color:#cc2220;}
+.calendar > ul > li > div.Sat > time, .calendar > ul > li > div.Sat > time span{color:#2453a5;}
+</style>
+</head>
+<body>
+<div class="calendar">
+  <p>
+    <a><</a>
+    <span class="Ym">2017. 01</span>
+    <a>></a>
+  </p>
+
+  <ul>
+    <li class="header">
+      <div class="Sun">SUN</div>
+      <div class="Mon">MON</div>
+      <div class="Tue">TUE</div>
+      <div class="Wed">WED</div>
+      <div class="Thu">THU</div>
+      <div class="Fri">FRI</div>
+      <div class="Sat">SAT</div>
+    </li>
+    <li>
+      <div class="Sun"><time><span class="Ym">[2017.01]</span>01<span class="W">(Sun)</span></time></div>
+      <div><time><span class="Ym">[2017.01]</span>02<span class="W">(Mon)</span></time><div>ddd</div></div>
+      <div><time><span class="Ym">[2017.01]</span>03<span class="W">(Tue)</span></time></div>
+      <div><time><span class="Ym">[2017.01]</span>04<span class="W">(Wed)</span></time></div>
+      <div><time><span class="Ym">[2017.01]</span>05<span class="W">(Thu)</span></time></div>
+      <div><time><span class="Ym">[2017.01]</span>06<span class="W">(Fri)</span></time></div>
+      <div class="Sat"><time><span class="Ym">[2017.01]</span>07<span class="W">(Sat)</span></time></div>
+    </li>
+    <li>
+      <div class="Sun"><time><span class="Ym">[2017.01]</span>08<span class="W">(Sun)</span></time></div>
+      <div><time><span class="Ym">[2017.01]</span>09<span class="W">(Mon)</span></time></div>
+      <div><time><span class="Ym">[2017.01]</span>10<span class="W">(Tue)</span></time></div>
+      <div><time><span class="Ym">[2017.01]</span>11<span class="W">(Wed)</span></time></div>
+      <div><time><span class="Ym">[2017.01]</span>12<span class="W">(Thu)</span></time></div>
+      <div><time><span class="Ym">[2017.01]</span>13<span class="W">(Fri)</span></time></div>
+      <div class="Sat"><time><span class="Ym">[2017.01]</span>14<span class="W">(Sat)</span></time></div>
+    </li>
+    <li>
+      <div class="Sun"><time><span class="Ym">[2017.01]</span>15<span class="W">(Sun)</span></time></div>
+      <div><time><span class="Ym">[2017.01]</span>16<span class="W">(Mon)</span></time></div>
+      <div><time><span class="Ym">[2017.01]</span>17<span class="W">(Tue)</span></time></div>
+      <div><time><span class="Ym">[2017.01]</span>18<span class="W">(Wed)</span></time></div>
+      <div><time><span class="Ym">[2017.01]</span>19<span class="W">(Thu)</span></time></div>
+      <div><time><span class="Ym">[2017.01]</span>20<span class="W">(Fri)</span></time></div>
+      <div class="Sat"><time><span class="Ym">[2017.01]</span>21<span class="W">(Sat)</span></time></div>
+    </li>
+    <li>
+      <div class="Sun"><time><span class="Ym">[2017.01]</span>22<span class="W">(Sun)</span></time></div>
+      <div><time><span class="Ym">[2017.01]</span>23<span class="W">(Mon)</span></time></div>
+      <div><time><span class="Ym">[2017.01]</span>24<span class="W">(Tue)</span></time></div>
+      <div><time><span class="Ym">[2017.01]</span>25<span class="W">(Wed)</span></time></div>
+      <div><time><span class="Ym">[2017.01]</span>26<span class="W">(Thu)</span></time></div>
+      <div><time><span class="Ym">[2017.01]</span>27<span class="W">(Fri)</span></time></div>
+      <div class="Sat"><time><span class="Ym">[2017.01]</span>28<span class="W">(Sat)</span></time></div>
+    </li>
+    <li>
+      <div class="Sun"><time><span class="Ym">[2017.01]</span>29<span class="W">(Sun)</span></time></div>
+      <div><time><span class="Ym">[2017.01]</span>30<span class="W">(Mon)</span></time></div>
+      <div><time><span class="Ym">[2017.01]</span>31<span class="W">(Tue)</span></time></div>
+      <div class="empty"></div>
+      <div class="empty"></div>
+      <div class="empty"></div>
+      <div class="empty"></div>
+    </li>
+  </ul>
+</div>
+</body>
+</html>

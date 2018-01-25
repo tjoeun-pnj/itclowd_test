@@ -5,8 +5,9 @@
 <head><title></title></head>
 <body>
   	<h2>하이염</h2>
-  	<h2>하이염</h2>
+  	<h2>하이염</h2> 
   	<h2>123</h2>
   	<h2>456</h2>
+  	<a href="boardList.do">글목록</a>
 </body>
 </html>

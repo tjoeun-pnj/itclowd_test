@@ -50,7 +50,7 @@ public class BoardController extends HttpServlet{
 			}
 			dis = req.getRequestDispatcher("/board_list.jsp");
 		} else if (command.equals("/book.do")) {
-			URL url = new URL("http://www.aladin.co.kr/ttb/api/ItemSearch.aspx?ttbkey=ttbgsgod0906001&Query=aladdin&QueryType=Title&MaxResults=10&start=1&SearchTarget=Book&output=js&Version=20131101");
+			URL url = new URL("http://www.aladin.co.kr/ttb/api/ItemSearch.aspx?ttbkey=ttbgsgod0906001&Query=aladdin&QueryType=Title&MaxResults=10&start=1&SearchTarget=Book&output=js&cover=midbig");
 			HttpURLConnection connection = null;
 			
 			try {
@@ -59,8 +59,9 @@ public class BoardController extends HttpServlet{
 				connection.connect();
 				int resCode = connection.getResponseCode();
 				 if (resCode == HttpURLConnection.HTTP_OK) {
-					    String result = read(connection);
+					    String result = read(connection).replaceAll("\\\'", "\\u0027").replaceAll(";", "");
 					    Gson gson = new Gson();
+					    System.out.println(result);
 					    BookVO bVo = gson.fromJson(result, BookVO.class);
 					    req.setAttribute("book", bVo);
 				} else {

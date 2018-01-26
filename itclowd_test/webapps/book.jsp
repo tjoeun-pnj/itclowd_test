@@ -16,7 +16,7 @@
 	<%
 		for(BookItemVO item : list){
 	%>
-	<img alt="없음" src="<%=item.getCover() %>">
+	<img alt="없음" src="<%=item.getCover() %>" >
 	<%
 		}
 	%>

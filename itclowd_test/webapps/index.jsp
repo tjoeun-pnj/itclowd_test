@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
 <!DOCTYPE>
 <html>
 <head><title></title></head>
@@ -9,5 +8,7 @@
   	<h2>123</h2>
   	<h2>456</h2>
   	<a href="boardList.do">글목록</a>
+  	<a href="book.do">알라딘 요청</a>
+  	
 </body>
 </html>

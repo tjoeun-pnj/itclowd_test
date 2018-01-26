@@ -1,8 +1,10 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.test.vo.BookItemVO"%>
 <%@page import="com.test.vo.BookVO"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
     <%
 	BookVO book = (BookVO)request.getAttribute("book");
+    ArrayList<BookItemVO> list = book.getItem();
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -11,6 +13,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<img alt="없음" src="<%=book.getItem().get(0).getCover() %>">
+	<%
+		for(BookItemVO item : list){
+	%>
+	<img alt="없음" src="<%=item.getCover() %>">
+	<%
+		}
+	%>
 </body>
 </html>

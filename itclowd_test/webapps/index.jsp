@@ -10,5 +10,5 @@
   	<a href="boardList.do">글목록</a>
   	<a href="book.do">알라딘 요청</a>
   	
-</body>
+</body> 
 </html>

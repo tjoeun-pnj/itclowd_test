@@ -9,7 +9,7 @@ import java.io.OutputStreamWriter;
 
 public class AA {
 	public static void main(String[] args) throws Exception {
-		FileReader fr = new FileReader("C:\\Temp\\css1.txt");
+		FileReader fr = new FileReader("C:\\Temp\\css.txt");
 		
 		int readChar;
 		char[] cbuff = new char[100];

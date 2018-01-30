@@ -1,21 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
+<%@ taglib prefix="u" tagdir="/WEB-INF/tags" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="utf-8" />
-    <title>화면 상단 고정 메뉴 만드는 방법</title>
-    <!-- <script defer src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script> -->
+    <title>메인 틀</title>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <link rel="stylesheet" href="assets/css/mainmenu.css" />
 <link rel="stylesheet" href="menubarcss.css" />
 <link rel="stylesheet" href="what2.css" />
-
+  <link rel="stylesheet" href="mainboot.css">
 <script src="menubar.js"></script>
-<script src="assets/js/jquery.min.js"></script>
 <script src="assets/js/skel.min.js"></script>
 <script src="assets/js/util.js"></script>
 <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 <script src="assets/js/main.js"></script>
+  <script src="mainboot.js"></script>
+
 </head>
 <body>
     <div id="blog-header-container">
@@ -49,14 +50,10 @@
 
 				<!-- Menu -->
 					<section id="menu">
-
 						<!-- Search -->
+						<u:isLogin>
 							<section>
-								<form class="search" method="get" action="#">
-									<input type="text" name="query" placeholder="Search" />
-								</form>
 							</section>
-
 						<!-- Links -->
 							<section>
 								<ul class="links">
@@ -86,21 +83,32 @@
 									</li>
 								</ul>
 							</section>
-
+						</u:isLogin>
+						<u:notLogin>
 						<!-- Actions -->
 							<section>
 								<ul class="actions vertical">
-									<li><a href="#" class="button big fit">Log In</a></li>
+									<li><h3>저희 보담의 회원이 되시면 더욱 편리한 서비스를 제공합니다.</h3></li>
+									<li><input type="text" name="member_id" placeholder="아이디입력"/></li>
+									<li><input type="password" name="member_pass" placeholder="비밀번호입력"/></li>
+									<li align="center"><a href="#">비밀번호 찾기</a>&nbsp;&nbsp;<a href="#">비회원 주문조회하기</a></li>
+									<li><a href="#" class="button big fit">보담 로그인</a></li>
+									<li><a href="#" class="button big fit">보담 회원가입</a></li>
+									<li><a href="#" ><img src="images/kakao_login_btn1.png" width="100%"/></a></li>
+									<li></li>
 								</ul>
 							</section>
+						</u:notLogin>
 					</section>
     </div>
     <div id="blog-container"> <!-- content container -->
+    
      <ol class="sections-wrapper">
     <li id="evalmore-section" class="evalmore responsive-mask section"><h2 class="title">베스트셀러</h2>
     <div class="slider-wrapper"> <!-- 무비카드 컨테이너 -->
     <div class="vertical-list">
-    <ul class="grid-container" style="position: relative; width: 100%; height: 670px;">
+
+       <ul class="grid-container" style="position: relative; width: 100%; height: 670px;">
 
 <!-- 무비카드 -->
    <div class="movie-card size-1x1 poster-type base_movie  user-action-m4d83i card grid-1 hei-1 top-0 left-0">
@@ -173,7 +181,8 @@
   </div>
 </div><!-- 무비카드5 -->
 </ul>
-<ul class="grid-container" style="position: relative;  width: 100%; height: 670px;">
+
+       <ul class="grid-container" style="position: relative;  width: 100%; height: 670px;">
 
 <!-- 무비카드 -->
    <div class="movie-card size-1x1 poster-type base_movie  user-action-m4d83i card grid-1 hei-1 top-0 left-1">
@@ -228,6 +237,10 @@
   </div><!-- 무비카드2 -->
 </div>
 </ul>
+  
+    
+    
+
 
 </div></div><!-- slider wrap end -->
 </li>
@@ -236,7 +249,7 @@
        <div id="footer"> <!-- footer시작 -->
   <div class="wrapper responsive-mask">
     <div class="upper">
-      <div class="name">frograms</div>
+      <div class="name">ITCROWD</div>
 
       <div class="sns">
         <a href="http://facebook.com/watcha.net" target="_blank" class="fb">페이스북</a>
@@ -260,7 +273,7 @@
       </div>
     </div>
     <div class="info">
-      사업자명 (주식회사 프로그램스) 사업자번호 (211-88-66013)
+      사업자명 (ITCROWD) 사업자번호 (***-**-*****)
       Copyright © 2011–2018 by Frograms. Inc. All rights reserved
     </div>
     <div class="legal-button-wrapper">

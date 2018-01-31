@@ -12,6 +12,7 @@ public class MemberDao {
 		if(mDao == null) mDao = new MemberDao();
 		return mDao;
 	}
+	
 	public int joinMember(MemberVo mVo) {
 		int result = 0;
 		SqlSession session = null;
@@ -23,9 +24,7 @@ public class MemberDao {
 			session.rollback();
 			e.printStackTrace();
 			result = 0;
-		} finally {
-			session.close();
-		}
+		} 
 		return result;
 	}
 }

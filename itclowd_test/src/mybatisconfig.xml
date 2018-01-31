@@ -16,7 +16,7 @@
 
     <property name="driver" value="com.mysql.jdbc.Driver" />
 
-    <property name="url" value="jdbc:mysql://localhost:3306/board" />
+    <property name="url" value="jdbc:mysql://192.168.0.79:3306/itcrowd" />
 
     <property name="username" value="root" />
 
@@ -49,6 +49,7 @@
  <mappers>
 
   <mapper resource="com/test/sql/board.xml" />
+  <mapper resource="com/test/sql/member.xml" />
 
  </mappers>
 

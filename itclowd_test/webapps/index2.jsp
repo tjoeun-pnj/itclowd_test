@@ -18,15 +18,11 @@
   <script src="mainboot.js"></script>
   <link rel="stylesheet" href="mainboot.css">
   <!-- <script src="bootstrap.js"></script> -->
+  <script src="mainCustom.js"></script>
   <script type="text/javascript">
-  	function myModal(){
-  		$('#myModal').modal('show');
-  		$("body").removeClass("is-menu-visible");
-  	}
-  	function myModal1(){
-  		$('#myModal1').modal('show');
-  		$("body").removeClass("is-menu-visible");
-  	}
+	  function jointest(){
+		  alert();
+	  }
   </script>
 </head>
 <body>
@@ -268,12 +264,12 @@
   <div class="modal fade" id="myModal">
     <div class="modal-dialog">
       <div class="modal-content">
-      	<form action="#" method="post">
         <!-- Modal Header -->
         <div class="modal-header">
           <h4 class="modal-title">보담 회원가입</h4>
           <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
         </div>
+      	<form action="#" method="post" id="joinForm">
         <!-- Modal body -->
         <div class="modal-body">
           <section>
@@ -286,14 +282,14 @@
 			</ul>
 			</section>
         </div>
+      	</form>
         
         <!-- Modal footer -->
         <div class="modal-footer">
-          <a href="#"  class="button big"  >보담 회원가입신청</a>
+          <a href="#"  class="button big"  onclick="joinMember();">보담 회원가입신청</a>
           <a href="#"  class="button big"  data-dismiss="modal">Close</a>
           <!-- <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button> -->
         </div>
-      	</form>
       </div>
     </div>
   </div><!-- modal1 end -->

@@ -15,6 +15,8 @@ import javax.servlet.http.HttpServletResponse;
 
 
 import com.test.member.action.MemberJoinAction;
+import com.test.member.action.MemberJoinIdChkAction;
+import com.test.member.action.MemberJoinNameChkAction;
 import com.test.util.ActionForward;
 import com.test.util.inter.Action;
 
@@ -39,16 +41,29 @@ public class MemberController extends HttpServlet{
 		String command = requestURI.substring(contextPath.length()+7);
 		ActionForward forward = null;
 		Action action = null;
-		System.out.println("memberCon");
 		if (command.equals("/join")) {
-			System.out.println("memberCon - join");
 			action = new MemberJoinAction();
 			try {
 				forward = action.execute(req, res);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		} 
+		} else if(command.equals("/idchk")) {
+			action = new MemberJoinIdChkAction();
+			try {
+				forward = action.execute(req, res);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if(command.equals("/namechk")) {
+			action = new MemberJoinNameChkAction();
+			System.out.println("계속 오냐??");
+			try {
+				forward = action.execute(req, res);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
 		
 		if(forward != null) {
 			if(forward.isRedirect()) res.sendRedirect(forward.getPath());
@@ -58,33 +73,6 @@ public class MemberController extends HttpServlet{
 			}
 		}
 	}
-	/**
-	  * 전송하는 부분
-	  * @param p_con
-	  * @throws IOException
-	  */
-	 private void send(HttpURLConnection con, byte[] p_writeMsg)
-	   throws IOException {
-	  DataOutputStream dos = new DataOutputStream(con.getOutputStream());
-	  dos.write(p_writeMsg);
-	  dos.flush();
-	 }
-
-
-	 /**
-	  * 수신하는 부분
-	  * @param p_con
-	  * @throws IOException
-	  */
-	 private String read(HttpURLConnection con) throws IOException {
-	  BufferedReader br = new BufferedReader(new InputStreamReader(con.getInputStream()));
-	  String strData = null;
-	  StringBuffer sb = new StringBuffer();
-	  while ((strData = br.readLine()) != null) {
-	   sb.append(strData);
-	  }
-	  return new String(sb.toString().getBytes());
-	 }
 
 
 	

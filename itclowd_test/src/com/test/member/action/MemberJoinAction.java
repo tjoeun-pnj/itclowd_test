@@ -13,7 +13,11 @@ import com.test.util.inter.Action;
 
 public class MemberJoinAction implements Action {
 
-	@Override
+	/*******************8
+	 * 회원가입 
+	 * db등록 성공 여부를 받아 json을 줌 그리고 화면에서 판단
+	 */
+	/*@Override
 	public ActionForward execute(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		
 		ActionForward forward = null;
@@ -30,6 +34,20 @@ public class MemberJoinAction implements Action {
 			json.addProperty("result", true);
 		}else {
 			json.addProperty("result", false);
+		}
+		res.getWriter().print(json);
+		return null;
+	}*/
+	/**************
+	 * 계속 트루용 시험용 삭제요망
+	 */
+	@Override
+	public ActionForward execute(HttpServletRequest req, HttpServletResponse res) throws Exception {
+		
+		JsonObject json = new JsonObject();
+		res.setContentType("application/x-json;charset=utf-8");
+		if(true) {
+			json.addProperty("result", true);
 		}
 		res.getWriter().print(json);
 		return null;

@@ -117,7 +117,17 @@
     
    <!-- 여기다가 맘껏 넣어보시요 -->
    
-   
+   CREATE TABLE `itcrowd`.`Untitled`  (
+  `m_no` int(11) NOT NULL AUTO_INCREMENT COMMENT '회원번호',
+  `m_id` varchar(40) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '회원아이디',
+  `m_name` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '회원닉네임',
+  `m_pass` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '회원 비밀번호',
+  `m_date` date NOT NULL COMMENT '가입일',
+  `m_point` int(11) NULL DEFAULT NULL COMMENT '포인트',
+  PRIMARY KEY (`m_no`) USING BTREE,
+  UNIQUE INDEX `id_uni`(`m_id`) USING BTREE,
+  UNIQUE INDEX `name_uni`(`m_name`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '회원' ROW_FORMAT = Dynamic;
    
     </div> <!-- content container -->
 <div id="footer"> <!-- footer시작 -->

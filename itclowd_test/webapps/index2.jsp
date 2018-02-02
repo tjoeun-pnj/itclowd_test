@@ -296,7 +296,7 @@
 				<li><h3>저희 보담의 회원이 되시면 더욱 편리한 서비스를 제공합니다.</h3></li>
 				<li><input type="email" id="join_id" name="m_id" placeholder="이메일입력"/><span id="emailChk"></span></li>
 				<li><input type="text" id="join_name" name="m_name" placeholder="닉네임입력"/><span align="center" id="nameChk"></span></li>
-				<li><input type="password" id="join_pass" name="m_pass" placeholder="비밀번호입력"/><span>여유되면 비밀번호 안정성 나타내줌 </span></li>
+				<li><input type="password" id="join_pass" name="m_pass" placeholder="비밀번호입력"/></li>
 				<li><input type="password" id="join_pass_chk" name="m_pass_chk" placeholder="비밀번호확인"/><span id="passChk">비번 잘 쳤는지 알려줌</span></li>
 			</ul>
 			</section>

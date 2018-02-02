@@ -5,19 +5,21 @@
 <head>
     <meta charset="utf-8" />
     <title>메인 틀</title>
-<script src="js/jquery.js"></script>
-<link rel="stylesheet" href="css/menubarcss.css" />
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<link rel="stylesheet" href="menubarcss.css" />
 <link rel="stylesheet" href="assets/css/mainmenu.css" />
-<link rel="stylesheet" href="css/what.css" />
-<script src="js/menubar.js"></script>
+<link rel="stylesheet" href="what2.css" />
+<script src="menubar.js"></script>
 <script src="assets/js/skel.min.js"></script>
 <script src="assets/js/util.js"></script>
+<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 <script src="assets/js/main.js"></script>
-  <script src="js/mainboot.js"></script>
-  <script src="js/pwstrength.js"></script>
-  <link rel="stylesheet" href="css/mainboot.css">
-<script src="js/mainCustom.js"></script>
-</head>
+  <script src="mainboot.js"></script>
+  <script src="pwstrength.js"></script>
+  <link rel="stylesheet" href="mainboot.css">
+  <!-- <link rel="stylesheet" href="bootstrap.css"> -->
+  <!-- <script src="bootstrap.js"></script> -->
+  <script src="mainCustom.js"></script>
 </head>
 <body>
     <div id="blog-header-container">
@@ -114,7 +116,12 @@
     <div id="blog-container"> <!-- content container -->
     
     
-    
+    <%
+    	if(session.getAttribute("authUser")!=null){
+    	%>
+    		ddd
+    <%} %>	
+    	
     
     
     

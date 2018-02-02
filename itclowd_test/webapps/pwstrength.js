@@ -317,7 +317,7 @@ var ui = {};
         }
         progressbar += "bar'>";
         if (options.ui.showVerdictsInsideProgressBar) {
-            progressbar += "<span class='password-verdict'></span>";
+            progressbar += "<span id='passChk1' class='password-verdict'></span>";
         }
         progressbar += "</div></div></li>";
 

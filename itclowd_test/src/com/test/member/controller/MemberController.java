@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.test.member.action.MemberJoinAction;
 import com.test.member.action.MemberJoinIdChkAction;
 import com.test.member.action.MemberJoinNameChkAction;
+import com.test.member.action.MemberLoginAction;
 import com.test.util.ActionForward;
 import com.test.util.inter.Action;
 
@@ -57,7 +58,13 @@ public class MemberController extends HttpServlet{
 			}
 		} else if(command.equals("/namechk")) {
 			action = new MemberJoinNameChkAction();
-			System.out.println("계속 오냐??");
+			try {
+				forward = action.execute(req, res);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if(command.equals("/login")) {
+			action = new MemberLoginAction();
 			try {
 				forward = action.execute(req, res);
 			} catch (Exception e) {

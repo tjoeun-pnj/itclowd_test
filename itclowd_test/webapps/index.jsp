@@ -117,7 +117,7 @@
     
    <!-- 여기다가 맘껏 넣어보시요 -->
    
-   CREATE TABLE `itcrowd`.`Untitled`  (
+   CREATE TABLE `member`  (
   `m_no` int(11) NOT NULL AUTO_INCREMENT COMMENT '회원번호',
   `m_id` varchar(40) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '회원아이디',
   `m_name` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '회원닉네임',

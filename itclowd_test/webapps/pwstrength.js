@@ -240,7 +240,7 @@ defaultOptions.ui.errorMessages = {
     wordRepetitions: "Too many repetitions",
     wordSequences: "Your password contains sequences"
 };
-defaultOptions.ui.verdicts = ["Weak", "Normal", "Medium", "Strong", "Very Strong"];
+defaultOptions.ui.verdicts = ["안전성: 약함", "안전성: 보통", "안전성: 중간", "안전성: 강함", "안전성: 매우강함"];
 defaultOptions.ui.showVerdicts = true;
 defaultOptions.ui.showVerdictsInsideProgressBar = false;
 defaultOptions.ui.showErrors = false;
@@ -317,7 +317,7 @@ var ui = {};
         }
         progressbar += "bar'>";
         if (options.ui.showVerdictsInsideProgressBar) {
-            progressbar += "<span class='password-verdict'></span>";
+            progressbar += "<span id='passChk1' class='password-verdict'></span>";
         }
         progressbar += "</div></div></li>";
 

@@ -6,28 +6,20 @@
     <meta charset="utf-8" />
     <title>메인 틀</title>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<link rel="stylesheet" href="assets/css/mainmenu.css" />
 <link rel="stylesheet" href="menubarcss.css" />
+<link rel="stylesheet" href="assets/css/mainmenu.css" />
 <link rel="stylesheet" href="what2.css" />
-  <!-- <link rel="stylesheet" href="bootstrap.css"> -->
 <script src="menubar.js"></script>
 <script src="assets/js/skel.min.js"></script>
 <script src="assets/js/util.js"></script>
 <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 <script src="assets/js/main.js"></script>
   <script src="mainboot.js"></script>
+  <script src="pwstrength.js"></script>
   <link rel="stylesheet" href="mainboot.css">
+  <!-- <link rel="stylesheet" href="bootstrap.css"> -->
   <!-- <script src="bootstrap.js"></script> -->
-  <script type="text/javascript">
-  	function myModal(){
-  		$('#myModal').modal('show');
-  		$("body").removeClass("is-menu-visible");
-  	}
-  	function myModal1(){
-  		$('#myModal1').modal('show');
-  		$("body").removeClass("is-menu-visible");
-  	}
-  </script>
+  <script src="mainCustom.js"></script>
 </head>
 <body>
     <div id="blog-header-container">
@@ -100,10 +92,12 @@
 							<section>
 								<ul class="actions vertical">
 									<li><h3>저희 보담의 회원이 되시면 더욱 편리한 서비스를 제공합니다.</h3></li>
-									<li><input type="email" name="member_id" placeholder="이메일입력"/></li>
-									<li><input type="password" name="member_pass" placeholder="비밀번호입력"/></li>
+									<form  id="loginForm">
+									<li><input type="email" id="log_id" name="m_id" placeholder="이메일입력"/></li>
+									<li><input type="password" id="log_pass" name="m_pass" placeholder="비밀번호입력"/></li>
+									</form>
 									<li align="center"><a href="#" onclick="myModal1();">비밀번호 찾기</a>&nbsp;&nbsp;<a href="#">비회원 주문조회하기</a></li>
-									<li><a href="#" class="button big fit">보담 로그인</a></li>
+									<li><a href="#" class="button big fit" onclick="loginMember();">보담 로그인</a></li>
 									<li><a href="#"  class="button big fit" onclick="myModal();" data-toggle="modal" data-target="#myModal">보담 회원가입</a></li>
 									<li><a href="#" ><img src="images/kakao_login_btn1.png" width="100%"/></a></li>
 									<li></li>
@@ -113,8 +107,15 @@
 						</u:notLogin>
 					</section>
     </div>
+    
+    <!-- 
+    
+    	content start 
+    
+    -->
     <div id="blog-container"> <!-- content container -->
     
+<<<<<<< HEAD
    <!-- 여기다가 맘껏 넣어보시요 -->
    
    CREATE TABLE `member`  (
@@ -130,6 +131,29 @@
 ) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '회원' ROW_FORMAT = Dynamic;
    
     </div> <!-- content container -->
+=======
+    
+    <%
+    	if(session.getAttribute("authUser")!=null){
+    	%>
+    		ddd
+    <%} %>	
+    	
+    
+    
+    
+    
+    </div> 
+    <!-- 
+    
+    
+    content end 
+    
+    
+    -->
+    
+    
+>>>>>>> branch 'master' of https://github.com/tjoeun-pnj/itclowd_test.git
 <div id="footer"> <!-- footer시작 -->
 	footer 설정 나중에
 </div> 
@@ -140,32 +164,31 @@
   <div class="modal fade" id="myModal">
     <div class="modal-dialog">
       <div class="modal-content">
-      	<form action="#" method="post">
         <!-- Modal Header -->
         <div class="modal-header">
           <h4 class="modal-title">보담 회원가입</h4>
           <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
         </div>
+      	<form action="#" method="post" id="joinForm">
         <!-- Modal body -->
         <div class="modal-body">
           <section>
 			<ul class="actions vertical">
 				<li><h3>저희 보담의 회원이 되시면 더욱 편리한 서비스를 제공합니다.</h3></li>
-				<li><input type="email" name="m_id" placeholder="이메일입력"/><span id="emailChk">이메일 중복여부 나타내주기</span></li>
-				<li><input type="text" name="m_name" placeholder="닉네임입력"/><span id="nameChk">닉네임 중복여부 나타내주기</span></li>
-				<li><input type="password" name="m_pass" placeholder="비밀번호입력"/><span>여유되면 비밀번호 안정성 나타내줌 </span></li>
-				<li><input type="password" name="m_pass_chk" placeholder="비밀번호확인"/><span id="passChk">비번 잘 쳤는지 알려줌</span></li>
+				<li><input type="email" id="join_id" name="m_id" placeholder="이메일입력"/><span id="emailChk"></span></li>
+				<li><input type="text" id="join_name" name="m_name" placeholder="닉네임입력"/><span align="center" id="nameChk"></span></li>
+				<li><input type="password" id="join_pass" name="m_pass" placeholder="비밀번호입력"/></li>
+				<li><input type="password" id="join_pass_chk" name="m_pass_chk" placeholder="비밀번호확인"/><span id="passChk">비번 잘 쳤는지 알려줌</span></li>
 			</ul>
 			</section>
         </div>
-        
+      	</form>
         <!-- Modal footer -->
         <div class="modal-footer">
-          <a href="#"  class="button big"  >보담 회원가입신청</a>
+          <a href="#"  class="button big"  onclick="joinMember();">보담 회원가입신청</a>
           <a href="#"  class="button big"  data-dismiss="modal">Close</a>
           <!-- <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button> -->
         </div>
-      	</form>
       </div>
     </div>
   </div><!-- modal1 end -->

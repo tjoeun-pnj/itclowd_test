@@ -23,7 +23,6 @@ public class MemberJoinNameChkAction implements Action {
 		JsonObject json = new JsonObject();
 		res.setContentType("application/x-json;charset=utf-8");
 		json.addProperty("type", "닉네임");
-		System.out.println("name체크: "+isNameChk+" name = "+req.getParameter("m_name"));
 		if(isNameChk) {
 			json.addProperty("result", true);
 		}else {

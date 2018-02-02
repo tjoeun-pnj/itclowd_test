@@ -1,5 +1,7 @@
 package com.test.member.dao;
 
+import java.util.HashMap;
+
 import org.apache.ibatis.session.SqlSession;
 
 import com.test.member.medel.MemberVo;
@@ -43,9 +45,7 @@ public class MemberDao {
 		try {
 			session = SqlUtil.getSession();
 			result = session.selectOne("member.joinIdChk", m_id);
-			session.commit();
 		} catch (Exception e) {
-			session.rollback();
 			e.printStackTrace();
 			result = 0;
 		} 
@@ -63,12 +63,25 @@ public class MemberDao {
 		try {
 			session = SqlUtil.getSession();
 			result = session.selectOne("member.joinNameChk", m_name);
-			session.commit();
 		} catch (Exception e) {
-			session.rollback();
 			e.printStackTrace();
 			result = 0;
 		} 
 		return result;
+	}
+	/*****************************************
+	 * 로그인 ㄱㄱ
+	 * @param lData
+	 * @return
+	 */
+	public MemberVo loginMember(HashMap<String, String> lData) {
+		SqlSession session = null;
+		try {
+			session = SqlUtil.getSession();
+			return session.selectOne("member.loginMember", lData);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 }

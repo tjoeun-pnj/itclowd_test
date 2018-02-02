@@ -44,6 +44,7 @@ public class MemberController extends HttpServlet{
 		Action action = null;
 		if (command.equals("/join")) {
 			action = new MemberJoinAction();
+			System.out.println("조인조인");
 			try {
 				forward = action.execute(req, res);
 			} catch (Exception e) {

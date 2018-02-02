@@ -101,6 +101,8 @@ function myModal1() {
  * 중복검사 ajax들
  */
 function checkJoin(inputObj, req){
+	if(req == 'idchk') document.getElementById("emailChk").innerHTML = '검사중';
+	if(req == 'namechk') document.getElementById("nameChk").innerHTML = '검사중';;
 	$.ajax({
         type:"POST",
         url:"./member/"+req,
@@ -174,7 +176,8 @@ function reqFail(){
 }
 
 function joinSuccess(success){
-	if(success){
+	if(success.result){
+		alert("축하합니다 회원가입에 성공하셨습니다.");
 		$('#myModal').modal('hide');
 		$('#join_id').val('');
 		$('#join_name').val('');

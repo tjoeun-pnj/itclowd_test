@@ -6,23 +6,41 @@
     <meta charset="utf-8" />
     <title>메인 틀</title>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<link rel="stylesheet" href="assets/css/mainmenu.css" />
 <link rel="stylesheet" href="menubarcss.css" />
+<link rel="stylesheet" href="assets/css/mainmenu.css" />
 <link rel="stylesheet" href="what2.css" />
-  <!-- <link rel="stylesheet" href="bootstrap.css"> -->
 <script src="menubar.js"></script>
 <script src="assets/js/skel.min.js"></script>
 <script src="assets/js/util.js"></script>
 <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 <script src="assets/js/main.js"></script>
   <script src="mainboot.js"></script>
+  <script src="pwstrength.js"></script>
   <link rel="stylesheet" href="mainboot.css">
+  <!-- <link rel="stylesheet" href="bootstrap.css"> -->
   <!-- <script src="bootstrap.js"></script> -->
   <script src="mainCustom.js"></script>
   <script type="text/javascript">
-	  function jointest(){
-		  alert();
-	  }
+  $(function() {
+
+		var options = {
+			minChar : 3,
+			bootstrap3 : true,
+			errorMessages : {
+				password_too_short : "<font color='red'>비밀번호가 너무 짧습니다.</font>",
+				same_as_username : "id와 pw는 같을 수 없습니다."
+			},
+			scores : [ 17, 26, 40, 50 ],
+			verdicts : [ "안전성: 약함", "안전성: 보통", "안전성: 중간", "안전성: 강함",
+					"안전성: 매우강함" ],
+			showVerdicts : true,
+			showVerdictsInitially : false,
+			raisePower : 1.4,
+			usernameField : "#join_pass",
+		};
+
+		$("#join_pass").pwstrength(options);
+	});
   </script>
 </head>
 <body>
@@ -100,8 +118,8 @@
 							<section>
 								<ul class="actions vertical">
 									<li><h3>저희 보담의 회원이 되시면 더욱 편리한 서비스를 제공합니다.</h3></li>
-									<li><input type="email" name="member_id" placeholder="이메일입력"/></li>
-									<li><input type="password" name="member_pass" placeholder="비밀번호입력"/></li>
+									<li><input type="email" id="log_id" name="m_id" placeholder="이메일입력"/></li>
+									<li><input type="password" name="m_pass" placeholder="비밀번호입력"/></li>
 									<li align="center"><a href="#" onclick="myModal1();">비밀번호 찾기</a>&nbsp;&nbsp;<a href="#">비회원 주문조회하기</a></li>
 									<li><a href="#" class="button big fit">보담 로그인</a></li>
 									<li><a href="#"  class="button big fit" onclick="myModal();" data-toggle="modal" data-target="#myModal">보담 회원가입</a></li>
@@ -113,8 +131,9 @@
 						</u:notLogin>
 					</section>
     </div>
-    <div id="blog-container"> <!-- content container -->
     
+    <!-- content start -->
+    <div id="blog-container"> <!-- content container -->
      <ol class="sections-wrapper">
     <li id="evalmore-section" class="evalmore responsive-mask section"><h2 class="title">베스트셀러</h2>
     <div class="slider-wrapper"> <!-- 무비카드 컨테이너 -->
@@ -279,10 +298,10 @@
           <section>
 			<ul class="actions vertical">
 				<li><h3>저희 보담의 회원이 되시면 더욱 편리한 서비스를 제공합니다.</h3></li>
-				<li><input type="email" name="m_id" placeholder="이메일입력"/><span id="emailChk">이메일 중복여부 나타내주기</span></li>
-				<li><input type="text" name="m_name" placeholder="닉네임입력"/><span id="nameChk">닉네임 중복여부 나타내주기</span></li>
-				<li><input type="password" name="m_pass" placeholder="비밀번호입력"/><span>여유되면 비밀번호 안정성 나타내줌 </span></li>
-				<li><input type="password" name="m_pass_chk" placeholder="비밀번호확인"/><span id="passChk">비번 잘 쳤는지 알려줌</span></li>
+				<li><input type="email" id="join_id" name="m_id" placeholder="이메일입력"/><span id="emailChk"></span></li>
+				<li><input type="text" id="join_name" name="m_name" placeholder="닉네임입력"/><span align="center" id="nameChk"></span></li>
+				<li><input type="password" id="join_pass" name="m_pass" placeholder="비밀번호입력"/><span>여유되면 비밀번호 안정성 나타내줌 </span></li>
+				<li><input type="password" id="join_pass_chk" name="m_pass_chk" placeholder="비밀번호확인"/><span id="passChk">비번 잘 쳤는지 알려줌</span></li>
 			</ul>
 			</section>
         </div>

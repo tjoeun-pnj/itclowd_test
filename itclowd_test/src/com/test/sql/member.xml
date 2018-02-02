@@ -10,5 +10,12 @@
 	insert into member(m_id, m_name, m_pass, m_date, m_point)
 		values(#{m_id}, #{m_name}, #{m_pass}, now(), 0); 	
  </insert>
-
+<select id="joinIdChk" parameterType="String" resultType="int">
+	select count(m_no) from member
+		where m_id = #{m_id};
+</select>
+<select id="joinNameChk" parameterType="String" resultType="int">
+	select count(m_no) from member
+		where m_name = #{m_name};
+</select>
 </mapper>

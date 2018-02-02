@@ -2,72 +2,16 @@
 <html lang="ko">
 <head>
   <title>Bootstrap Example</title>
-  <meta charset="utf-8">
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<link rel="stylesheet" href="assets/css/mainmenu.css" />
-<link rel="stylesheet" href="menubarcss.css" />
-<link rel="stylesheet" href="what2.css" />
-  <link rel="stylesheet" href="mainboot.css">
-  <!-- <link rel="stylesheet" href="bootstrap.css"> -->
-<script src="menubar.js"></script>
-<script src="assets/js/skel.min.js"></script>
-<script src="assets/js/util.js"></script>
-<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-<script src="assets/js/main.js"></script>
-  <script src="mainboot.js"></script>
-  <!-- <script src="bootstrap.js"></script> -->
 <script type="text/javascript">
-  	function aaa(){
-  		$('#myModal').modal('show');
-  		$("body").removeClass("is-menu-visible");
-  		
-  	}
-  </script>
+	function test(){
+		$('#aaa').focus();
+	}
+</script>
 </head>
 <body class="is-menu-visible">
-
-  <h2>Modal Example</h2>
-  <!-- Button to Open the Modal -->
-  <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-    Open modal
-  </button> -->
-	<a href="#"  class="button big fit" onclick="aaa();" >보담 회원가입</a>
-  <!-- The Modal -->
-  <div class="modal fade" id="myModal">
-    <div class="modal-dialog">
-      <div class="modal-content">
-      	<form action="#" method="post">
-        <!-- Modal Header -->
-        <div class="modal-header">
-          <h4 class="modal-title">보담 회원가입</h4>
-          <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
-        </div>
-        
-        <!-- Modal body -->
-        <div class="modal-body">
-          <section>
-			<ul class="actions vertical">
-				<li><h3>저희 보담의 회원이 되시면 더욱 편리한 서비스를 제공합니다.</h3></li>
-				<li><input type="email" name="m_id" placeholder="이메일입력"/><span id="emailChk">이메일 중복여부 나타내주기</span></li>
-				<li><input type="text" name="m_name" placeholder="닉네임입력"/><span id="nameChk">닉네임 중복여부 나타내주기</span></li>
-				<li><input type="password" name="m_pass" placeholder="비밀번호입력"/><span>여유되면 비밀번호 안정성 나타내줌 </span></li>
-				<li><input type="password" name="m_pass_chk" placeholder="비밀번호확인"/><span id="passChk">비번 잘 쳤는지 알려줌</span></li>
-			</ul>
-			</section>
-        </div>
-        
-        <!-- Modal footer -->
-        <div class="modal-footer">
-          <a href="#"  class="button big"  >보담 회원가입신청</a>
-          <a href="#"  class="button big"  data-dismiss="modal">Close</a>
-          <!-- <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button> -->
-        </div>
-      	</form>
-        
-      </div>
-    </div>
-  </div><!-- modal end -->
-  
+	<a href="#" onclick="test();">포커스 주기</a>
+  <input id="aaa" type="text">
 
 </body>
 </html>

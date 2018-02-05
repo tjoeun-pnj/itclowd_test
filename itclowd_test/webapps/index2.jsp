@@ -41,6 +41,10 @@
 								<li class="search">
 									<a class="fa-search" href="#search">Search</a>
 									<form id="search" method="get" action="#">
+										<select>
+											<option>작가</option>
+											<option>책</option>
+										</select>
 										<input type="text" name="query" placeholder="Search" />
 									</form>
 								</li>

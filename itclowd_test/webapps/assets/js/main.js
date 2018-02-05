@@ -16,7 +16,7 @@
 
 	$(function() {
 
-		var $window = $(window), $body = $('body'), $menu = $('#menu'), $sidebar = $('#sidebar'), $main = $('#main');
+		var $window = $(window), $body = $('#body'), $menu = $('#menu'), $sidebar = $('#sidebar'), $main = $('#main');
 
 		// Disable animations/transitions until the page has loaded.
 		$body.addClass('is-loading');

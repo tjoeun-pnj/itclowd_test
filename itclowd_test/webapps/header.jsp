@@ -5,21 +5,7 @@
 <head>
     <meta charset="utf-8" />
     <title>메인 틀</title>
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<link rel="stylesheet" href="menubarcss.css" />
-<link rel="stylesheet" href="assets/css/mainmenu.css" />
-<link rel="stylesheet" href="what2.css" />
-<script src="menubar.js"></script>
-<script src="assets/js/skel.min.js"></script>
-<script src="assets/js/util.js"></script>
-<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-<script src="assets/js/main.js"></script>
-  <script src="mainboot.js"></script>
-  <script src="pwstrength.js"></script>
-  <link rel="stylesheet" href="mainboot.css">
-  <!-- <link rel="stylesheet" href="bootstrap.css"> -->
-  <!-- <script src="bootstrap.js"></script> -->
-  <script src="mainCustom.js"></script>
+
 </head>
 <body>
     <div id="blog-header-container">
@@ -106,36 +92,6 @@
 							</section>
 						</u:notLogin>
 					</section>
-    </div>
-    
-    <!-- 
-    
-    	content start 
-    
-    -->
-    <div id="blog-container"> <!-- content container -->
-    
-    
-    	
-    
-    
-    
-    
-    </div> 
-    <!-- 
-    
-    
-    content end 
-    
-    
-    -->
-    
-    
-<div id="footer"> <!-- footer시작 -->
-	footer 설정 나중에
-</div> 
-
-
 <div id="modal_container">
 <!-- The Modal1 -->
   <div class="modal fade" id="myModal">
@@ -196,6 +152,7 @@
   </div><!-- modal1 end -->
 </div>
 
+    </div>
 
 </body>
 

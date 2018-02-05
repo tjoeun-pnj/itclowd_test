@@ -11,7 +11,7 @@
     <div id="blog-header-container">
         <img alt="보여랏" src="main_img.jpg" width="100%" height="300px">
     </div>
-    <div id="menu-container">
+    <div id="menu-container"> 
         <header id="header">
 						<h1><a href="#">itcrowd</a></h1>
 						<nav class="links">

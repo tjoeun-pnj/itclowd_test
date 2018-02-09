@@ -16,15 +16,15 @@
     // 메인 메뉴의 위치를 제어하는 함수
     function scrollController() {
         currentScrollTop = $(window).scrollTop();
-        if (currentScrollTop < 300) {
+        if (currentScrollTop < 400) {
             $('#blog-header-container').css('top', -(currentScrollTop));
-            $('#menu-container').css('top', 300-(currentScrollTop));
+            $('#menu-container').css('top', 400-(currentScrollTop));
             if ($('#menu-container').hasClass('fixed')) {
                 $('#menu-container').removeClass('fixed');
             }
         } else {
             if (!$('#menu-container').hasClass('fixed')) {
-                $('#blog-header-container').css('top', -300);
+                $('#blog-header-container').css('top', -400);
                 $('#menu-container').css('top', 0);
                 $('#menu-container').addClass('fixed');
                 

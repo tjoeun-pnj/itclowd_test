@@ -8,7 +8,7 @@
 </head>
 <body>
     <div id="blog-header-container">
-        <img alt="보여랏" src="images/bodam_logo.jpg" width="100%" height="300px" id="logo_backgrownd">
+        <img alt="보여랏" src="images/bodam_logo.jpg" width="100%" height="400px" id="logo_backgrownd">
         <div class="content" width="100%" id="header_logo_container">
         <ul id="header_menu">
         <li><a>Q & A</a></li>

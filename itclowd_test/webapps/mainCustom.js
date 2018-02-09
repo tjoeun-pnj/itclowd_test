@@ -224,7 +224,8 @@ function loginSuccess(success){
 		window.location.reload();
 	}
 	else {
+		$('#log_pass').val('');
 		alert("로그인 실패 다시 시도하세요.");
-		$('#log_pass').val('').focus();
+		$('#log_pass').focus();
 	}
 }

@@ -20,19 +20,30 @@ public class MemberLoginAction implements Action {
 		HashMap<String, String> lData = new HashMap();
 		lData.put("m_id", req.getParameter("m_id"));
 		lData.put("m_pass", req.getParameter("m_pass"));
-		MemberVo mVo = mlService.loginMember(lData);
+		
 		JsonObject json = new JsonObject();
 		res.setContentType("application/x-json;charset=utf-8");
-		if(mVo == null) {
-			json.addProperty("result", false);
-			res.getWriter().println(json);
-			return forward;
-		} else {
-			req.getSession().setAttribute("authUser", mVo);
-			json.addProperty("result", true);
-			res.getWriter().println(json);
-			return forward;
-		}
+		MemberVo mVo = new MemberVo();
+		mVo.setM_id("aa");
+		mVo.setM_pass("aa");
+		req.getSession().setAttribute("authUser", mVo);
+		json.addProperty("result", true);
+		res.getWriter().println(json);
+		return forward;
+		
+//		MemberVo mVo = mlService.loginMember(lData);
+//		JsonObject json = new JsonObject();
+//		res.setContentType("application/x-json;charset=utf-8");
+//		if(mVo == null) {
+//			json.addProperty("result", false);
+//			res.getWriter().println(json);
+//			return forward;
+//		} else {
+//			req.getSession().setAttribute("authUser", mVo);
+//			json.addProperty("result", true);
+//			res.getWriter().println(json);
+//			return forward;
+//		}
 		
 	}
 

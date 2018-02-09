@@ -20,8 +20,6 @@ public class MemberLoginAction implements Action {
 		HashMap<String, String> lData = new HashMap();
 		lData.put("m_id", req.getParameter("m_id"));
 		lData.put("m_pass", req.getParameter("m_pass"));
-		System.out.println(lData.get("m_id"));
-		System.out.println(lData.get("m_pass"));
 		MemberVo mVo = mlService.loginMember(lData);
 		JsonObject json = new JsonObject();
 		res.setContentType("application/x-json;charset=utf-8");

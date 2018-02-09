@@ -221,7 +221,7 @@ function loginMember(){
 function loginSuccess(success){
 	if(success.result){
 		alert("로그인 성공하셨습니다.");
-		location.href = './index.jsp';
+		window.location.reload();
 	}
 	else {
 		alert("로그인 실패 다시 시도하세요.");

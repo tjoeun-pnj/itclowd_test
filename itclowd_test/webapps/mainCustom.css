@@ -1,0 +1,17 @@
+#header_logo_container{
+     position: absolute;
+     top:0;
+     right:0;
+     color: white;
+     z-index: 2;
+     text-align: right;
+}
+#header_menu{padding-top:10px;}
+#header_menu li {
+            display:inline;                         /*  세로나열을 가로나열로 변경 */
+            border-left:1px solid #999;             /* 각 메뉴의 왼쪽에 "|" 표시(분류 표시) */
+            font:bold 12px Dotum;                     /* 폰트 설정 - 12px의 돋움체 굵은 글씨로 표시 */
+            padding:0 10px;                         /* 각 메뉴 간격 */
+        }
+#header_menu li:first-child{border-left:none;}     /* 메뉴 분류중 제일 왼쪽의 "|"는 삭제 */
+.header_menu_link {color:white;}

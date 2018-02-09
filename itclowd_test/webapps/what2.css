@@ -1,7 +1,7 @@
 html{line-height:1}
 ol,ul{list-style:none}
 table{border-collapse:collapse;border-spacing:0}
-caption,th,td{text-align:left;font-weight:normal;vertical-align:middle}
+caption,th,td{/* text-align:left; */font-weight:normal;vertical-align:middle}
 q,blockquote{quotes:none}
 q:before,q:after,blockquote:before,blockquote:after{content:"";content:none}
 a img{border:none}
@@ -54,8 +54,8 @@ a{text-decoration:none;color:black;cursor:pointer}
 }
 .empty-home-evalmore.card{background-color:#E5E5E5;text-align:center;font-size:30px}
 .grid-container{display:inline-block}
-.grid-1{width:220px;float:left;margin:10px}
-.hei-1{height:315px;float:left;margin:10px}
+.grid-1{width:150px;float:left;margin:10px}
+.hei-1{height:220px;float:left;margin:10px}
 .mini.hei-1{height:150px;float:left;margin:10px}
 .nest.grid-1{width:240px;margin:0;float:left}
 .nest.hei-1{height:335px;margin:0;float:left}
@@ -119,16 +119,16 @@ a{text-decoration:none;color:black;cursor:pointer}
 .left-0{left:0px;position:absolute !important}
 .top-1{top:335px;position:absolute !important}
 .mini.top-1{top:170px;position:absolute !important}
-.left-1{left:240px;position:absolute !important}
+.left-1{left:200px;position:absolute !important}
 .top-2{top:670px;position:absolute !important}
 .mini.top-2{top:340px;position:absolute !important}
-.left-2{left:480px;position:absolute !important}
+.left-2{left:400px;position:absolute !important}
 .top-3{top:1005px;position:absolute !important}
 .mini.top-3{top:510px;position:absolute !important}
-.left-3{left:720px;position:absolute !important}
+.left-3{left:600px;position:absolute !important}
 .top-4{top:1340px;position:absolute !important}
 .mini.top-4{top:680px;position:absolute !important}
-.left-4{left:960px;position:absolute !important}
+.left-4{left:800px;position:absolute !important}
 .top-5{top:1675px;position:absolute !important}
 .mini.top-5{top:850px;position:absolute !important}
 .left-5{left:1200px;position:absolute !important}

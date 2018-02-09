@@ -17,7 +17,7 @@ public class MemberJoinAction implements Action {
 	 * 회원가입 
 	 * db등록 성공 여부를 받아 json을 줌 그리고 화면에서 판단
 	 */
-	/*@Override
+	@Override
 	public ActionForward execute(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		
 		ActionForward forward = null;
@@ -37,11 +37,11 @@ public class MemberJoinAction implements Action {
 		}
 		res.getWriter().print(json);
 		return null;
-	}*/
+	}
 	/**************
 	 * 계속 트루용 시험용 삭제요망
 	 */
-	@Override
+	/*@Override
 	public ActionForward execute(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		
 		JsonObject json = new JsonObject();
@@ -51,6 +51,6 @@ public class MemberJoinAction implements Action {
 		}
 		res.getWriter().print(json);
 		return null;
-	}
+	}*/
 
 }

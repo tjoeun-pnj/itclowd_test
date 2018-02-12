@@ -24,6 +24,31 @@
 </div></div><!-- slider wrap end -->
 </li>
 </ol>
+      <ol class="sections-wrapper">
+    <li id="evalmore-section" class="evalmore responsive-mask section"><h2 class="title">신간</h2>
+    <div class="slider-wrapper"  > <!-- 무비카드 컨테이너 -->
+    <div class="vertical-list" >
+       <ul id="new-grid-container" class="grid-container" style="position: relative; width: 100%; height: 470px;" >
+
+</ul>
+
+
+</div></div><!-- slider wrap end -->
+</li>
+</ol>
+
+ <ol class="sections-wrapper">
+    <li id="evalmore-section" class="evalmore responsive-mask section"><h2 class="title">독리출판물</h2>
+    <div class="slider-wrapper"  > <!-- 무비카드 컨테이너 -->
+    <div class="vertical-list" >
+       <ul id="indie-grid-container" class="grid-container" style="position: relative; width: 100%; height: 470px;" >
+
+</ul>
+
+
+</div></div><!-- slider wrap end -->
+</li>
+</ol>
         
         
         </div>

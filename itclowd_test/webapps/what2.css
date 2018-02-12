@@ -1775,7 +1775,7 @@ svg.rating-chart path.area{fill:#FFD02E}
 .guide {
     position: relative;   /* 추가 */
     width: 100%;
-    height: 1000px;
+    height: 1700px;
 }
 .center-box {
     position: absolute;   /* 추가 */

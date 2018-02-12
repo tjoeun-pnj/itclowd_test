@@ -22,7 +22,7 @@
     </div>
     <div id="menu-container"> 
         <header id="header">
-						<h1><a href="#">itcrowd</a></h1>
+						<h1><a href="./main.jsp">itcrowd</a></h1>
 						<nav class="links">
 							<ul>
 								<li><a href="#">취향테스트</a></li>

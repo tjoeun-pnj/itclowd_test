@@ -14,6 +14,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.test.book.action.BookMainBestAction;
+import com.test.book.action.BookMainIndieAction;
+import com.test.book.action.BookMainNewAction;
 import com.test.member.action.MemberJoinAction;
 import com.test.member.action.MemberJoinIdChkAction;
 import com.test.member.action.MemberJoinNameChkAction;
@@ -49,15 +51,15 @@ public class BookController extends HttpServlet{
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		} else if(command.equals("/idchk")) {
-			action = new MemberJoinIdChkAction();
+		} else if(command.equals("/mainNew")) {
+			action = new BookMainNewAction();
 			try {
 				forward = action.execute(req, res);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		} else if(command.equals("/namechk")) {
-			action = new MemberJoinNameChkAction();
+		} else if(command.equals("/mainIndie")) {
+			action = new BookMainIndieAction();
 			try {
 				forward = action.execute(req, res);
 			} catch (Exception e) {

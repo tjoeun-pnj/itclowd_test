@@ -229,3 +229,39 @@ function loginSuccess(success){
 		$('#log_pass').focus();
 	}
 }
+
+
+/***********************
+	메인페이지 베스트 & 신간 셋팅
+	
+*/
+$(document).ready(function(){
+	$.ajax({
+        type:"POST",
+        url:"./book/mainBest",
+        dataType : "json",
+        success: function(data){
+        	if(data.result) setBookBest(data.json);
+        	else alset("book 실패");
+        },
+        error: function(xhr, status, error) {
+            alert("bookSet 실패");
+        }  
+    });
+});
+function setBookBest(json){
+	var bVo = JSON.parse(json).item;
+	console.log(bVo);
+	var setHtml = "";
+	for(var x=0;x<bVo.length;x++){
+		if(x < 5){
+			setHtml += '<div class="movie-card size-1x1 poster-type base_movie  user-action-m4d83i card grid-1 hei-1 top-0 left-'+x+'"><div class="poster-wrapper">';
+		} else {
+			setHtml += '<div class="movie-card size-1x1 poster-type base_movie  user-action-m4d83i card grid-1 hei-1 top-1 left-'+(x%5)+'"><div class="poster-wrapper">';
+		}
+		setHtml += '<img class="poster" src="'+bVo[x].cover+'" width="150px" height="220px"><div class="detail-opener gradation"></div><div class="bottom"></div><div class="action-wrapper">';
+		setHtml += '<div class="movie-title">'+bVo[x].title+'</div><div class="rating"><span class="watcha-star half left" data-value="0.5"></span><span class="watcha-star half right" data-value="1"></span><span class="watcha-star half left" data-value="1.5"></span><span class="watcha-star half right" data-value="2"></span><span class="watcha-star half left" data-value="2.5"></span><span class="watcha-star half right" data-value="3"></span><span class="watcha-star half left" data-value="3.5"></span><span class="watcha-star half right" data-value="4"></span><span class="watcha-star half left" data-value="4.5"></span><span class="watcha-star half right" data-value="5"></span></div>';
+		setHtml += '<div class="wish-comment"><div class="comment"><span class="icon"></span><span class="text">코멘트 쓰기</span></div></div></div></div></div>';
+	}
+	document.getElementById('best-grid-container').innerHTML = setHtml;
+}

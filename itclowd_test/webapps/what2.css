@@ -117,7 +117,7 @@ a{text-decoration:none;color:black;cursor:pointer}
 .top-0{top:0px;position:absolute !important}
 .mini.top-0{top:0px;position:absolute !important}
 .left-0{left:0px;position:absolute !important}
-.top-1{top:335px;position:absolute !important}
+.top-1{top:250px;position:absolute !important}
 .mini.top-1{top:170px;position:absolute !important}
 .left-1{left:200px;position:absolute !important}
 .top-2{top:670px;position:absolute !important}
@@ -679,108 +679,6 @@ body.ie7 #header,body.ie8 #header{-moz-box-shadow:none;-webkit-box-shadow:none;b
 .card .head.has-paging .paging .prev,.card .head.has-paging .paging .next{color:#b2b2b2;padding:4px 6px;display:inline-block;font-size:11px;cursor:pointer}
 .card .head.has-paging .paging .prev{border-right:1px solid #b2b2b2;padding-right:9px}
 .movie-card .detail-opener{cursor:pointer}
-.movie-card.stillcut-type{overflow:hidden}
-.movie-card.stillcut-type .detail-opener{cursor:pointer}
-.movie-card.stillcut-type .stillcut{height:140px;background-size:cover;background-position:center center;position:relative;-moz-border-radius-topleft:5px;-webkit-border-top-left-radius:5px;border-top-left-radius:5px;-moz-border-radius-topright:5px;-webkit-border-top-right-radius:5px;border-top-right-radius:5px}
-.movie-card.stillcut-type .gradation{width:100%;height:140px;position:absolute;left:0;top:0;-moz-border-radius-topleft:5px;-webkit-border-top-left-radius:5px;border-top-left-radius:5px;-moz-border-radius-topright:5px;-webkit-border-top-right-radius:5px;border-top-right-radius:5px;-moz-transition-property:background-rgba;-o-transition-property:background-rgba;-webkit-transition-property:background-rgba;transition-property:background-rgba;-moz-transition-duration:0.1s;-o-transition-duration:0.1s;-webkit-transition-duration:0.1s;transition-duration:0.1s}
-.movie-card.stillcut-type .top-gradation{position:absolute;left:0;top:0;width:100%;height:180px;background:url(https://d3sz5r0rl9fxuc.cloudfront.net/assets/gradations/gradation_top-923800d57fd10b9471ebd9bca97a31bca6b02c8045a281e3c32e0bab40c10d15.png) 0 0 repeat-x}
-.movie-card.stillcut-type .predict-rating{position:absolute;left:0;top:0;padding:7px 15px;z-index:1;color:white}
-.movie-card.stillcut-type .predict-rating .rating{display:block;margin-top:8px;position:relative;padding-left:33px;height:25px}
-.movie-card.stillcut-type .predict-rating .rating .thumb{-moz-border-radius:50%;-webkit-border-radius:50%;border-radius:50%;position:absolute;top:0;left:0}
-.movie-card.stillcut-type .predict-rating .rating .number{font-size:24px;line-height:30px;text-shadow:1px 1px #000000}
-.movie-card.stillcut-type .movie-info-wrapper{padding:20px 10px}
-.movie-card.stillcut-type .movie-info-wrapper .movie-title{font-size:16px;color:#403f4e;margin-bottom:8px}
-.movie-card.stillcut-type .movie-info-wrapper .movie-description{color:#93939c;font-size:12px;line-height:18px;margin-bottom:6px}
-.movie-card.stillcut-type .movie-info-wrapper .iptv-price{font-size:13px;color:#5b5cb5;border:1px solid #5b5cb5;padding:0 3px;margin-bottom:5px;display:inline-block;line-height:16px;-moz-border-radius:3px;-webkit-border-radius:3px;border-radius:3px}
-.movie-card.stillcut-type .movie-info-wrapper .iptv-price.free{color:#FFFFFF;background-color:#ff382e;border:0 none;padding:0 5px;line-height:20px;letter-spacing:0}
-.movie-card.stillcut-type .movie-info-wrapper .watcha-rating-wrapper{margin-bottom:13px}
-.movie-card.stillcut-type .movie-info-wrapper .watcha-rating-wrapper .number,.movie-card.stillcut-type .movie-info-wrapper .watcha-rating-wrapper .eval-count{font-size:14px;line-height:18px;color:#93939c}
-.movie-card.stillcut-type .movie-info-wrapper .story{font-size:13px;color:#93939c;line-height:22px;margin-bottom:20px}
-.movie-card.stillcut-type .vods{position:absolute;left:0;bottom:0;width:100%;background-color:#fafafa;-moz-border-radius-bottomleft:5px;-webkit-border-bottom-left-radius:5px;border-bottom-left-radius:5px;-moz-border-radius-bottomright:5px;-webkit-border-bottom-right-radius:5px;border-bottom-right-radius:5px}
-.movie-card.stillcut-type .vods .vod{position:relative;height:20px;line-height:20px;font-size:14px;color:#6d6c83;border-bottom:1px solid #E3E3E3;padding:15px}
-.movie-card.stillcut-type .vods .vod .price{position:relative;display:inline-block;line-height:14px}
-.movie-card.stillcut-type .vods .vod .price .vendor-logo{display:block;position:absolute;left:0;top:0}
-.movie-card.stillcut-type .vods .vod .link{position:absolute;right:10px;top:9px;display:block;line-height:normal;padding:8px 10px;color:#93939c;font-size:12px;border:1px solid #E3E3E3;-moz-border-radius:3px;-webkit-border-radius:3px;border-radius:3px}
-.movie-card.stillcut-type .vods .vod .link .icon{position:absolute;left:8px;top:10px}
-.movie-card.stillcut-type .vods .vod.gomtv .price{padding-left:85px}
-.movie-card.stillcut-type .vods .vod.gomtv .price .vendor-logo{width:73px;height:16px;top:-2px;text-indent:-9999px;overflow:hidden;background:url(https://d3sz5r0rl9fxuc.cloudfront.net/assets/service_logo/logo_gomtv-a629e55b1cf85968b91921d55e5bb07210c17526aa0acb959c9c15625121d375.png);background-size:contain}
-.movie-card.stillcut-type .vods .vod.hoppin .price{padding-left:71px}
-.movie-card.stillcut-type .vods .vod.hoppin .price .vendor-logo{width:59px;height:20px;top:-3px;text-indent:-9999px;overflow:hidden;background:url(https://d3sz5r0rl9fxuc.cloudfront.net/assets/service_logo/logo_hoppin-4ae10e077b2eb956f53fb7865fc9bf33b1e1301b5c4f6243feccbb4d8956caea.png);background-size:contain}
-.movie-card.stillcut-type .vods .vod.tving .price{padding-left:63px}
-.movie-card.stillcut-type .vods .vod.tving .price .vendor-logo{width:51px;height:20px;top:-5px;text-indent:-9999px;overflow:hidden;background:url(https://d3sz5r0rl9fxuc.cloudfront.net/assets/service_logo/logo_tving-91d4a9ce2a02971d0ae493ec47187479929ff70b82cf47bc82caa305658ad925.png);background-size:contain}
-.movie-card.stillcut-type .vods .vod.googleplay .price{padding-left:117px}
-.movie-card.stillcut-type .vods .vod.googleplay .price .vendor-logo{width:102px;height:26px;top:-9px;text-indent:-9999px;overflow:hidden;background:url(https://d3sz5r0rl9fxuc.cloudfront.net/assets/service_logo/logo_googleplay-4cf7a903dbcedd74f44f456c7be4a3e98f7e8cbbe932dcc5bbe017f282cca3fc.png);background-size:contain}
-.movie-card.stillcut-type .vods .vod.skbbtv .price{padding-left:43px}
-.movie-card.stillcut-type .vods .vod.skbbtv .price .vendor-logo{width:29px;height:19px;top:-3px;text-indent:-9999px;overflow:hidden;background:url(https://d3sz5r0rl9fxuc.cloudfront.net/assets/service_logo/logo_btv_small-ef11d7f74ad64a8da0e6658d19f01dcbed089ecddfb6e4295c9ad027d4badc4d.png);background-size:contain}
-.movie-card.stillcut-type .vods .vod.skbbtv.home-cover-vendor .price{padding-left:48px}
-.movie-card.stillcut-type .vods .vod.skbbtv.home-cover-vendor .price .vendor-logo{width:40px;height:26px;background:url(https://d3sz5r0rl9fxuc.cloudfront.net/assets/service_logo/logo_btv_cover-c9e7c475b2a9287d022be4032561e5faa273c13ca25d1c08414f233d05611d4d.png);background-size:contain}
-.movie-card.stillcut-type .vods .vod.lguplustvg .price,.movie-card.stillcut-type .vods .vod.lguplushdtv .price{padding-left:54px}
-.movie-card.stillcut-type .vods .vod.lguplustvg .price .vendor-logo,.movie-card.stillcut-type .vods .vod.lguplushdtv .price .vendor-logo{width:40px;height:12px;top:0px;text-indent:-9999px;overflow:hidden;background:url(https://d3sz5r0rl9fxuc.cloudfront.net/assets/service_logo/logo_uplustv_small-58792297d7088225192427f2f823231ea8d552f725446f92c756dd3dde82333b.png);background-size:contain}
-.movie-card.stillcut-type .vods .vod.lguplustvg.home-cover-vendor .price,.movie-card.stillcut-type .vods .vod.lguplushdtv.home-cover-vendor .price{padding-left:82px}
-.movie-card.stillcut-type .vods .vod.lguplustvg.home-cover-vendor .price .vendor-logo,.movie-card.stillcut-type .vods .vod.lguplushdtv.home-cover-vendor .price .vendor-logo{top:0px;width:72px;height:22px;background:url(https://d3sz5r0rl9fxuc.cloudfront.net/assets/service_logo/logo_uplustv_cover-90398e13598ff0114d4efdaa96b04284c805130b276b089ea0ed48cb8e939474.png);background-size:contain}
-.movie-card.stillcut-type .vods .vod.hellotv .price{padding-left:64px}
-.movie-card.stillcut-type .vods .vod.hellotv .price .vendor-logo{width:51px;height:14px;top:-1px;text-indent:-9999px;overflow:hidden;background:url(https://d3sz5r0rl9fxuc.cloudfront.net/assets/service_logo/logo_hellotv_small-24a6ce309cbab3fce4e349a3499ddc3b088282cce2f36f66a15cc4ea7b9080d4.png);background-size:contain}
-.movie-card.stillcut-type .vods .vod.hellotv.home-cover-vendor .price{padding-left:87px}
-.movie-card.stillcut-type .vods .vod.hellotv.home-cover-vendor .price .vendor-logo{width:72px;height:20px;background:url(https://d3sz5r0rl9fxuc.cloudfront.net/assets/service_logo/logo_hellotv_cover-6eb18331b8fe2e71e655fc0ea77675907d837d1499b2cc28c97d1dee4c0b0c7e.png);background-size:contain}
-.movie-card.stillcut-type .vods .vod.skylife .price{padding-left:73px}
-.movie-card.stillcut-type .vods .vod.skylife .price .vendor-logo{width:59px;height:20px;top:-2px;text-indent:-9999px;overflow:hidden;background:url(https://d3sz5r0rl9fxuc.cloudfront.net/assets/service_logo/logo_skylife_small-8364a21ed6d8cfd2ad7d1caec93ea9b989f591841dd90e6432f0ffbd4331641f.png);background-size:contain}
-.movie-card.stillcut-type .vods .vod.skylife.home-cover-vendor .price{padding-left:96px}
-.movie-card.stillcut-type .vods .vod.skylife.home-cover-vendor .price .vendor-logo{width:84px;height:28px;background:url(https://d3sz5r0rl9fxuc.cloudfront.net/assets/service_logo/logo_skylife_cover-94bb5e6b22ec745992fc94492f9f9232e7711294314d4c303f7551d063af3c7d.png);background-size:contain}
-.movie-card.stillcut-type .vods .vod.homechoice .price{padding-left:110px}
-.movie-card.stillcut-type .vods .vod.homechoice .price .vendor-logo{width:98px;height:20px;top:-3px;text-indent:-9999px;overflow:hidden;background:url(https://d3sz5r0rl9fxuc.cloudfront.net/assets/service_logo/logo_homechoice_small-42a7bf9db45159a031e4d196567da0b1acef3afefef7b7692239edefdceaff48.png);background-size:contain}
-.movie-card.stillcut-type .vods .vod.jeulgam .price{padding-left:40px}
-.movie-card.stillcut-type .vods .vod.jeulgam .price .vendor-logo{width:24px;height:19px;top:-3px;text-indent:-9999px;overflow:hidden;background:url(https://d3sz5r0rl9fxuc.cloudfront.net/assets/service_logo/logo_jeulgam_small-979805bf6a04e441688e1c57fa873be49648199a7b17d2bcbd97d6a0abff16c5.png);background-size:contain}
-.movie-card.stillcut-type .vods .vod.nstore .price{padding-left:83px}
-.movie-card.stillcut-type .vods .vod.nstore .price .vendor-logo{width:70px;height:19px;top:-3px;text-indent:-9999px;overflow:hidden;background:url(https://d3sz5r0rl9fxuc.cloudfront.net/assets/service_logo/logo_nstore_small-aa49e2b6c70ee07eb5297a71cba70942727afa6386bac9b44fd096d409e898e9.png);background-size:contain}
-.movie-card.stillcut-type .vods .vod.tstore .price{padding-left:70px}
-.movie-card.stillcut-type .vods .vod.tstore .price .vendor-logo{width:56px;height:19px;top:-3px;text-indent:-9999px;overflow:hidden;background:url(https://d3sz5r0rl9fxuc.cloudfront.net/assets/service_logo/logo_tstore_small-07bf9ca8d238a699f65c69c36321643f336bc38b967cbe3f1eb536185f8ce767.png);background-size:contain}
-.movie-card.stillcut-type .vods .vod.ollehtv .price{padding-left:80px}
-.movie-card.stillcut-type .vods .vod.ollehtv .price .vendor-logo{width:69px;height:19px;top:-3px;text-indent:-9999px;overflow:hidden;background:url(https://d3sz5r0rl9fxuc.cloudfront.net/assets/service_logo/logo_ollehtv_small-5ce487eb61bc61f47e8db30e27cbc7cbe9e1efc48c170b5b3759199961f0b8f0.png);background-size:contain}
-.movie-card.stillcut-type .vods .vod.ollehmobile .price{padding-left:88px}
-.movie-card.stillcut-type .vods .vod.ollehmobile .price .vendor-logo{width:75px;height:19px;top:-3px;text-indent:-9999px;overflow:hidden;background:url(https://d3sz5r0rl9fxuc.cloudfront.net/assets/service_logo/logo_ollehmobile_small-93d1c220e91be798aac9db40ccec40174f8003ef768d4d3cc562b3814a808ba3.png);background-size:contain}
-.movie-card.stillcut-type .vods .vod.youtube .price{padding-left:59px}
-.movie-card.stillcut-type .vods .vod.youtube .price .vendor-logo{width:48px;height:19px;top:-3px;text-indent:-9999px;overflow:hidden;background:url(https://d3sz5r0rl9fxuc.cloudfront.net/assets/service_logo/logo_youtube_small-b67866b3f34406e58abf7135bb55bb8776a8fbc4d9b28dd5bb327030bc364390.png);background-size:contain}
-.movie-card.stillcut-type .vods .vod.episode .price,.movie-card.stillcut-type .vods .vod.episodetwo .price,.movie-card.stillcut-type .vods .vod.episodethree .price,.movie-card.stillcut-type .vods .vod.episodefour .price,.movie-card.stillcut-type .vods .vod.episodefive .price,.movie-card.stillcut-type .vods .vod.episodesix .price,.movie-card.stillcut-type .vods .vod.episodeseven .price,.movie-card.stillcut-type .vods .vod.episodeeight .price{padding-left:59px}
-.movie-card.stillcut-type .vods .vod.episode .price .vendor-logo,.movie-card.stillcut-type .vods .vod.episodetwo .price .vendor-logo,.movie-card.stillcut-type .vods .vod.episodethree .price .vendor-logo,.movie-card.stillcut-type .vods .vod.episodefour .price .vendor-logo,.movie-card.stillcut-type .vods .vod.episodefive .price .vendor-logo,.movie-card.stillcut-type .vods .vod.episodesix .price .vendor-logo,.movie-card.stillcut-type .vods .vod.episodeseven .price .vendor-logo,.movie-card.stillcut-type .vods .vod.episodeeight .price .vendor-logo{width:48px;height:19px;top:-3px;text-indent:-9999px;overflow:hidden;background:url(https://d3sz5r0rl9fxuc.cloudfront.net/assets/service_logo/logo_youtube_small-b67866b3f34406e58abf7135bb55bb8776a8fbc4d9b28dd5bb327030bc364390.png);background-size:contain}
-.movie-card.stillcut-type .vods .vod:last-child{border-bottom:0 none}
-.movie-card.stillcut-type .action-wrapper{position:absolute;bottom:0;left:0;width:100%;background-color:white;text-align:center;filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=0);opacity:0;-moz-transition-property:opacity;-o-transition-property:opacity;-webkit-transition-property:opacity;transition-property:opacity;-moz-transition-duration:0.1s;-o-transition-duration:0.1s;-webkit-transition-duration:0.1s;transition-duration:0.1s;bottom:60px}
-.movie-card.stillcut-type .action-wrapper .movie-title{height:40px;line-height:40px;font-size:14px;color:#403f4e;border-bottom:1px solid #F3F3F5;overflow:hidden}
-.movie-card.stillcut-type .action-wrapper .rating{padding:17px 0 20px}
-.movie-card.stillcut-type .action-wrapper .wish-comment{padding:0 20px 20px 20px;position:relative;color:#6d6c83;height:20px}
-.movie-card.stillcut-type .action-wrapper .wish-comment .wish,.movie-card.stillcut-type .action-wrapper .wish-comment .comment{font-size:12px;position:absolute;text-indent:24px;line-height:13px;cursor:pointer}
-.movie-card.stillcut-type .action-wrapper .wish-comment .wish:hover,.movie-card.stillcut-type .action-wrapper .wish-comment .wish:active,.movie-card.stillcut-type .action-wrapper .wish-comment .wish.on,.movie-card.stillcut-type .action-wrapper .wish-comment .comment:hover,.movie-card.stillcut-type .action-wrapper .wish-comment .comment:active,.movie-card.stillcut-type .action-wrapper .wish-comment .comment.on{color:#ff382e}
-.movie-card.stillcut-type .action-wrapper .wish-comment .wish{left:20px}
-.movie-card.stillcut-type .action-wrapper .wish-comment .wish .icon{position:absolute;left:0;top:0;width:15px;height:13px;display:block;background:url(https://d3sz5r0rl9fxuc.cloudfront.net/assets/icons/icon_wish_default-cb0759f22124f5daab41553d7746511aea531cc3a47f7e7e6015dfe12236ea68.png)}
-.movie-card.stillcut-type .action-wrapper .wish-comment .wish:hover .icon{background:url(https://d3sz5r0rl9fxuc.cloudfront.net/assets/icons/icon_wish_hover-46730ee119cdd19726c1ade59860216e8895ddabfd2496484a586ee71d1fb2a6.png)}
-.movie-card.stillcut-type .action-wrapper .wish-comment .wish:active .icon{background:url(https://d3sz5r0rl9fxuc.cloudfront.net/assets/icons/icon_wish_active-c549b2a19714ad7dca21ff48ed663cc4c17b2823c8f225aa00aebf013beae601.png)}
-.movie-card.stillcut-type .action-wrapper .wish-comment .wish.on .icon{background:url(https://d3sz5r0rl9fxuc.cloudfront.net/assets/icons/icon_wish_selected-c549b2a19714ad7dca21ff48ed663cc4c17b2823c8f225aa00aebf013beae601.png)}
-.movie-card.stillcut-type .action-wrapper .wish-comment .comment{right:20px}
-.movie-card.stillcut-type .action-wrapper .wish-comment .comment .icon{position:absolute;left:0;top:0;width:14px;height:13px;display:block;background:url(https://d3sz5r0rl9fxuc.cloudfront.net/assets/icons/icon_comment_default-02ecfb631ef3ca2537fe8dfc5e86b0dea820bbe55092addbc0959b6d9c2137fe.png)}
-.movie-card.stillcut-type .action-wrapper .wish-comment .comment:hover{color:#32B39A}
-.movie-card.stillcut-type .action-wrapper .wish-comment .comment:hover .icon{background:url(https://d3sz5r0rl9fxuc.cloudfront.net/assets/icons/icon_comment_hover-cfc49bc1b2b2e319abf541e7cd17aabfaddac1d7f22187cbcbdf89664c30b826.png)}
-.movie-card.stillcut-type .action-wrapper .wish-comment .comment:active{color:#32B39A}
-.movie-card.stillcut-type .action-wrapper .wish-comment .comment:active .icon{background:url(https://d3sz5r0rl9fxuc.cloudfront.net/assets/icons/icon_comment_active-3cb8644ade63910c9a65c33b6d62c9d8265d7ef6c5487db9e2447a12de3b3388.png)}
-.movie-card.stillcut-type .action-wrapper .wish-comment .comment.on{color:#32B39A}
-.movie-card.stillcut-type .action-wrapper .wish-comment .comment.on .icon{background:url(https://d3sz5r0rl9fxuc.cloudfront.net/assets/icons/icon_comment_selected-a3046e15f7773863819a58062c293da65480aa45f486c433a30712bbfc35b722.png)}
-.movie-card.stillcut-type .action-wrapper .meh{cursor:pointer;position:absolute;right:12px;top:-103px;text-indent:-9999px;width:14px;height:14px;background:url(https://d3sz5r0rl9fxuc.cloudfront.net/assets/icons/icon_dislike_default-ed402e027bbe5ad3306406622e9e9cf68d2fefd154b650db735d5c6dd43183cb.png)}
-.movie-card.stillcut-type .action-wrapper .meh:hover{background:url(https://d3sz5r0rl9fxuc.cloudfront.net/assets/icons/icon_dislike_hover-a5cc04616e34cedf486c18d88c66032471296daac83588f93033a36120fd97bd.png)}
-.movie-card.stillcut-type .action-wrapper .meh:active{background:url(https://d3sz5r0rl9fxuc.cloudfront.net/assets/icons/icon_dislike_active-043ff81e7ac4d23626fe0b17878fd4fcec83947ebfd4632530d9a80bb00f94f2.png)}
-.movie-card.stillcut-type .action-wrapper .meh.on{background:url(https://d3sz5r0rl9fxuc.cloudfront.net/assets/icons/icon_dislike_selected-be9921b6547f3da2ae6ecc16928f5c620e02de1092aa4dac97f4c042a5b0309d.png)}
-.movie-card.stillcut-type .action-wrapper .meh.on{color:#ff382e}
-.movie-card.stillcut-type .action-wrapper .meh{top:-93px}
-.movie-card.stillcut-type:hover .gradation{background-color:gray;background-color:rgba(0,0,0,0.5)}
-.movie-card.stillcut-type:hover .action-wrapper{filter:progid:DXImageTransform.Microsoft.Alpha(enabled=false);opacity:1}
-.movie-card.stillcut-type.size-2x2 .stillcut{height:315px}
-.movie-card.stillcut-type.size-2x2 .gradation{height:315px}
-.movie-card.stillcut-type.size-2x2 .movie-info-wrapper{padding:20px}
-.movie-card.stillcut-type.size-2x2 .movie-info-wrapper .movie-title{font-size:24px;margin-bottom:13px}
-.movie-card.stillcut-type.size-2x2 .action-wrapper{bottom:335px;text-align:left;-moz-border-radius:0;-webkit-border-radius:0;border-radius:0}
-.movie-card.stillcut-type.size-2x2 .action-wrapper .movie-title{display:none}
-.movie-card.stillcut-type.size-2x2 .action-wrapper .rating{padding:10px 15px 0}
-.movie-card.stillcut-type.size-2x2 .action-wrapper .wish-comment{position:absolute;right:0;top:18px;width:200px;padding:0}
-.movie-card.stillcut-type.size-2x2 .action-wrapper .meh{top:-260px}
-.movie-card.stillcut-type.size-2x2 .vods .vod{padding:20px}
-.movie-card.stillcut-type.size-2x2 .vods .vod .link{top:14px}
 .movie-card.size-3x1 .stillcut,.movie-card.size-3x1 .movie-info-wrapper{float:left}
 .movie-card.size-3x1 .top-gradation{width:460px}
 .movie-card.size-3x1 .stillcut{width:460px;height:100%;-moz-border-radius-topleft:5px;-webkit-border-top-left-radius:5px;border-top-left-radius:5px;-moz-border-radius-bottomleft:5px;-webkit-border-bottom-left-radius:5px;border-bottom-left-radius:5px;-moz-border-radius-topright:0;-webkit-border-top-right-radius:0;border-top-right-radius:0;-moz-border-radius-bottomright:0;-webkit-border-bottom-right-radius:0;border-bottom-right-radius:0}
@@ -816,17 +714,12 @@ body.ie7 #header,body.ie8 #header{-moz-box-shadow:none;-webkit-box-shadow:none;b
 .movie-card.poster-type .poster-wrapper .bottom .comment .text{font-size:12px;line-height:18px;color:#93939c;position:relative;display:table-cell;vertical-align:middle;height:40px}
 .movie-card.poster-type .poster-wrapper .bottom .comment .text .name{color:#93939c}
 .movie-card.poster-type .poster-wrapper .action-wrapper{position:absolute;bottom:0;left:0;width:100%;background-color:white;text-align:center;filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=0);opacity:0;-moz-transition-property:opacity;-o-transition-property:opacity;-webkit-transition-property:opacity;transition-property:opacity;-moz-transition-duration:0.1s;-o-transition-duration:0.1s;-webkit-transition-duration:0.1s;transition-duration:0.1s}
-.movie-card.poster-type .poster-wrapper .action-wrapper .movie-title{height:40px;line-height:40px;font-size:14px;color:#403f4e;border-bottom:1px solid #F3F3F5;overflow:hidden}
+.movie-card.poster-type .poster-wrapper .action-wrapper .movie-title{height:40px;line-height:40px;font-size:14px;color:#403f4e;border-bottom:1px solid #F3F3F5;overflow:hidden;text-overflow: ellipsis;white-space: nowrap}
 .movie-card.poster-type .poster-wrapper .action-wrapper .rating{padding:17px 0 20px}
 .movie-card.poster-type .poster-wrapper .action-wrapper .wish-comment{padding:0 20px 20px 20px;position:relative;color:#6d6c83;height:20px}
 .movie-card.poster-type .poster-wrapper .action-wrapper .wish-comment .wish,.movie-card.poster-type .poster-wrapper .action-wrapper .wish-comment .comment{font-size:12px;position:absolute;text-indent:24px;line-height:13px;cursor:pointer}
 .movie-card.poster-type .poster-wrapper .action-wrapper .wish-comment .wish:hover,.movie-card.poster-type .poster-wrapper .action-wrapper .wish-comment .wish:active,.movie-card.poster-type .poster-wrapper .action-wrapper .wish-comment .wish.on,.movie-card.poster-type .poster-wrapper .action-wrapper .wish-comment .comment:hover,.movie-card.poster-type .poster-wrapper .action-wrapper .wish-comment .comment:active,.movie-card.poster-type .poster-wrapper .action-wrapper .wish-comment .comment.on{color:#ff382e}
-.movie-card.poster-type .poster-wrapper .action-wrapper .wish-comment .wish{left:20px}
-.movie-card.poster-type .poster-wrapper .action-wrapper .wish-comment .wish .icon{position:absolute;left:0;top:0;width:15px;height:13px;display:block;background:url(https://d3sz5r0rl9fxuc.cloudfront.net/assets/icons/icon_wish_default-cb0759f22124f5daab41553d7746511aea531cc3a47f7e7e6015dfe12236ea68.png)}
-.movie-card.poster-type .poster-wrapper .action-wrapper .wish-comment .wish:hover .icon{background:url(https://d3sz5r0rl9fxuc.cloudfront.net/assets/icons/icon_wish_hover-46730ee119cdd19726c1ade59860216e8895ddabfd2496484a586ee71d1fb2a6.png)}
-.movie-card.poster-type .poster-wrapper .action-wrapper .wish-comment .wish:active .icon{background:url(https://d3sz5r0rl9fxuc.cloudfront.net/assets/icons/icon_wish_active-c549b2a19714ad7dca21ff48ed663cc4c17b2823c8f225aa00aebf013beae601.png)}
-.movie-card.poster-type .poster-wrapper .action-wrapper .wish-comment .wish.on .icon{background:url(https://d3sz5r0rl9fxuc.cloudfront.net/assets/icons/icon_wish_selected-c549b2a19714ad7dca21ff48ed663cc4c17b2823c8f225aa00aebf013beae601.png)}
-.movie-card.poster-type .poster-wrapper .action-wrapper .wish-comment .comment{right:20px}
+.movie-card.poster-type .poster-wrapper .action-wrapper .wish-comment .comment{left:33px}
 .movie-card.poster-type .poster-wrapper .action-wrapper .wish-comment .comment .icon{position:absolute;left:0;top:0;width:14px;height:13px;display:block;background:url(https://d3sz5r0rl9fxuc.cloudfront.net/assets/icons/icon_comment_default-02ecfb631ef3ca2537fe8dfc5e86b0dea820bbe55092addbc0959b6d9c2137fe.png)}
 .movie-card.poster-type .poster-wrapper .action-wrapper .wish-comment .comment:hover{color:#32B39A}
 .movie-card.poster-type .poster-wrapper .action-wrapper .wish-comment .comment:hover .icon{background:url(https://d3sz5r0rl9fxuc.cloudfront.net/assets/icons/icon_comment_hover-cfc49bc1b2b2e319abf541e7cd17aabfaddac1d7f22187cbcbdf89664c30b826.png)}
@@ -1876,4 +1769,24 @@ svg.rating-chart path.area{fill:#FFD02E}
 }
 @media screen and (max-height: 1000px){#contents .kwz{height:500px !important}
 #contents .recommend-wrapper{margin-top:500px}
+}
+
+/* 메인 화면 정렬 */
+.guide {
+    position: relative;   /* 추가 */
+    width: 100%;
+    height: 1000px;
+}
+.center-box {
+    position: absolute;   /* 추가 */
+    width: 1000px;
+    height: 100px;
+    top: 0;               /* 추가 */
+    left: 0;              /* 추가 */ 
+    right: 0;             /* 추가 */
+    margin: auto;     /* 추가 */
+}
+
+.sections-wrapper{
+	padding: 0;
 }

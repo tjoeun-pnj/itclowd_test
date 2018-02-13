@@ -4,7 +4,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>메인</title>
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="assets/js/jquery.min.js"></script>
+<!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> -->
 <link rel="stylesheet" href="menubarcss.css" />
 <link rel="stylesheet" href="assets/css/mainmenu.css" />
 <link rel="stylesheet" href="what2.css" />
@@ -25,12 +26,7 @@
 	<div id="main_header">
 		<jsp:include page="/header.jsp" flush="false" />
 	</div>
-  <script type="text/javascript">
-	//window.onload = bookReadyMain();
-	$(document).ready(function(){
-		bookReadyMain();
-	});
-</script>
+
 	<div id="blog-container"> 
 		<jsp:include page="/mainContent.jsp" flush="false" />				
 	</div>

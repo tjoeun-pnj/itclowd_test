@@ -20,7 +20,6 @@ public class MemberJoinAction implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		
-		ActionForward forward = null;
 		MemberVo mVo = new MemberVo();
 		mVo.setM_id(req.getParameter("m_id"));
 		mVo.setM_name(req.getParameter("m_name"));

@@ -50,6 +50,7 @@
 
   <mapper resource="com/test/sql/board.xml" />
   <mapper resource="com/test/sql/member.xml" />
+  <mapper resource="com/test/sql/book.xml" />
 
  </mappers>
 

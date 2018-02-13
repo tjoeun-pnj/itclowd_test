@@ -27,9 +27,9 @@
 							<ul>
 								<li><a href="#">취향테스트</a></li>
 								<li><a href="#">추천도서</a></li>
-								<li><a href="#">판매</a></li>
+								<li><a href="./bookMain.jsp"> 판매</a></li>
 								<li><a href="#">마이페이지</a></li>
-							</ul>
+							</ul> 
 						</nav>
 						<nav class="main">
 							<ul>

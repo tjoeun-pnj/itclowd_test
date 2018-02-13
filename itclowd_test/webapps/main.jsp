@@ -20,12 +20,17 @@
   <!-- <link rel="stylesheet" href="bootstrap.css"> -->
   <!-- <script src="bootstrap.js"></script> -->
   <script src="mainCustom.js"></script>
-  
 </head>
 <body id="body">
 	<div id="main_header">
 		<jsp:include page="/header.jsp" flush="false" />
 	</div>
+  <script type="text/javascript">
+	//window.onload = bookReadyMain();
+	$(document).ready(function(){
+		bookReadyMain();
+	});
+</script>
 	<div id="blog-container"> 
 		<jsp:include page="/mainContent.jsp" flush="false" />				
 	</div>

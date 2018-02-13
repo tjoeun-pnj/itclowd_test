@@ -37,8 +37,7 @@ $(document).ready(function(){
 		$("#join_pass").on('change', validate).on('focus', validate).on('blur',
 				validate).on('keydown', validate).on('keyup', validate);
 		
-		/*bookseting */
-		bookReadyMain();
+		
 		
 });
 
@@ -313,7 +312,6 @@ function setBookNew(json){
 }
 function setBookIndie(json){
 	var bVo = JSON.parse(json).item;
-	console.log(bVo);
 	var setHtml = "";
 	for(var x=0;x<5;x++){
 		setHtml += '<div class="movie-card size-1x1 poster-type base_movie  user-action-m4d83i card grid-1 hei-1 top-0 left-'+x+'"><div class="poster-wrapper">';
@@ -322,4 +320,41 @@ function setBookIndie(json){
 		setHtml += '<div class="wish-comment"><div class="comment"><span class="icon"></span><span class="text">코멘트 쓰기</span></div></div></div></div></div>';
 	}
 	document.getElementById('indie-grid-container').innerHTML = setHtml;
+}
+
+// bookList 셋팅
+function reqBookMainIndie(page, cate){
+	if(page == null) page = 1;
+	if(cate == null) cate = 0;
+	$.ajax({
+        type:"POST",
+        url:"./book/indieList?page="+page+'&cate='+cate,
+        dataType : "json",
+        success: function(data){
+        	if(data.result) setIndieList(data.json);
+        },
+        error: function(xhr, status, error) {
+            alert('독립책 실패');
+        }  
+    });
+}
+
+function setIndieList(json){
+	var list = JSON.parse(json);
+	var setHtml = "";
+	for(var x=0;x<list.length;x++){
+		if(x < 5){
+			setHtml += '<div class="movie-card size-1x1 poster-type base_movie  user-action-m4d83i card grid-1 hei-1 top-0 left-'+x+'"><div class="poster-wrapper">';
+		} else if(x < 10) {
+			setHtml += '<div class="movie-card size-1x1 poster-type base_movie  user-action-m4d83i card grid-1 hei-1 top-1 left-'+(x%5)+'"><div class="poster-wrapper">';
+		} else if(x < 15) {
+			setHtml += '<div class="movie-card size-1x1 poster-type base_movie  user-action-m4d83i card grid-1 hei-1 top-2 left-'+(x%10)+'"><div class="poster-wrapper">';
+		} else if(x < 20) {
+			setHtml += '<div class="movie-card size-1x1 poster-type base_movie  user-action-m4d83i card grid-1 hei-1 top-3 left-'+(x%15)+'"><div class="poster-wrapper">';
+		}
+		setHtml += '<img class="poster" src="image/'+list[x].ib_img+'" width="150px" height="220px"><div class="detail-opener gradation"></div><div class="bottom"></div><div class="action-wrapper">';
+		setHtml += '<div class="movie-title">'+list[x].ib_title+'</div><div class="rating"><span class="watcha-star half left" data-value="0.5"></span><span class="watcha-star half right" data-value="1"></span><span class="watcha-star half left" data-value="1.5"></span><span class="watcha-star half right" data-value="2"></span><span class="watcha-star half left" data-value="2.5"></span><span class="watcha-star half right" data-value="3"></span><span class="watcha-star half left" data-value="3.5"></span><span class="watcha-star half right" data-value="4"></span><span class="watcha-star half left" data-value="4.5"></span><span class="watcha-star half right" data-value="5"></span></div>';
+		setHtml += '<div class="wish-comment"><div class="comment"><span class="icon"></span><span class="text">코멘트 쓰기</span></div></div></div></div></div>';
+	}
+	document.getElementById('bookIndie-grid-container').innerHTML = setHtml;
 }

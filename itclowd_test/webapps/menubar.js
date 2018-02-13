@@ -11,7 +11,7 @@
             scrollController();
         });
         
-    }
+    } 
          
     // 메인 메뉴의 위치를 제어하는 함수
     function scrollController() {

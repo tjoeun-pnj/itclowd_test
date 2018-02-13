@@ -128,7 +128,7 @@ function resultJoinChk(data){
 	} else {
 		span.innerHTML = data.type+'이 중복됩니다.';
 		span.style.color = '#f00';
-	}
+	} 
 }
 
 /***********

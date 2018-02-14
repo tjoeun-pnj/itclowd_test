@@ -17,6 +17,14 @@ public class IndieBookVo {
 	private String ib_img2;
 	private String ib_img3;
 	private String ib_size;
+	private double ia_grade;
+	
+	public double getIa_grade() {
+		return ia_grade;
+	}
+	public void setIa_grade(double ia_grade) {
+		this.ia_grade = ia_grade;
+	}
 	public int getIb_no() {
 		return ib_no;
 	}

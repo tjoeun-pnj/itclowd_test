@@ -7,9 +7,11 @@
 <mapper namespace="book">
  
 <select id="indieBookList" parameterType="java.util.HashMap" resultType="com.test.book.model.IndieBookVo">
-	select * from indie_book
+	elect a.ib_no ib_no, c_no, ib_title, ib_writer, ib_price, ib_date, ip_no, ib_intro, ib_page, ib_img, ib_img1, ib_img2, ib_img3, ib_size, m_no, avg(ia_grade) ia_grade 
+	from indie_book a, indie_assessment b 
+	where a.ib_no = b.ib_no 
 	<if test="cate != 0">
-		where c_no = #{cate}
+		and c_no = #{cate}
 	</if>
 	 limit #{startRow}, #{endRow}
 </select>

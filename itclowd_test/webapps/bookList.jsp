@@ -14,6 +14,17 @@
 <body>
 	<div class="guide">
         <div class="center-box">
+        <div id="bookCate">
+        <ul>
+        <li><a onclick="reqBookMainIndie(${page}, 0)">전체</a></li>
+        <li><a onclick="reqBookMainIndie(${page}, 1)">소설</a></li>
+        <li><a onclick="reqBookMainIndie(${page}, 2)">시</a></li>
+        <li><a onclick="reqBookMainIndie(${page}, 3)">여행/에세이</a></li>
+        <li><a onclick="reqBookMainIndie(${page}, 4)">사진</a></li>
+        <li><a onclick="reqBookMainIndie(${page}, 5)">디자인</a></li>
+        <li><a onclick="reqBookMainIndie(${page}, 6)">일러스트/회화</a></li>
+        </ul>
+        </div>
       <ol class="sections-wrapper">
     <li id="evalmore-section" class="evalmore responsive-mask section"><h2 class="title">독립출판물</h2>
     <div class="slider-wrapper"  > <!-- 무비카드 컨테이너 -->
@@ -27,6 +38,5 @@
 </li>
 </ol>
 </div></div>
-
 </body>
 </html>

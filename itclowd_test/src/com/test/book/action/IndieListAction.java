@@ -20,7 +20,6 @@ public class IndieListAction implements Action {
 		HashMap<String, Integer> pMap = new HashMap();
 		int page = Integer.parseInt(req.getParameter("page"));
 		pMap.put("startRow", (page-1)*20 );
-		pMap.put("endRow", page*20 );
 		pMap.put("cate",Integer.parseInt(req.getParameter("cate")));
 		IndieListService ilService = new IndieListService();
 		ArrayList<IndieBookVo> list = ilService.indieGetList(pMap);

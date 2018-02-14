@@ -13,4 +13,9 @@ public class IndieListService {
 	}
 
 
+	public int getListCount(HashMap<String, Integer> pMap) {
+		return BookDao.getInstance().getListCount(pMap);
+	}
+
+
 }

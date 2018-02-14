@@ -26,5 +26,15 @@ public class BookDao {
 			return null; 
 		}
 	}
+	public int getListCount(HashMap<String, Integer> pMap) {
+		SqlSession session = null;
+		try {
+			session = SqlUtil.getSession();
+			return session.selectOne("book.getListCount", pMap);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return 0;
+		}
+	}
 	
 }

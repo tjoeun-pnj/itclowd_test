@@ -12,6 +12,7 @@ import com.test.book.model.IndieBookVo;
 import com.test.book.service.IndieListService;
 import com.test.util.ActionForward;
 import com.test.util.inter.Action;
+import com.test.vo.PageInfo;
 
 public class IndieListAction implements Action {
 
@@ -19,16 +20,32 @@ public class IndieListAction implements Action {
 	public ActionForward execute(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		HashMap<String, Integer> pMap = new HashMap();
 		int page = Integer.parseInt(req.getParameter("page"));
-		pMap.put("startRow", (page-1)*20 );
+		int limit = 20;
+		pMap.put("startRow", (page-1)*limit );
+		pMap.put("limit", limit );
 		pMap.put("cate",Integer.parseInt(req.getParameter("cate")));
 		IndieListService ilService = new IndieListService();
+		int listCount = ilService.getListCount(pMap);
 		ArrayList<IndieBookVo> list = ilService.indieGetList(pMap);
+		int maxPage = (int)((double)listCount/limit+0.95);
+		int startPage = (((int)((double)listCount/limit+0.9))-1)*10+1;
+		int endPage = startPage + 10 -1;
+		if(endPage > maxPage) endPage = maxPage;
+		PageInfo pageInfo = new PageInfo();
+		pageInfo.setEndPage(endPage);
+		pageInfo.setMaxPage(maxPage);
+		pageInfo.setStartPage(startPage);
+		pageInfo.setPage(page);
+		pageInfo.setListCount(listCount);
+		req.setAttribute("pageInfo", pageInfo);
 		String json = new Gson().toJson(list);
+		String pageJson = new Gson().toJson(pageInfo);
 		JsonObject jObj = new JsonObject();
 		res.setContentType("application/x-json;charset=utf-8");
 		if(list != null) {
 			jObj.addProperty("result", true);
 			jObj.addProperty("json", json);
+			jObj.addProperty("page", pageJson);
 		} else {
 			jObj.addProperty("result", false);
 		}

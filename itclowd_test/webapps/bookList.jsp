@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -16,13 +15,13 @@
         <div class="center-box">
         <div id="bookCate">
         <ul>
-        <li><a onclick="reqBookMainIndie(${page}, 0)">전체</a></li>
-        <li><a onclick="reqBookMainIndie(${page}, 1)">소설</a></li>
-        <li><a onclick="reqBookMainIndie(${page}, 2)">시</a></li>
-        <li><a onclick="reqBookMainIndie(${page}, 3)">여행/에세이</a></li>
-        <li><a onclick="reqBookMainIndie(${page}, 4)">사진</a></li>
-        <li><a onclick="reqBookMainIndie(${page}, 5)">디자인</a></li>
-        <li><a onclick="reqBookMainIndie(${page}, 6)">일러스트/회화</a></li>
+        <li><a onclick="reqBookMainIndie(1, 0);">전체</a></li>
+        <li><a onclick="reqBookMainIndie(1, 1);">소설</a></li>
+        <li><a onclick="reqBookMainIndie(1, 2);">시</a></li>
+        <li><a onclick="reqBookMainIndie(1, 3);">여행/에세이</a></li>
+        <li><a onclick="reqBookMainIndie(1, 4);">사진</a></li>
+        <li><a onclick="reqBookMainIndie(1, 5);">디자인</a></li>
+        <li><a onclick="reqBookMainIndie(1, 6);">일러스트/회화</a></li>
         </ul>
         </div>
       <ol class="sections-wrapper">

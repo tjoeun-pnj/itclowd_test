@@ -316,7 +316,7 @@ function setBookIndie(json){
 	for(var x=0;x<5;x++){
 		setHtml += '<div class="movie-card size-1x1 poster-type base_movie  user-action-m4d83i card grid-1 hei-1 top-0 left-'+x+'"><div class="poster-wrapper">';
 		setHtml += '<img class="poster" src="'+bVo[x].cover+'" width="150px" height="220px"><div class="detail-opener gradation"></div><div class="bottom"></div><div class="action-wrapper">';
-		setHtml += '<div class="movie-title">'+bVo[x].title+'</div><div class="rating"><span class="watcha-star half left over horver" data-value="0.5"></span><span class="watcha-star half right" data-value="1"></span><span class="watcha-star half left over horver" data-value="1.5"></span><span class="watcha-star half right" data-value="2"></span><span class="watcha-star half left" data-value="2.5"></span><span class="watcha-star half right" data-value="3"></span><span class="watcha-star half left" data-value="3.5"></span><span class="watcha-star half right" data-value="4"></span><span class="watcha-star half left" data-value="4.5"></span><span class="watcha-star half right" data-value="5"></span></div>';
+		setHtml += '<div class="movie-title">'+bVo[x].title+'</div><div class="rating"><span class="watcha-star half left" data-value="0.5"></span><span class="watcha-star half right" data-value="1"></span><span class="watcha-star half left" data-value="1.5"></span><span class="watcha-star half right" data-value="2"></span><span class="watcha-star half left" data-value="2.5"></span><span class="watcha-star half right" data-value="3"></span><span class="watcha-star half left" data-value="3.5"></span><span class="watcha-star half right" data-value="4"></span><span class="watcha-star half left" data-value="4.5"></span><span class="watcha-star half right" data-value="5"></span></div>';
 		setHtml += '<div class="wish-comment"><div class="comment"><span class="icon"></span><span class="text">코멘트 쓰기</span></div></div></div></div></div>';
 	}
 	document.getElementById('indie-grid-container').innerHTML = setHtml;
@@ -353,7 +353,20 @@ function setIndieList(json){
 			setHtml += '<div class="movie-card size-1x1 poster-type base_movie  user-action-m4d83i card grid-1 hei-1 top-3 left-'+(x%15)+'"><div class="poster-wrapper">';
 		}
 		setHtml += '<img class="poster" src="image/'+list[x].ib_img+'" width="150px" height="220px"><div class="detail-opener gradation"></div><div class="bottom"></div><div class="action-wrapper">';
-		setHtml += '<div class="movie-title">'+list[x].ib_title+'</div><div class="rating"><span class="watcha-star half left" data-value="0.5"></span><span class="watcha-star half right" data-value="1"></span><span class="watcha-star half left" data-value="1.5"></span><span class="watcha-star half right" data-value="2"></span><span class="watcha-star half left" data-value="2.5"></span><span class="watcha-star half right" data-value="3"></span><span class="watcha-star half left" data-value="3.5"></span><span class="watcha-star half right" data-value="4"></span><span class="watcha-star half left" data-value="4.5"></span><span class="watcha-star half right" data-value="5"></span></div>';
+		setHtml += '<div class="movie-title">'+list[x].ib_title+'</div>';
+		var count = list[x].ia_count;
+		if(count > 0){
+			var grade = Math.round(list[x].ia_grade);
+			setHtml += '<div class="rating">';
+			for(var y=1; y<=10;y++){
+				if(y%2==0) setHtml += '<span class="watcha-star half right';
+				else setHtml += '<span class="watcha-star half left';
+				if(grade >= y) setHtml += ' over horver" data-value="'+y+'"></span>';
+				else setHtml += '" data-value="'+y+'"></span>';
+			}
+			setHtml += count+'명 평가 </div>';
+		}else setHtml += '<div class="rating"><span class="watcha-star half left" data-value="1"></span><span class="watcha-star half right" data-value="2"></span><span class="watcha-star half left" data-value="3"></span><span class="watcha-star half right" data-value="4"></span><span class="watcha-star half left" data-value="5"></span><span class="watcha-star half right" data-value="6"></span><span class="watcha-star half left" data-value="7"></span><span class="watcha-star half right" data-value="8"></span><span class="watcha-star half left" data-value="9"></span><span class="watcha-star half right" data-value="10"></span>0명 평가</div>';
+		
 		setHtml += '<div class="wish-comment"><div class="comment"><span class="icon"></span><span class="text">코멘트 쓰기</span></div></div></div></div></div>';
 	}
 	document.getElementById('bookIndie-grid-container').innerHTML = setHtml;

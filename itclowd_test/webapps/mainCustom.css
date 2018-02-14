@@ -26,3 +26,4 @@
             font:20px Dotum;                     /* 폰트 설정 - 12px의 돋움체 굵은 글씨로 표시 */
             padding:0 15px;                         /* 각 메뉴 간격 */
 }
+#bookCate li:first-child{border-left:none;}     /* 메뉴 분류중 제일 왼쪽의 "|"는 삭제 */

@@ -11,13 +11,13 @@
 	from indie_book a left outer join indie_assessment b
 	on a.ib_no = b.ib_no 
 	<if test="cate != 0">
-		where c_no = #{cate}
+		where c_no = #{cate} 
 	</if>
 	GROUP BY ib_no
 	 limit #{startRow}, #{limit};
 </select>
 <select id="getListCount" parameterType="java.util.HashMap" resultType="int">
-	select count(ib_no) count from indie_book;
+	select count(ib_no) from indie_book
 	<if test="cate != 0">
 		where c_no = #{cate}
 	</if>

@@ -7,12 +7,13 @@
 <mapper namespace="book">
  
 <select id="indieBookList" parameterType="java.util.HashMap" resultType="com.test.book.model.IndieBookVo">
-	elect a.ib_no ib_no, c_no, ib_title, ib_writer, ib_price, ib_date, ip_no, ib_intro, ib_page, ib_img, ib_img1, ib_img2, ib_img3, ib_size, m_no, avg(ia_grade) ia_grade, count(ia_grade) ia_count 
-	from indie_book a, indie_assessment b 
-	where a.ib_no = b.ib_no 
+	select a.ib_no ib_no, c_no, ib_title, ib_writer, ib_price, ib_date, ip_no, ib_intro, ib_page, ib_img, ib_img1, ib_img2, ib_img3, ib_size, avg(ia_grade) ia_grade, count(ia_grade) ia_count 
+	from indie_book a left outer join indie_assessment b
+	on a.ib_no = b.ib_no 
 	<if test="cate != 0">
 		and c_no = #{cate}
 	</if>
-	 limit #{startRow}, #{endRow}
+	GROUP BY ib_no;
+	 limit #{startRow}, 20
 </select>
 </mapper>

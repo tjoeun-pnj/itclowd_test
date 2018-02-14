@@ -13,7 +13,7 @@
 	<if test="cate != 0">
 		and c_no = #{cate}
 	</if>
-	GROUP BY ib_no;
-	 limit #{startRow}, 20
+	GROUP BY ib_no
+	 limit #{startRow}, 20;
 </select>
 </mapper>

@@ -1,7 +1,6 @@
  html, body {
     margin: 0px;
     padding: 0px;
-      
     font-size: 12px;
 }
       
@@ -13,6 +12,8 @@
     width: 100%;
     height: 400px;
     background-color: #fff;
+    background-size: cover;
+    background-image: url(test4.jpg);
 }
       
       
@@ -36,5 +37,6 @@
 #blog-container {
     margin-top:450px;
     padding: 20px;
+    
 }
 

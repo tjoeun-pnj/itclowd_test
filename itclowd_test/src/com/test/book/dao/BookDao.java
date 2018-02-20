@@ -36,5 +36,15 @@ public class BookDao {
 			return 0;
 		}
 	}
+	public IndieBookVo getIndieBookDetail(int ib_no) {
+		SqlSession session = null;
+		try {
+			session = SqlUtil.getSession();
+			return session.selectOne("book.indieBookDetail", ib_no);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
 	
 }

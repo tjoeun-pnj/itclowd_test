@@ -1,0 +1,74 @@
+#wrap{width:auto; height: auto; center; align-items: center; align-self: center;}
+html,body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,img {margin:0;padding:0;}
+#container {float:left;width:1000px;margin:35px 0px 70px 25px;zoom:1;float:left;}
+#container:after {content:"";display:block;clear:both;}
+#container #contents{float:left;width:820px;margin:0px 0px 0px 0px;min-height:450px;}
+.xans-product-detail {overflow:hidden;padding:0px 0 10px;}
+.xans-product-detail .listImg{text-align:left;font-size:0;overflow:hidden;margin:0 0 1px;}
+.xans-product-detail .listImg ul {width:80px;position:absolute;top:203px;right:340px;display:inline-block;.display:inline;zoom:1;overflow:hidden;margin:0 0 0 -1px;}
+.xans-product-detail .listImg li{float:left;margin:0 0 0 0px;}
+.xans-product-detail .listImg li img{width:57px;cursor:pointer;}
+#detailArea2{color:#353535;font-size:11px;padding:30px 0 80px 0;}
+.xans-product-detail .path{overflow:hidden;margin:3px 0 17px;}
+.xans-product-detail .path h3{float:left;text-indent:-9999em;margin:0;}
+.xans-product-detail .path ul{float:right;}
+.xans-product-detail .path ol{float:right;}
+.xans-product-detail .path li{padding:0 0 0 22px;display:inline;font-size:.9em;background:url(http://img.echosting.cafe24.com/design/skin/mono/bg_path.gif) 0 50% no-repeat;}
+.xans-product-detail .path li.displaynone{display:none;}
+.xans-product-detail .path li.first{background:none;}
+.xans-product-detail #imgArea{float:left;width:300px;padding:0 0 0px;}
+.xans-product-detail #imgArea .keyImg{width:300px;text-align:left;}
+.xans-product-detail #imgArea .keyImg img{max-width:300px;}
+.xans-product-detail #imgArea .moreImg{text-align:center;background:#aaa6a2;}
+.xans-product-detail #imgArea .prevImg{float:left;width:73px;background:#fff;}
+.xans-product-detail #imgArea .nextImg{float:right;width:73px;background:#fff;text-align:right;}
+.xans-product-detail #prdInfo{float:left;width:350px;padding:0 0 30px 50px;}
+.xans-product-detail #prdInfo h3{margin:0 0 0px;padding:0 0px 0px;border-bottom:1px solid #cccccc;font-size:12px;}
+.xans-product-detail #prdInfo name{margin:0 0 0px;padding:0 0px 0px;border-bottom:1px solid #cccccc;}
+.xans-product-detail #prdInfo h3 span {}
+.xans-product-detail #prdInfo h3 span img{vertical-align:middle;}
+.xans-product-detail #prdInfo .prdName {font-size:12px;padding:0px 0 10px;}
+.xans-product-detail #prdInfo .mileage td{padding-top:7px;}
+.xans-product-detail #prdInfo .mileage td li{line-height:1.7em;}
+.xans-product-detail #prdInfo .prdsummary {font-size:11px;padding:8px 0 10px 5px;color:#353535;}
+.xans-product-detail #prdInfo .name {font-size:12px;padding:0px 0 15px 0px;color:#353535;font-weight:bold;font-family:"Times New Roman",����;}
+.xans-product-detail #prdInfo table{border:0;margin:0px 0 0;}
+.xans-product-detail #prdInfo th{font-weight:normal;color:#353535;width:80px;padding:9px 0 9px 0px;text-align:left;vertical-align:middle;}
+.xans-product-detail #prdInfo td{padding:4px 0;vertical-align:middle;}
+.xans-product-detail #prdInfo td .ProductPrice{color:#353535;font-size:11px;font-weight:bold;padding:0px 0 0px 0px}
+.xans-product-detail #prdInfo td input{border:1px solid #bcbcbc;height:18px;}
+.xans-product-detail #prdInfo td.social{padding:4px 0 0;}
+.xans-product-detail #prdInfo td.social img{cursor:pointer;}
+.xans-product-detail #prdInfo td .sale{text-decoration:line-through;}
+.xans-product-detail #prdInfo td p{position:relative;z-index:0;}
+.xans-product-detail #prdInfo td input{width:30px;height:18px;border:1px solid #bcbcbc;color:#353535;}
+.xans-product-detail #prdInfo td .QuantityUp{position:absolute;left:32px;top:0;z-index:1;}
+.xans-product-detail #prdInfo td .QuantityDown{position:absolute;left:32px;bottom:0;z-index:1;}
+.xans-product-detail #prdInfo .delivery input{border:0;}
+.xans-product-detail #prdInfo td img.qrcode{border:1px solid #e1e1e1;}
+.xans-product-detail #prdInfo td p.qrcode{padding:5px 0 0;}
+.xans-product-detail #prdInfo .cyworld img{cursor:pointer;}
+.xans-product-detail #prdInfo .cyworld .cyTooltip{position:relative;z-index:101;}
+.xans-product-detail #prdInfo .cyworld #divNate{position:absolute;top:0px;left:134px;width:243px;padding:20px 0 0;background:url(http://img.echosting.cafe24.com/design/skin/mono/product/bg_cyTooltipTop.gif) 0 0 no-repeat;}
+.xans-product-detail #prdInfo .cyworld #divNate .inner{padding:0 10px 17px;background:url(http://img.echosting.cafe24.com/design/skin/mono/product/bg_cyTooltipBtm.gif) 0 bottom no-repeat;font-size:11px;}
+.xans-product-detail #prdInfo .cyworld #divNate .inner strong{font-weight:normal;color:#ff6440;}
+.xans-product-detail #prdInfo .btnArea{text-align:left;padding:20px 0px 10px 0;margin:10px 0 0;border-top:1px solid #cccccc;}
+.xans-product-detail #prdInfo .btnArea p{float:none;margin:0 0 0px -10px;font-size:0;}
+.xans-product-detail #prdInfo .btnArea p img{float:none;margin:0 0 0 10px;}
+.xans-product-detail #prdEvent{clear:both;overflow:hidden;}
+.xans-product-detail .titleArea{height:21px;margin:17px 0 30px;border-bottom:1px solid #dedcdc;zoom:1;}
+.xans-product-detail .titleArea:after {content:"";display:block;clear:both;}
+.xans-product-detail .titleArea h3{height:21px;padding:0 5px 0 0;color:#272823;font-size:16px;float:left;border-bottom:1px solid #272823;}
+.xans-product-multioption{background:url(http://img.echosting.cafe24.com/design/skin/mono/bg_dot.gif) 0 0 repeat-x;}
+.xans-product-multioption p{padding:10px 0;text-align:right;}
+.xans-product-multioption div{background:url(http://img.echosting.cafe24.com/design/skin/mono/bg_dot.gif) 0 0 repeat-x;margin:10px 0 0;}
+.xans-myshop-benefit{clear:both;overflow:hidden;zoom:1;margin:30px 0;padding:10px;color:#8b8b8c;border-top:3px solid #333;border-bottom:3px solid #333;}
+.xans-myshop-benefit p{float:left;padding:0 10px 0 0;}
+.xans-myshop-benefit p strong{color:#8c91a2;}
+.xans-myshop-benefit p.myInfo{width:260px;padding:0;line-height:20px;}
+.xans-myshop-benefit p span.typeBlock{display:block;}
+img,fieldset{border:none;vertical-align:top;}
+table{border-spacing:0;border:0;border-collapse:collapse;width:100%;}
+th,td {border:0;vertical-align:top;} 
+.xans-product-additional #prdReview .nodata{margin:10px 0 0;padding:9px 0 7px;text-align:center;border-top:1px solid #cccccc;}
+.xans-product-additional #qnaArea .nodata{margin:10px 0 0;padding:9px 0 7px;text-align:center;border-top:1px solid #cccccc;}

@@ -8,7 +8,6 @@
 </head>
 <body>
     <div id="blog-header-container">
-        <img alt="보여랏" src="images/bodam_logo.jpg" width="100%" height="400px" id="logo_backgrownd">
         <div class="content" width="100%" id="header_logo_container">
         <ul id="header_menu">
         <li><a>Q & A</a></li>
@@ -22,7 +21,7 @@
     </div>
     <div id="menu-container"> 
         <header id="header">
-						<h1><a href="./main.jsp">itcrowd</a></h1>
+						<h1><a href="/main.jsp">itcrowd</a></h1>
 						<nav class="links">
 							<ul>
 								<li><a href="#">취향테스트</a></li>

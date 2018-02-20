@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.test.book.action.BookMainBestAction;
 import com.test.book.action.BookMainIndieAction;
 import com.test.book.action.BookMainNewAction;
+import com.test.book.action.IndieBookDetailAction;
 import com.test.book.action.IndieListAction;
 import com.test.member.action.MemberJoinAction;
 import com.test.member.action.MemberJoinIdChkAction;
@@ -68,6 +69,13 @@ public class BookController extends HttpServlet{
 			}
 		} else if(command.equals("/indieList")) {
 			action = new IndieListAction();
+			try {
+				forward = action.execute(req, res);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if(command.equals("/indieBookDetail")) {
+			action = new IndieBookDetailAction();
 			try {
 				forward = action.execute(req, res);
 			} catch (Exception e) {

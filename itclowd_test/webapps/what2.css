@@ -689,7 +689,7 @@ body.ie7 #header,body.ie8 #header{-moz-box-shadow:none;-webkit-box-shadow:none;b
 .movie-card.poster-type .poster-wrapper .bottom .comment .text .name{color:#93939c}
 .movie-card.poster-type .poster-wrapper .action-wrapper{position:absolute;bottom:0;left:0;width:100%;background-color:white;text-align:center;filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=0);opacity:0;-moz-transition-property:opacity;-o-transition-property:opacity;-webkit-transition-property:opacity;transition-property:opacity;-moz-transition-duration:0.1s;-o-transition-duration:0.1s;-webkit-transition-duration:0.1s;transition-duration:0.1s}
 .movie-card.poster-type .poster-wrapper .action-wrapper .movie-title{height:40px;line-height:40px;font-size:14px;color:#403f4e;border-bottom:1px solid #F3F3F5;overflow:hidden;text-overflow: ellipsis;white-space: nowrap}
-.movie-card.poster-type .poster-wrapper .action-wrapper .rating{padding:17px 0 20px}
+.movie-card.poster-type .poster-wrapper .action-wrapper .rating{padding:2px 0 5px}
 .movie-card.poster-type .poster-wrapper .action-wrapper .wish-comment{padding:0 20px 20px 20px;position:relative;color:#6d6c83;height:20px}
 .movie-card.poster-type .poster-wrapper .action-wrapper .wish-comment .wish,.movie-card.poster-type .poster-wrapper .action-wrapper .wish-comment .comment{font-size:12px;position:absolute;text-indent:24px;line-height:13px;cursor:pointer}
 .movie-card.poster-type .poster-wrapper .action-wrapper .wish-comment .wish:hover,.movie-card.poster-type .poster-wrapper .action-wrapper .wish-comment .wish:active,.movie-card.poster-type .poster-wrapper .action-wrapper .wish-comment .wish.on,.movie-card.poster-type .poster-wrapper .action-wrapper .wish-comment .comment:hover,.movie-card.poster-type .poster-wrapper .action-wrapper .wish-comment .comment:active,.movie-card.poster-type .poster-wrapper .action-wrapper .wish-comment .comment.on{color:#ff382e}
@@ -739,7 +739,8 @@ body.ie7 #header,body.ie8 #header{-moz-box-shadow:none;-webkit-box-shadow:none;b
 .movie-card.poster-type .reason .front.no-reason .text{padding:0 10px}
 .movie-card.poster-type .reason .front.no-reason .text a{color:#5b5cb5}
 .movie-card.poster-type .reason .back{position:relative;display:table-cell;vertical-align:middle;height:50px;letter-spacing:-1px;padding:0 10px}
-.movie-card.poster-type .poster-wrapper:hover .gradation,.movie-card.poster-type.fix-action-box .gradation{background-color:gray;background-color:rgba(0,0,0,0.5)}
+.gradation{display: none; color: white; text-align: center;} /* 상세보기 띄우기 */
+.movie-card.poster-type .poster-wrapper:hover .gradation,.movie-card.poster-type.fix-action-box .gradation{background-color:gray;background-color:rgba(0,0,0,0.5); display: inline;}
 .movie-card.poster-type .poster-wrapper:hover .action-wrapper,.movie-card.poster-type.fix-action-box .action-wrapper{filter:progid:DXImageTransform.Microsoft.Alpha(enabled=false);opacity:1}
 .movie-card.poster-type.theater_movie .action-wrapper .meh{top:-103px}
 .movie-card.size-2x2.poster-type .gradation{background-image:url(https://d3sz5r0rl9fxuc.cloudfront.net/assets/gradations/gradation_648-6b0fe18665e82a20b8a2d33e142eb506d104f97cc99c3967826c988a82b28df9.png)}
@@ -1756,10 +1757,22 @@ svg.rating-chart path.area{fill:#FFD02E}
     width: 100%;
     height: 1200px;
 }
+.guideBookDetail {
+	position: relative;   /* 추가 */
+	width: 100%;
+	height: 100%;
+}
 .center-box {
-    position: absolute;   /* 추가 */
+	position: absolute;   /* 추가 */
     width: 1000px;
     height: 1200px;
+    top: 0;               /* 추가 */
+    left: 0;              /* 추가 */ 
+    right: 0;             /* 추가 */
+    margin: auto;     /* 추가 */
+}
+.center-box-detail {
+    width: 1000px;
     top: 0;               /* 추가 */
     left: 0;              /* 추가 */ 
     right: 0;             /* 추가 */
@@ -1769,3 +1782,4 @@ svg.rating-chart path.area{fill:#FFD02E}
 .sections-wrapper{
 	padding: 0;
 }
+

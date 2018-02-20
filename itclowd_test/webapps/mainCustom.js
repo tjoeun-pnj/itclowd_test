@@ -357,7 +357,7 @@ function setIndieList(json){
 		} else if(x < 20) {
 			setHtml += '<div class="movie-card size-1x1 poster-type base_movie  user-action-m4d83i card grid-1 hei-1 top-3 left-'+(x%15)+'"><div class="poster-wrapper">';
 		}
-		setHtml += '<img class="poster" src="image/'+list[x].ib_img+'" width="150px" height="220px"><div class="detail-opener gradation"></div><div class="bottom"></div><div class="action-wrapper">';
+		setHtml += '<img class="poster" src="image/'+list[x].ib_img+'" width="150px" height="220px"><div class="detail-opener gradation" onclick="indieDetail('+list[x].ib_no+');"><br><span id="detail_text">상세보기</span></div><div class="bottom"></div><div class="action-wrapper">';
 		setHtml += '<div class="movie-title">'+list[x].ib_title+'</div>';
 		var count = list[x].ia_count;
 		if(count > 0){
@@ -375,6 +375,7 @@ function setIndieList(json){
 		setHtml += '<div class="wish-comment"><div class="comment"><span class="icon"></span><span class="text">코멘트 쓰기</span></div></div></div></div></div>';
 	}
 	bookContainer.innerHTML = setHtml;
+	// 페이징처리
 	setHtml = "";
 	pageContainer.innerHTML = "";
 	setHtml += '<a class="button small" onclick="reqBookMainIndie(1, '+page.cate+');">맨앞</a>&nbsp';
@@ -387,3 +388,9 @@ function setIndieList(json){
 	setHtml += '<a class="button small" onclick="reqBookMainIndie('+page.maxPage+', '+page.cate+');">맨뒤</a>';
 	pageContainer.innerHTML = setHtml;
 }
+
+/*독립책 상세보기*/
+function indieDetail(ib_no){
+	location.href = "./book/indieBookDetail?ib_no="+ib_no;
+}
+

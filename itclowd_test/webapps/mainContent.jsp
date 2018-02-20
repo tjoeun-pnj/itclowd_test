@@ -13,7 +13,7 @@
 </head>
 <body>
        
-	<div class="guide">
+	<div class="guideMain">
         <div class="center-box">
       <ol class="sections-wrapper">
     <li id="evalmore-section" class="evalmore responsive-mask section"><h2 class="title">베스트셀러</h2>

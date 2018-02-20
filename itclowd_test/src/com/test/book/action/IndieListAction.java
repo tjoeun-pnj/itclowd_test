@@ -21,14 +21,15 @@ public class IndieListAction implements Action {
 		HashMap<String, Integer> pMap = new HashMap();
 		int page = Integer.parseInt(req.getParameter("page"));
 		int limit = 20;
+		int cate = Integer.parseInt(req.getParameter("cate"));
 		pMap.put("startRow", (page-1)*limit );
 		pMap.put("limit", limit );
-		pMap.put("cate",Integer.parseInt(req.getParameter("cate")));
+		pMap.put("cate",cate);
 		IndieListService ilService = new IndieListService();
 		int listCount = ilService.getListCount(pMap);
 		ArrayList<IndieBookVo> list = ilService.indieGetList(pMap);
 		int maxPage = (int)((double)listCount/limit+0.95);
-		int startPage = (((int)((double)listCount/limit+0.9))-1)*10+1;
+		int startPage = (((int)((double)page/10+0.9))-1)*10+1;
 		int endPage = startPage + 10 -1;
 		if(endPage > maxPage) endPage = maxPage;
 		PageInfo pageInfo = new PageInfo();
@@ -37,7 +38,8 @@ public class IndieListAction implements Action {
 		pageInfo.setStartPage(startPage);
 		pageInfo.setPage(page);
 		pageInfo.setListCount(listCount);
-		req.setAttribute("pageInfo", pageInfo);
+		pageInfo.setCate(cate);
+//		req.setAttribute("pageInfo", pageInfo);
 		String json = new Gson().toJson(list);
 		String pageJson = new Gson().toJson(pageInfo);
 		JsonObject jObj = new JsonObject();

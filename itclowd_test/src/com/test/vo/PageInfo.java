@@ -6,6 +6,23 @@ public class PageInfo {
 	private int startPage;
 	private int endPage;
 	private int listCount;
+	private int nowPage;
+	private int cate;
+	
+	
+	
+	public int getNowPage() {
+		return nowPage;
+	}
+	public void setNowPage(int nowPage) {
+		this.nowPage = nowPage;
+	}
+	public int getCate() {
+		return cate;
+	}
+	public void setCate(int cate) {
+		this.cate = cate;
+	}
 	public int getPage() {
 		return page;
 	}

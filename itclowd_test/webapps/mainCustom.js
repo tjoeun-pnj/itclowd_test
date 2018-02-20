@@ -331,7 +331,7 @@ function reqBookMainIndie(page, cate){
         url:"./book/indieList?page="+page+'&cate='+cate,
         dataType : "json",
         success: function(data){
-        	if(data.result) setIndieList(data.json);
+        	if(data.result) setIndieList(data);
         },
         error: function(xhr, status, error) {
             alert('독립책 실패');
@@ -340,8 +340,13 @@ function reqBookMainIndie(page, cate){
 }
 
 function setIndieList(json){
-	var list = JSON.parse(json);
+	var list = JSON.parse(json.json);
+	var page = JSON.parse(json.page);
+	console.log(page);
+	var bookContainer = document.getElementById('bookIndie-grid-container');
+	var pageContainer = document.getElementById('pageContainer');
 	var setHtml = "";
+	bookContainer.innerHTML = "";
 	for(var x=0;x<list.length;x++){
 		if(x < 5){
 			setHtml += '<div class="movie-card size-1x1 poster-type base_movie  user-action-m4d83i card grid-1 hei-1 top-0 left-'+x+'"><div class="poster-wrapper">';
@@ -369,5 +374,16 @@ function setIndieList(json){
 		
 		setHtml += '<div class="wish-comment"><div class="comment"><span class="icon"></span><span class="text">코멘트 쓰기</span></div></div></div></div></div>';
 	}
-	document.getElementById('bookIndie-grid-container').innerHTML = setHtml;
+	bookContainer.innerHTML = setHtml;
+	setHtml = "";
+	pageContainer.innerHTML = "";
+	setHtml += '<a class="button small" onclick="reqBookMainIndie(1, '+page.cate+');">맨앞</a>&nbsp';
+	if(page.page>1) setHtml += '<a class="button small" onclick="reqBookMainIndie('+(page.page-1)+', '+page.cate+');">이전</a>&nbsp';
+	for(var i=page.startPage;i<=page.endPage; i++){
+		if(i==page.page) setHtml += '<a class="button small">'+i+'</a>&nbsp';
+		else setHtml += '<a class="button small" onclick="reqBookMainIndie('+i+', '+page.cate+');">'+i+'</a>&nbsp';
+	}
+	if(page.page< page.maxPage) setHtml += '<a class="button small" onclick="reqBookMainIndie('+(page.page+1)+', '+page.cate+');">다음</a>&nbsp';
+	setHtml += '<a class="button small" onclick="reqBookMainIndie('+page.maxPage+', '+page.cate+');">맨뒤</a>';
+	pageContainer.innerHTML = setHtml;
 }

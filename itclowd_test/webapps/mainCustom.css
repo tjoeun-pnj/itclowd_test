@@ -27,3 +27,10 @@
             padding:0 15px;                         /* 각 메뉴 간격 */
 }
 #bookCate li:first-child{border-left:none;}     /* 메뉴 분류중 제일 왼쪽의 "|"는 삭제 */
+
+#pageContainer {
+	position: absolute;
+	bottom: 10px;
+	width: 100%;
+	text-align: center;
+}

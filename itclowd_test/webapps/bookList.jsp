@@ -11,7 +11,7 @@
 </script>
 </head>
 <body>
-	<div class="guide">
+	<div class="guideBook">
         <div class="center-box">
         <div id="bookCate">
         <ul>
@@ -28,7 +28,7 @@
     <li id="evalmore-section" class="evalmore responsive-mask section"><h2 class="title">독립출판물</h2>
     <div class="slider-wrapper"  > <!-- 무비카드 컨테이너 -->
     <div class="vertical-list" >
-       <ul id="bookIndie-grid-container" class="grid-container" style="position: relative; width: 100%; height: 1000px;" >
+       <ul id="bookIndie-grid-container" class="grid-container" style="position: relative; width: 100%;" >
 		
 </ul>
 	
@@ -36,6 +36,12 @@
 </div></div><!-- slider wrap end -->
 </li>
 </ol>
-</div></div>
+
+	<div id="pageContainer">
+		<!-- <a href="#"  class="button small">이전</a>
+		<a href="#"  class="button small">다음</a> -->
+	</div>
+</div>
+</div>
 </body>
 </html>

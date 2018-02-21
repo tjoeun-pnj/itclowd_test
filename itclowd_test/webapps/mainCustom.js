@@ -394,3 +394,9 @@ function indieDetail(ib_no){
 	location.href = "./book/indieBookDetail?ib_no="+ib_no;
 }
 
+// 문자열 치환 기능
+function replaceAll(str, searchStr, replaceStr) {
+    return str.split(searchStr).join(replaceStr);
+}
+
+

@@ -18,14 +18,16 @@ public class IndieListAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest req, HttpServletResponse res) throws Exception {
-		HashMap<String, Integer> pMap = new HashMap();
+		HashMap<String, Object> pMap = new HashMap<String, Object>();
 		int page = Integer.parseInt(req.getParameter("page"));
 		int limit = 20;
 		int cate = Integer.parseInt(req.getParameter("cate"));
+		System.out.println("왜 안와??");
+		String query = req.getParameter("query");
 		pMap.put("startRow", (page-1)*limit );
 		pMap.put("limit", limit );
 		pMap.put("cate",cate);
-		pMap.put("query", req.getParameter("searchIndieCate"));
+		pMap.put("query", query);
 		IndieListService ilService = new IndieListService();
 		int listCount = ilService.getListCount(pMap);
 		ArrayList<IndieBookVo> list = ilService.indieGetList(pMap);
@@ -40,6 +42,7 @@ public class IndieListAction implements Action {
 		pageInfo.setPage(page);
 		pageInfo.setListCount(listCount);
 		pageInfo.setCate(cate);
+		pageInfo.setQuery(query);
 //		req.setAttribute("pageInfo", pageInfo);
 		String json = new Gson().toJson(list);
 		String pageJson = new Gson().toJson(pageInfo);

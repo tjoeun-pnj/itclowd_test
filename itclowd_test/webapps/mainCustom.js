@@ -323,12 +323,12 @@ function setBookIndie(json){
 }
 
 // bookList 셋팅
-function reqBookMainIndie(page, cate){
+function reqBookMainIndie(page, cate, query){
 	if(page == null) page = 1;
 	if(cate == null) cate = 0;
 	$.ajax({
         type:"POST",
-        url:"./book/indieList?page="+page+'&cate='+cate,
+        url:"./book/indieList?page="+page+'&cate='+cate+'&query='+query,
         dataType : "json",
         success: function(data){
         	if(data.result) setIndieList(data);
@@ -378,14 +378,14 @@ function setIndieList(json){
 	// 페이징처리
 	setHtml = "";
 	pageContainer.innerHTML = "";
-	setHtml += '<a class="button small" onclick="reqBookMainIndie(1, '+page.cate+');">맨앞</a>&nbsp';
-	if(page.page>1) setHtml += '<a class="button small" onclick="reqBookMainIndie('+(page.page-1)+', '+page.cate+');">이전</a>&nbsp';
+	setHtml += '<a class="button small" onclick="reqBookMainIndie(1, '+page.cate+','+page.query+');">맨앞</a>&nbsp';
+	if(page.page>1) setHtml += '<a class="button small" onclick="reqBookMainIndie('+(page.page-1)+', '+page.cate+','+page.query+');">이전</a>&nbsp';
 	for(var i=page.startPage;i<=page.endPage; i++){
 		if(i==page.page) setHtml += '<a class="button small">'+i+'</a>&nbsp';
-		else setHtml += '<a class="button small" onclick="reqBookMainIndie('+i+', '+page.cate+');">'+i+'</a>&nbsp';
+		else setHtml += '<a class="button small" onclick="reqBookMainIndie('+i+', '+page.cate+','+page.query+');">'+i+'</a>&nbsp';
 	}
-	if(page.page< page.maxPage) setHtml += '<a class="button small" onclick="reqBookMainIndie('+(page.page+1)+', '+page.cate+');">다음</a>&nbsp';
-	setHtml += '<a class="button small" onclick="reqBookMainIndie('+page.maxPage+', '+page.cate+');">맨뒤</a>';
+	if(page.page< page.maxPage) setHtml += '<a class="button small" onclick="reqBookMainIndie('+(page.page+1)+', '+page.cate+','+page.query+');">다음</a>&nbsp';
+	setHtml += '<a class="button small" onclick="reqBookMainIndie('+page.maxPage+', '+page.cate+','+page.query+');">맨뒤</a>';
 	pageContainer.innerHTML = setHtml;
 }
 

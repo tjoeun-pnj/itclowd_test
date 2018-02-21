@@ -16,7 +16,7 @@ public class BookDao {
 		return bDao;
 	}
 	
-	public List<IndieBookVo> getIndieBookList(HashMap<String, Integer> pMap){
+	public List<IndieBookVo> getIndieBookList(HashMap<String, Object> pMap){
 		SqlSession session = null;
 		try {
 			session = SqlUtil.getSession();
@@ -26,7 +26,7 @@ public class BookDao {
 			return null; 
 		}
 	}
-	public int getListCount(HashMap<String, Integer> pMap) {
+	public int getListCount(HashMap<String, Object> pMap) {
 		SqlSession session = null;
 		try {
 			session = SqlUtil.getSession();

@@ -6,8 +6,17 @@
 <title>Insert title here</title>
 <script type="text/javascript">
 	$(document).ready(function(){
-		reqBookMainIndie(null,null);
+		reqBookMainIndie(null,null,null);
 	});
+	function searchIndie(){
+		var cate = document.getElementById("searchIndieCate");
+		var query = document.getElementById("searchIndieQuery");
+		if ($("#searchIndieQuery").val().replace(/\s/g, "") == ""){
+			alert("검색어를 입력하세요");
+		}else{
+			reqBookMainIndie(1, cate.value, query.value );
+		}
+	}
 </script>
 </head>
 <body>
@@ -15,19 +24,20 @@
         <div class="center-box">
         <div id="bookCate">
         <ul>
-        <li><a onclick="reqBookMainIndie(1, 0);">전체</a></li>
-        <li><a onclick="reqBookMainIndie(1, 1);">소설</a></li>
-        <li><a onclick="reqBookMainIndie(1, 2);">시</a></li>
-        <li><a onclick="reqBookMainIndie(1, 3);">여행/에세이</a></li>
-        <li><a onclick="reqBookMainIndie(1, 4);">사진</a></li>
-        <li><a onclick="reqBookMainIndie(1, 5);">디자인</a></li>
-        <li><a onclick="reqBookMainIndie(1, 6);">일러스트/회화</a></li>
+        <li><a onclick="reqBookMainIndie(1, 0,null);">전체</a></li>
+        <li><a onclick="reqBookMainIndie(1, 1,null);">소설</a></li>
+        <li><a onclick="reqBookMainIndie(1, 2,null);">시</a></li>
+        <li><a onclick="reqBookMainIndie(1, 3,null);">여행/에세이</a></li>
+        <li><a onclick="reqBookMainIndie(1, 4,null);">사진</a></li>
+        <li><a onclick="reqBookMainIndie(1, 5,null);">디자인</a></li>
+        <li><a onclick="reqBookMainIndie(1, 6,null);">일러스트/회화</a></li>
         </ul>
         </div>
         <div id="searchIndie">
-        		<ul>
-        			<li class="search">
-		        		<select id="searchIndieCate" name="searchIndieCate">
+        		<table>
+        			<tr>
+        				<td>
+							<select id="searchIndieCate" name="searchIndieCate">
 		        			<option value="0">전체</option>
 		        			<option value="1">소설</option>
 		        			<option value="2">시</option>
@@ -35,11 +45,12 @@
 		        			<option value="4">사진</option>
 		        			<option value="5">디자인</option>
 		        			<option value="6">일러스트/회화</option>
-		        		</select>
-		        		<input id="searchIndieQuery" type="text" name="searchIndieQuery" placeholder="Search">
-        				<input type="button" value="검색">
-        			</li>
-        		</ul>
+		        			</select>
+		        			<input id="searchIndieQuery" type="text" name="searchIndieQuery" placeholder="Search">
+        					<input type="button" value="검색" onclick="searchIndie()">       				
+        				</td>
+        			</tr>
+        		</table>
         </div>
       <ol class="sections-wrapper">
     <li id="evalmore-section" class="evalmore responsive-mask section"><h2 class="title">독립출판물</h2>
@@ -53,10 +64,8 @@
 </div></div><!-- slider wrap end -->
 </li>
 </ol>
-
+	
 	<div id="pageContainer">
-		<!-- <a href="#"  class="button small">이전</a>
-		<a href="#"  class="button small">다음</a> -->
 	</div>
 </div>
 </div>

@@ -8,9 +8,15 @@ public class PageInfo {
 	private int listCount;
 	private int nowPage;
 	private int cate;
+	private String query = null;
 	
 	
-	
+	public String getQuery() {
+		return query;
+	}
+	public void setQuery(String query) {
+		this.query = query;
+	}
 	public int getNowPage() {
 		return nowPage;
 	}

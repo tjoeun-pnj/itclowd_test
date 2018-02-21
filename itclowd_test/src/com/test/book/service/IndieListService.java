@@ -8,12 +8,12 @@ import com.test.book.model.IndieBookVo;
 
 public class IndieListService {
 
-	public ArrayList<IndieBookVo> indieGetList(HashMap<String, Integer> pMap) {
+	public ArrayList<IndieBookVo> indieGetList(HashMap<String, Object> pMap) {
 		return (ArrayList<IndieBookVo>) BookDao.getInstance().getIndieBookList(pMap);
 	}
 
 
-	public int getListCount(HashMap<String, Integer> pMap) {
+	public int getListCount(HashMap<String, Object> pMap) {
 		return BookDao.getInstance().getListCount(pMap);
 	}
 

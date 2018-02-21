@@ -39,7 +39,7 @@ public class BookController extends HttpServlet{
 	}
 
 	private void process(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException{
-		
+		System.out.println("book");
 		req.setCharacterEncoding("utf-8");
 		String requestURI = req.getRequestURI();
 		String contextPath = req.getContextPath();

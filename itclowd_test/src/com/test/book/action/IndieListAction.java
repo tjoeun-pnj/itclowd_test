@@ -25,6 +25,7 @@ public class IndieListAction implements Action {
 		pMap.put("startRow", (page-1)*limit );
 		pMap.put("limit", limit );
 		pMap.put("cate",cate);
+		pMap.put("query", req.getParameter("searchIndieCate"));
 		IndieListService ilService = new IndieListService();
 		int listCount = ilService.getListCount(pMap);
 		ArrayList<IndieBookVo> list = ilService.indieGetList(pMap);

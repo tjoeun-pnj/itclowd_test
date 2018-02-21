@@ -7,7 +7,7 @@ q:before,q:after,blockquote:before,blockquote:after{content:"";content:none}
 a img{border:none}
 article,aside,details,figcaption,figure,footer,header,hgroup,main,menu,nav,section,summary{display:block}
 html,body{background-color:#E5E5E5;letter-spacing:-1px;min-height:100%}
-html,input,textarea{font-family:'Apple SD Gothic Neo','나눔고딕',NanumGothic,'맑은 고딕','Malgun Gothic','돋움',dotum,'굴림',gulim,applegothic,sans-serif}
+html,input,textarea, selelct{font-family:'Apple SD Gothic Neo','나눔고딕',NanumGothic,'맑은 고딕','Malgun Gothic','돋움',dotum,'굴림',gulim,applegothic,sans-serif}
 a{text-decoration:none;color:black;cursor:pointer}
 .clear{clear:both}
 .clearfix:before,.clearfix:after{content:" ";display:table}

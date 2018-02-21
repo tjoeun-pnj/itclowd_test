@@ -37,3 +37,24 @@
 	width: 100%;
 	text-align: center;
 }
+#searchIndie{
+	text-align: center;
+}
+#searchIndie li{
+	display:inline;
+}
+#searchIndie li a{
+	display:inline;
+	
+}
+
+#searchIndieCate {
+	width: 140px;
+	display: inline;
+	background-color: white;
+}
+#searchIndieQuery {
+	width: 500px;
+	display: inline;
+	background-color: white;
+}

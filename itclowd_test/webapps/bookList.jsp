@@ -24,6 +24,23 @@
         <li><a onclick="reqBookMainIndie(1, 6);">일러스트/회화</a></li>
         </ul>
         </div>
+        <div id="searchIndie">
+        		<ul>
+        			<li class="search">
+		        		<select id="searchIndieCate" name="searchIndieCate">
+		        			<option value="0">전체</option>
+		        			<option value="1">소설</option>
+		        			<option value="2">시</option>
+		        			<option value="3">여생/에세이</option>
+		        			<option value="4">사진</option>
+		        			<option value="5">디자인</option>
+		        			<option value="6">일러스트/회화</option>
+		        		</select>
+		        		<input id="searchIndieQuery" type="text" name="searchIndieQuery" placeholder="Search">
+        				<input type="button" value="검색">
+        			</li>
+        		</ul>
+        </div>
       <ol class="sections-wrapper">
     <li id="evalmore-section" class="evalmore responsive-mask section"><h2 class="title">독립출판물</h2>
     <div class="slider-wrapper"  > <!-- 무비카드 컨테이너 -->

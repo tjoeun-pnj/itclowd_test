@@ -9,17 +9,23 @@
 <select id="indieBookList" parameterType="java.util.HashMap" resultType="com.test.book.model.IndieBookVo">
 	select a.ib_no ib_no, c_no, ib_title, ib_img, avg(ia_grade) ia_grade, count(ia_grade) ia_count 
 	from indie_book a left outer join indie_assessment b
-	on a.ib_no = b.ib_no 
+	on a.ib_no = b.ib_no where 0 = 0
 	<if test="cate != 0">
-		where c_no = #{cate} 
+		and c_no = #{cate} 
+	</if>
+	<if test="query != null">
+		and ib_title like %#{query}% 
 	</if>
 	GROUP BY ib_no
 	 limit #{startRow}, #{limit};
 </select>
 <select id="getListCount" parameterType="java.util.HashMap" resultType="int">
-	select count(ib_no) from indie_book
+	select count(ib_no) from indie_book where 0 = 0
 	<if test="cate != 0">
-		where c_no = #{cate}
+		and c_no = #{cate}
+	</if>
+	<if test="query != null">
+		and ib_title like %#{query}% 
 	</if>
 </select>
 <select id="indieBookDetail" parameterType="int" resultType="com.test.book.model.IndieBookVo">

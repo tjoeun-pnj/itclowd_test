@@ -20,7 +20,7 @@ import com.test.svc.BoardListService;
 import com.test.vo.BoardBean;
 import com.test.vo.BookVO;
 
-@WebServlet("*.do")
+/*@WebServlet("*.do")*/
 public class BoardController extends HttpServlet{
 
 	@Override

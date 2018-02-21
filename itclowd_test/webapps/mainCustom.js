@@ -328,7 +328,7 @@ function reqBookMainIndie(page, cate, query){
 	if(cate == null) cate = 0;
 	$.ajax({
         type:"POST",
-        url:"./book/indieList?page="+page+'&cate='+cate+'&query='+query,
+        url:"./book/indieList?page="+page+'&cate='+cate+"&query="+query,
         dataType : "json",
         success: function(data){
         	if(data.result) setIndieList(data);

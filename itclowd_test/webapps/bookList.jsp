@@ -6,7 +6,7 @@
 <title>Insert title here</title>
 <script type="text/javascript">
 	$(document).ready(function(){
-		reqBookMainIndie(null,null,null);
+		reqBookMainIndie(null,null);
 	});
 	function searchIndie(){
 		var cate = document.getElementById("searchIndieCate");
@@ -14,7 +14,7 @@
 		if ($("#searchIndieQuery").val().replace(/\s/g, "") == ""){
 			alert("검색어를 입력하세요");
 		}else{
-			reqBookMainIndie(1, cate.value, query.value );
+			reqBookMainIndie(1, cate.value, query.value);
 		}
 	}
 </script>

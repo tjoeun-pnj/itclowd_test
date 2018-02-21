@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 
+import com.test.book.model.IndieBookQueryVo;
 import com.test.book.model.IndieBookVo;
 import com.test.util.SqlUtil;
 
@@ -16,21 +17,21 @@ public class BookDao {
 		return bDao;
 	}
 	
-	public List<IndieBookVo> getIndieBookList(HashMap<String, Object> pMap){
+	public List<IndieBookVo> getIndieBookList(IndieBookQueryVo qVo){
 		SqlSession session = null;
 		try {
 			session = SqlUtil.getSession();
-			return session.selectList("book.indieBookList", pMap);
+			return session.selectList("book.indieBookList", qVo);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null; 
 		}
 	}
-	public int getListCount(HashMap<String, Object> pMap) {
+	public int getListCount(IndieBookQueryVo qVo) {
 		SqlSession session = null;
 		try {
 			session = SqlUtil.getSession();
-			return session.selectOne("book.getListCount", pMap);
+			return session.selectOne("book.getListCount", qVo);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return 0;

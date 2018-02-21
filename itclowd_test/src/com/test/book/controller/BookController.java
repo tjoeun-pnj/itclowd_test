@@ -18,10 +18,6 @@ import com.test.book.action.BookMainIndieAction;
 import com.test.book.action.BookMainNewAction;
 import com.test.book.action.IndieBookDetailAction;
 import com.test.book.action.IndieListAction;
-import com.test.member.action.MemberJoinAction;
-import com.test.member.action.MemberJoinIdChkAction;
-import com.test.member.action.MemberJoinNameChkAction;
-import com.test.member.action.MemberLoginAction;
 import com.test.util.ActionForward;
 import com.test.util.inter.Action;
 
@@ -39,7 +35,6 @@ public class BookController extends HttpServlet{
 	}
 
 	private void process(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException{
-		System.out.println("book");
 		req.setCharacterEncoding("utf-8");
 		String requestURI = req.getRequestURI();
 		String contextPath = req.getContextPath();

@@ -17,21 +17,21 @@ public class BookDao {
 		return bDao;
 	}
 	
-	public List<IndieBookVo> getIndieBookList(IndieBookQueryVo qVo){
+	public List<IndieBookVo> getIndieBookList(HashMap<String, Object> pMap){
 		SqlSession session = null;
 		try {
 			session = SqlUtil.getSession();
-			return session.selectList("book.indieBookList", qVo);
+			return session.selectList("book.indieBookList", pMap);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null; 
 		}
 	}
-	public int getListCount(IndieBookQueryVo qVo) {
+	public int getListCount(HashMap<String, Object> pMap) {
 		SqlSession session = null;
 		try {
 			session = SqlUtil.getSession();
-			return session.selectOne("book.getListCount", qVo);
+			return session.selectOne("book.getListCount", pMap);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return 0;

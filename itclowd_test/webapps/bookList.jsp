@@ -6,8 +6,31 @@
 <title>Insert title here</title>
 <script type="text/javascript">
 	$(document).ready(function(){
-		reqBookMainIndie(null,null);
+		reqBookMainIndie(null,null,null);
+		var rating = 0;
+		var clicked = false;
+		$('#indieRating .watcha-star').mouseenter(function(){
+			$(this).parent().children('.watcha-star').removeClass('over horver');
+		     $(this).addClass('over horver').prevAll(".watcha-star").addClass('over horver');
+		     $('#indieRating .watcha-star').mouseleave(function(){
+		    	 if(clicked) {
+		    		 $(this).parent().children('.watcha-star').removeClass('over horver');
+		    		 $('.watcha-star:eq('+rating+')').addClass('over horver').prevAll(".watcha-star").addClass('over horver');
+		    	 }
+		    	 else $(this).parent().children('.watcha-star').removeClass('over horver');
+		     });
+		     return false;
+		});
+		$('#indieRating .watcha-star').click(function(){
+			$(this).parent().children('.watcha-star').removeClass('over horver');
+		     $(this).addClass('over horver').prevAll(".watcha-star").addClass('over horver');
+		     rating = $(this).data()-1;
+		     clicked = true;
+		     return false;
+		});
 	});
+	
+		
 	function searchIndie(){
 		var cate = document.getElementById("searchIndieCate");
 		var query = document.getElementById("searchIndieQuery");
@@ -15,6 +38,20 @@
 			alert("검색어를 입력하세요");
 		}else{
 			reqBookMainIndie(1, cate.value, query.value);
+		}
+	}
+	function indieGradeModal(ib_no, title) {
+		$("body").removeClass("is-menu-visible");
+		var isLogin = <%if(request.getSession() != null && request.getSession().getAttribute("authUser") != null){%>
+		true<%}else{%>false<%}%>
+		if(isLogin){
+			var member = <%=request.getSession().getAttribute("authUser")%>;
+			$('#indieGradeModal').modal('show');
+			document.getElementById("indieGradeNo").value = ib_no;
+			document.getElementById("indieMemberNo").value = member.m_no;
+			document.getElementById("indieGradeTitle").innerHTML = title;
+		}else{
+			alert('로그인 하셔야만 이 기능을 사용하실 수 있습니다.')
 		}
 	}
 </script>
@@ -69,5 +106,38 @@
 	</div>
 </div>
 </div>
+
+  <!-- The Modal1 -->
+  <div class="modal fade" id="indieGradeModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      	<form action="#" method="post">
+      	<input type="hidden" id="indieGradeNo" name="ib_no" value="">
+      	<input type="hidden" id="indieMemberNo" name="m_no" value="">
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">평점주기</h4>
+          <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+        </div>
+        <!-- Modal body -->
+        <div class="modal-body" align="center">
+          <section>
+			<ul class="actions vertical">
+				<h4 id="indieGradeTitle"></h4>
+				<div id="indieRating" class="rating"><span class="watcha-star half left" data-value="1"></span><span class="watcha-star half right" data-value="2"></span><span class="watcha-star half left" data-value="3"></span><span class="watcha-star half right" data-value="4"></span><span class="watcha-star half left" data-value="5"></span><span class="watcha-star half right" data-value="6"></span><span class="watcha-star half left" data-value="7"></span><span class="watcha-star half right" data-value="8"></span><span class="watcha-star half left" data-value="9"></span><span class="watcha-star half right" data-value="10"></span></div>
+				<br/>
+				<textarea cols="2"></textarea>
+				<br>
+				<div>
+				<a class="button big">등록</a>
+				<a class="button big">취소</a>
+				</div>
+			</ul>
+			</section>
+        </div>
+      	</form>
+      </div>
+    </div>
+  </div><!-- modal1 end -->
 </body>
 </html>

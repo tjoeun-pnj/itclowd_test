@@ -5,6 +5,7 @@ import java.util.HashMap;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.test.member.medel.MemberVo;
 import com.test.member.service.MemberLoginService;
@@ -26,7 +27,7 @@ public class MemberLoginAction implements Action {
 		MemberVo mVo = new MemberVo();
 		mVo.setM_id("aa");
 		mVo.setM_pass("aa");
-		req.getSession().setAttribute("authUser", mVo);
+		req.getSession().setAttribute("authUser", new Gson().toJson(mVo));
 		json.addProperty("result", true);
 		res.getWriter().println(json);
 		return forward;

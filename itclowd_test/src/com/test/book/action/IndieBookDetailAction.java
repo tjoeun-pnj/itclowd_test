@@ -18,7 +18,6 @@ public class IndieBookDetailAction implements Action {
 		IndieBookDetailService ibService = new IndieBookDetailService();
 		ActionForward forward = new ActionForward();
 		req.setAttribute("article", new Gson().toJson(ibService.indieBookDetail(ib_no)));
-		req.setAttribute("aa", "aa");
 		forward.setPath("../indieDetail.jsp");
 		return forward;
 	}

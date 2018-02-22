@@ -1,0 +1,24 @@
+table.type04 {
+    border-collapse: separate;
+    border-spacing: 1px;
+    text-align: left;
+    line-height: 1.0;
+    border-top: 1px solid #ccc;
+    margin: 10px 10px;
+}
+table.type04 th {
+    width: 30px;
+    padding: 10px;
+    font-weight: bold;
+    vertical-align: top;
+    border-bottom: 1px solid #ccc;
+    background: #F3F2F2;
+
+}
+table.type04 td {
+    width: 150px;
+    padding: 10px;
+    vertical-align: top;
+    border-bottom: 1px solid #ccc;
+}
+

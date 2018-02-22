@@ -48,9 +48,9 @@
 
  <mappers>
 
-  <mapper resource="com/test/sql/board.xml" />
   <mapper resource="com/test/sql/member.xml" />
   <mapper resource="com/test/sql/book.xml" />
+  <mapper resource="com/test/sql/qnaboard.xml" />
 
  </mappers>
 

@@ -39,3 +39,10 @@
     padding: 20px;
 }
 
+@font-face {
+  font-family: rosarina; 
+  src:url(rosarina.ttf) format('truetype'); 
+}
+#logo{
+ font-family: rosarina, sans-serif;
+}

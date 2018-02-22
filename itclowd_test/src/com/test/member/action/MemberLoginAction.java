@@ -22,7 +22,23 @@ public class MemberLoginAction implements Action {
 		lData.put("m_id", req.getParameter("m_id"));
 		lData.put("m_pass", req.getParameter("m_pass"));
 		
+		
+		MemberVo mVo = mlService.loginMember(lData);
 		JsonObject json = new JsonObject();
+		res.setContentType("application/x-json;charset=utf-8");
+		if(mVo == null) {
+			json.addProperty("result", false);
+			res.getWriter().println(json);
+			return forward;
+		} else {
+			req.getSession().setAttribute("authUser", mVo);
+			json.addProperty("result", true);
+			res.getWriter().println(json);
+			return forward;
+		}
+		
+		// 계속 로그인 트루
+		/*JsonObject json = new JsonObject();
 		res.setContentType("application/x-json;charset=utf-8");
 		MemberVo mVo = new MemberVo();
 		mVo.setM_id("aa");
@@ -30,22 +46,7 @@ public class MemberLoginAction implements Action {
 		req.getSession().setAttribute("authUser", new Gson().toJson(mVo));
 		json.addProperty("result", true);
 		res.getWriter().println(json);
-		return forward;
-		
-//		MemberVo mVo = mlService.loginMember(lData);
-//		JsonObject json = new JsonObject();
-//		res.setContentType("application/x-json;charset=utf-8");
-//		if(mVo == null) {
-//			json.addProperty("result", false);
-//			res.getWriter().println(json);
-//			return forward;
-//		} else {
-//			req.getSession().setAttribute("authUser", mVo);
-//			json.addProperty("result", true);
-//			res.getWriter().println(json);
-//			return forward;
-//		}
-		
+		return forward;*/
 	}
 
 }

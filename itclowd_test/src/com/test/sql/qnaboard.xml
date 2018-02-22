@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+
+<mapper namespace="qnaboard">
+ 
+<select id="selectArticleList" parameterType="java.util.HashMap" resultType="com.test.board.model.BoardBean">
+	select board_num, q.m_no, m.m_id, board_pass, board_subject, board_content, board_re_ref, board_re_lev, board_re_seq, board_readcount, board_date, q.ib_no, ib.ib_img
+	from select @ROWNUM:=@ROWNUM+1 AS ROWNUM, qna.* from qna, (select @ROWNUM:=0)R
+				order by board_re_ref asc, board_re_seq desc) q, member m, indie_book ib
+	where q.m_no = m.m_no and q.ib_no = ib.ib_no
+	<if test="m_no != 0 and m_no != null">
+		and q.m_no = #{m_no}
+	</if>
+	<if test="ib_no != 0 and ib_no != null">
+		and q.ib_no = #{ib_no}
+	</if>
+	<if test="query != 'null'">
+		<if test="cate == 0">
+		and board_subject like CONCAT('%',#{query},'%') or board_content like CONCAT('%',#{query},'%')
+		</if>
+		<if test="cate == 1">
+		and board_subject like CONCAT('%',#{query},'%')
+		</if>
+		<if test="cate == 2">
+		and board_content like CONCAT('%',#{query},'%')
+		</if>
+	</if>
+	GROUP BY ib_no
+	 limit #{startRow}, #{limit};
+</select>
+<select id="selectListCount" parameterType="java.util.HashMap" resultType="int">
+	select count(board_num) from qna where 0 = 0
+	<if test="m_no != 0 and m_no != null">
+		and m_no = #{m_no}
+	</if>
+	<if test="ib_no != 0 and ib_no != null">
+		and ib_no = #{ib_no}
+	</if>
+	<if test="query != 'null'">
+		<if test="cate == 0">
+		and board_subject like CONCAT('%',#{query},'%') or board_content like CONCAT('%',#{query},'%')
+		</if>
+		<if test="cate == 1">
+		and board_subject like CONCAT('%',#{query},'%')
+		</if>
+		<if test="cate == 2">
+		and board_content like CONCAT('%',#{query},'%')
+		</if>
+	</if>
+	;
+</select>
+<select id="selectArticle" parameterType="int" resultType="com.test.board.model.BoardBean">
+	select * from qna where board_num = #{board_num}
+</select>
+<select id="insertref" resultType="int">
+	select max(board_num)+1 from qna
+</select>
+<update id="updateref">
+	update qna 
+		set board_re_seq = board_re_seq + 1 
+		where board_re_ref = #{re_ref} and board_re_seq > #{re_seq}
+</update>
+<insert id="insertArticle" parameterType="java.util.HashMap">
+	insert into qna(board_num, m_no, board_pass, board_subject,board_content, board_re_ref, board_re_lev, board_re_seq, board_readcount,board_date)
+	values(#{board_num}, #{m_no}, #{board_pass}, #{board_subject}, #{board_content}, #{board_re_ref}, 0, 0, 0, now());
+</insert>
+<select id="insertArticleNum">
+	select max(board_num) from qna;
+</select>
+<update id="updateArticle" parameterType="com.test.board.model.BoardBean">
+	update qna set board_subject = #{board_subject}, board_content = #{board_content} where board_num = #{board_num}
+</update>
+<delete id="deleteArticle" parameterType="int">
+	delete from qna where board_num = #{board_num}
+</delete>
+<update id="updateReadCount" parameterType="int">
+	update qna set board_readcount = board_readcount + 1 
+	where board_num = #{board_num};
+</update>
+<select id="isArticleBoardWriter" parameterType="int" resultType="com.test.board.model.BoardBean">
+	select board_pass from qna where board_num = #{board_num}
+</select>
+</mapper>

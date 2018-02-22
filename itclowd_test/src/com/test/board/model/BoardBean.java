@@ -1,19 +1,29 @@
-package com.test.vo;
+package com.test.board.model;
 
 import java.util.Date;
 
 public class BoardBean {
-	private int BOARD_NUM        ;
-	private String BOARD_NAME       ;
-	private String BOARD_PASS       ;
-	private String BOARD_SUBJECT    ;
-	private String BOARD_CONTENT    ;
-	private String BOARD_FILE       ;
-	private int BOARD_RE_REF     ;
-	private int BOARD_RE_LEV     ;
-	private int BOARD_RE_SEQ     ;
-	private int BOARD_READCOUNT  ;
-	private Date BOARD_DATE       ;
+	
+	
+	private int BOARD_NUM;
+	private int ROWNUM;
+	private String BOARD_NAME;
+	private String BOARD_PASS;
+	private String BOARD_SUBJECT;
+	private String BOARD_CONTENT;
+	public int getROWNUM() {
+		return ROWNUM;
+	}
+	public void setROWNUM(int rOWNUM) {
+		ROWNUM = rOWNUM;
+	}
+	private String BOARD_FILE;
+	private int BOARD_RE_REF ;
+	private int BOARD_RE_LEV;
+	private int BOARD_RE_SEQ;
+	private int BOARD_READCOUNT;
+	private Date BOARD_DATE;
+	
 	
 	public int getBOARD_NUM() {
 		return BOARD_NUM;
@@ -81,7 +91,9 @@ public class BoardBean {
 	public void setBOARD_DATE(Date bOARD_DATE) {
 		BOARD_DATE = bOARD_DATE;
 	}
+
 	
-	
-	
+
 }
+
+

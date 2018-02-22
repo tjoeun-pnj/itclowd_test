@@ -1,0 +1,15 @@
+<Context>
+   <Resource
+      name="jdbc/Board"
+      auth="Container"
+      type="javax.sql.DataSource"
+      username="root"
+      password="12345"
+      driverClassName="com.mysql.jdbc.Driver"
+      factory="org.apache.tomcat.dbcp.dbcp2.BasicDataSourceFactory"
+      url="jdbc:mysql://192.168.0.79:3306/itcrowd"
+      maxActive="50"
+      
+     />
+
+</Context>

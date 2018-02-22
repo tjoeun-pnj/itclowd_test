@@ -219,10 +219,10 @@ public class BoardDAO {
 		int result = 0;
 		try {
 			session = SqlUtil.getSession();
-			int num = session.selectOne("qnaboard.insertArticleNum");
+			int num = (Integer)session.selectOne("qnaboard.insertArticleNum");
 			num += 1;
-			article.setBOARD_RE_REF(num);
-			article.setBOARD_NUM(num);
+			article.setBoard_re_ref(num);
+			article.setBoard_num(num);
 			result = session.insert("qnaboard.insertArticle", article);
 			session.commit();
 		} catch (Exception e) {
@@ -296,19 +296,19 @@ public class BoardDAO {
 		int insertCount = 0;
 		int num = 0;
 		HashMap<String, Integer> pMap = new HashMap<String, Integer>();
-		pMap.put("re_ref", article.getBOARD_RE_REF());
-		pMap.put("re_lev", article.getBOARD_RE_LEV());
-		pMap.put("re_seq", article.getBOARD_RE_SEQ());
+		pMap.put("re_ref", article.getBoard_re_ref());
+		pMap.put("re_lev", article.getBoard_re_lev());
+		pMap.put("re_seq", article.getBoard_re_seq());
 		try {
 			session = SqlUtil.getSession();
 			num = session.selectOne("qnaboard.insertref");
 			if(num==0) num = 1;
-			article.setBOARD_RE_REF(num);
+			article.setBoard_re_ref(num);
 			int updateCount = session.update("qnaboard.updateref", pMap);
 			if(updateCount > 0) session.commit();
-			article.setBOARD_RE_SEQ(pMap.get("re_seq")+1);
-			article.setBOARD_RE_LEV(pMap.get("re_lev")+1);
-			insertCount = session.insert("qnaboard.insertArticle", article);
+			article.setBoard_re_seq(pMap.get("re_seq")+1);
+			article.setBoard_re_lev(pMap.get("re_lev")+1);
+			insertCount = session.insert("qnaboard.insertReplyArticle", article);
 			session.commit();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -447,7 +447,7 @@ public class BoardDAO {
 		try {
 			session = SqlUtil.getSession();
 			BoardBean article = session.selectOne("qnaboard.isArticleBoardWriter", board_num);
-			if(pass.equals(article.getBOARD_PASS())) isWriter = true;
+			if(pass.equals(article.getBoard_pass())) isWriter = true;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

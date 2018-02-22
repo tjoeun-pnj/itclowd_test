@@ -60,25 +60,25 @@
          <table class="type04" sytle="width: 100% align:center;">
          <tr>
     	 	<th>제목 </th>
-    	 	<td><%=article.getBOARD_SUBJECT() %></td>
+    	 	<td><%=article.getBoard_subject() %></td>
     	 </tr>
     	  <tr>
     	 	<th>작성자</th>
-    	 	<td><%=article.getBOARD_NAME() %></td>
+    	 	<td><%=article.getBoard_name() %></td>
     	 </tr>
     	 
 
           <tr>
-    	 	<td colspan="2"><textarea name="Board_CONTENT" id="" cols="100" rows="10" readonly="readonly"><%=article.getBOARD_CONTENT()%>
+    	 	<td colspan="2"><textarea name="Board_CONTENT" id="" cols="100" rows="10" readonly="readonly"><%=article.getBoard_content()%>
     	 	</textarea>
     	 	</td>
     	 </tr>
     	
     	<tr align="center">
     	   <td colspan = "2">
-    	   <button class="button btn" type="button" onclick="location.href='boardReplyForm.bo?board_num=<%=article.getBOARD_NUM()%>&page=<%=nowPage%>'">답변</button>
-    	   <button class="button btn" type="button" onclick="location.href='boardModifyForm.bo?board_num=<%=article.getBOARD_NUM()%>&page=<%=nowPage%>'">수정</button>
-    	   <button class="button btn" type="button" onclick="location.href='boardDeleteForm.bo?board_num=<%=article.getBOARD_NUM()%>&page=<%=nowPage%>'">삭제</button>
+    	   <button class="button btn" type="button" onclick="location.href='boardReplyForm.bo?board_num=<%=article.getBoard_num()%>&page=<%=nowPage%>'">답변</button>
+    	   <button class="button btn" type="button" onclick="location.href='boardModifyForm.bo?board_num=<%=article.getBoard_num()%>&page=<%=nowPage%>'">수정</button>
+    	   <button class="button btn" type="button" onclick="location.href='boardDeleteForm.bo?board_num=<%=article.getBoard_num()%>&page=<%=nowPage%>'">삭제</button>
     	   <button class="button btn" type="button" onclick="location.href='boardList.bo?page=<%=nowPage%>'">목록</button>&nbsp;&nbsp;
     	   </td>
     	 </tr>

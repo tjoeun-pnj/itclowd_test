@@ -1,4 +1,8 @@
+<%@page import="com.test.member.medel.MemberVo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%
+	MemberVo mVo =  (MemberVo)request.getSession().getAttribute("authUser");
+%>
 <!DOCTYPE html> 
 <head> 
 <meta charset="utf-8"> 
@@ -44,14 +48,14 @@
  <div class="guideBook">
         <div class="center-box">
     <div class="panel-heading"><h2>&nbsp;&nbsp;&nbsp;Q & A</h2></div> 
-
     <div class="container"> 
-    	<form action="boardWrtiePro.bo" method="post" name="boardform">			
+    	<form action="boardWrtiePro.bo" method="post" name="boardform">	
+    	<input type="hidden" name="m_no" value="<%=mVo.getM_no()%>">		
 			<div class="row">  
 			  <div class="col-md-6"> 
 			  <div class="form-group"> 
 			   <label for="BOARD_NAME">작성자</label> 
-			   <input type="text" class="form-control" name="BOARD_NAME" id="BOARD_NAME" placeholder="Enter name" required="required"> 
+			   <input type="text" class="form-control" name="BOARD_NAME" id="BOARD_NAME" disabled="disabled" placeholder="Enter name" value="<%=mVo.getM_name() %>"> 
 		    </div> 
 			 </div> 
 
@@ -59,7 +63,7 @@
 		    <div class="col-md-6"> 
  			  <div class="form-group"> 
 				<label for="pass">비밀번호</label> 
-				<input type="password" class="form-control" name="BOARD_PASS" id="BOARD_PASS" placeholder="Enter password" required="required"> 
+				<input type="password" class="form-control" name="BOARD_PASS" id="BOARD_PASS" placeholder="Enter password"> 
 			  </div> 
 		    </div> 
     

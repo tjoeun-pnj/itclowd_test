@@ -2,6 +2,7 @@
 <%@page import="com.test.board.model.BoardBean"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="u" tagdir="/WEB-INF/tags" %>
 <%
      ArrayList<BoardBean> articleList = (ArrayList<BoardBean>)request.getAttribute("articleList");
      PageInfo pageInfo = (PageInfo)request.getAttribute("pageInfo");
@@ -50,7 +51,6 @@
 } 
 
 </style>
-
 <body>
 
 <body id="body">
@@ -85,8 +85,8 @@
 <%-- 		      			<td><%= articleList.get(i).getROWNUM()%></td>
  --%>		      			<td><%= listNum--%></td>  <!-- 역순을 의미 -->
 		      			<td>
-		      			   <% if(articleList.get(i).getBOARD_RE_LEV() != 0) {%>
-		      			      <% for(int j=0; j<=articleList.get(i).getBOARD_RE_LEV()*2; j++) { %>
+		      			   <% if(articleList.get(i).getBoard_re_lev() != 0) {%>
+		      			      <% for(int j=0; j<=articleList.get(i).getBoard_re_lev()*2; j++) { %>
 		      			        &nbsp; 
 		      			      <% } %>
        <img src="//img0001.echosting.cafe24.com/front/type_b/image/common/icon_re.gif"  alt="답변" /> 
@@ -94,15 +94,15 @@
 		      			    <% } else { %>
       <!-- <img src="//img0001.echosting.cafe24.com/front/type_b/image/common/icon_re.gif"  alt="답변" />  -->
 		      			      <% } %>
-		      			<a href="boardDetail.bo?board_num=<%=articleList.get(i).getBOARD_NUM() %>&page=<%=nowPage%>">
-		      			    <%= articleList.get(i).getBOARD_SUBJECT()%>
+		      			<a href="boardDetail.bo?board_num=<%=articleList.get(i).getBoard_num() %>&page=<%=nowPage%>">
+		      			    <%= articleList.get(i).getBoard_subject()%>
 		      			</a>
 		     <img src="//img0001.echosting.cafe24.com/front/type_b/image/common/icon_lock.gif"  alt="비밀글" />
 		      			</td>
-		      			<td><%= articleList.get(i).getBOARD_FILE() %></td>		
-		      			<td><%= articleList.get(i).getBOARD_NAME() %></td>
-		      			<td><%= articleList.get(i).getBOARD_DATE() %></td>
-		      			<td><%= articleList.get(i).getBOARD_READCOUNT() %></td>
+		      			<td><%= articleList.get(i).getIb_img() %></td>		
+		      			<td><%= articleList.get(i).getM_name() %></td>
+		      			<td><%= articleList.get(i).getBoard_date() %></td>
+		      			<td><%= articleList.get(i).getBoard_readcount() %></td>
 		      		</tr>
 	      		<% } %>
          </tbody>	
@@ -161,10 +161,12 @@
          href="boardWriteForm.bo" 
         <%} %>
         class="btn btn-default">글쓰기</a> --%>
-        
+        <u:isLogin>
         <a href="boardWriteForm.bo" class="button btn" >글쓰기</a>
-        
-        
+        </u:isLogin>
+        <u:notLogin>
+        <a onclick="alert('로그인 하세요');return false;" class="button btn" >글쓰기</a>
+        </u:notLogin>
         
       </center>
       

@@ -1,8 +1,12 @@
+<%@page import="com.test.member.medel.MemberVo"%>
 <%@page import="com.test.board.model.BoardBean"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%
 	BoardBean article = (BoardBean)request.getAttribute("article");
 	String nowPage = (String)request.getAttribute("page");
+	MemberVo mVo = (MemberVo)request.getSession().getAttribute("authUser");
+	int m_no = 0;
+	if(mVo != null) m_no = mVo.getM_no();
 %>
 <!DOCTYPE>
 <html>
@@ -61,11 +65,12 @@
 		<form action="boardReplyPro.bo" method="post" name="replyform">
 			
 			<input type="hidden" name="page" value="<%=nowPage%>"/>
-			<input type="hidden" name="BOARD_NUM" value="<%=article.getBOARD_NUM()%>"/>
-			<input type="hidden" name="BOARD_RE_REF" value="<%=article.getBOARD_RE_REF()%>"/>
-			<input type="hidden" name="BOARD_RE_LEV" value="<%=article.getBOARD_RE_LEV()%>"/>
-			<input type="hidden" name="BOARD_RE_SEQ" value="<%=article.getBOARD_RE_SEQ()%>"/>
-	  	 
+			<input type="hidden" name="BOARD_NUM" value="<%=article.getBoard_num()%>"/>
+			<input type="hidden" name="BOARD_RE_REF" value="<%=article.getBoard_re_ref()%>"/>
+			<input type="hidden" name="BOARD_RE_LEV" value="<%=article.getBoard_re_lev()%>"/>
+			<input type="hidden" name="BOARD_RE_SEQ" value="<%=article.getBoard_re_seq()%>"/>
+			<input type="hidden" name="m_no" value="<%=m_no%>"/>
+	  	 	
 	  	 <div class="row"> 
 			 <div class="col-md-6"> 
 			  <div class="form-group"> 

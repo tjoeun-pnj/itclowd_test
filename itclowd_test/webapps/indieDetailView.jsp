@@ -58,7 +58,10 @@
 	
 	function goBasket(ib_no){
 		var member = <%=request.getSession().getAttribute("authUser")%>;
-		if(member == null) return; 
+		if(member == null){
+			alert('로그인 하십시오~');
+			return; 
+		}
 		var form = document.createElement("form");
         form.setAttribute("method", 'post');
         form.setAttribute("action", '/take.ba');

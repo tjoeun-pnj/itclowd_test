@@ -63,13 +63,13 @@
    <div class="panel-heading"><h2>&nbsp;&nbsp;&nbsp;Q & A 수정</h2></div> 
   <div class="container"> 
    	<form action="boardModifyPro.bo" method="post" name="modifyform">
-    <input type="hidden" name="BOARD_NUM" value="<%=article.getBOARD_NUM()%>" />
+    <input type="hidden" name="BOARD_NUM" value="<%=article.getBoard_num()%>" />
 
 			<div class="row"> 
 			  <div class="col-md-6"> 
 			  <div class="form-group"> 
 			   <label for="BOARD_NAME">작성자</label> 
-			   <input type="text" class="form-control" name="BOARD_NAME" value="<%=article.getBOARD_NAME()%>" />
+			   <input type="text" class="form-control" name="BOARD_NAME" value="<%=article.getBoard_name()%>" />
 			 </div> 
 			</div> 
 		    	  	
@@ -84,12 +84,12 @@
 
 			<div class="form-group"> 
 			  <label for="BOARD_SUBJECT">제목</label> 
-			  <input type="text" class="form-control" name ="BOARD_SUBJECT" value="<%=article.getBOARD_SUBJECT()%>"> 
+			  <input type="text" class="form-control" name ="BOARD_SUBJECT" value="<%=article.getBoard_subject()%>"> 
 			</div> 
     	  	
 			<div class="form-group"> 
 			  <label for="BOARD_CONTENT">내용</label> 
-			  <textarea class="form-control" rows="10" name="BOARD_CONTENT" ><%=article.getBOARD_CONTENT()%></textarea>
+			  <textarea class="form-control" rows="10" name="BOARD_CONTENT" ><%=article.getBoard_content()%></textarea>
 			</div>  
  
      

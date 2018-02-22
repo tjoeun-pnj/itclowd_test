@@ -18,14 +18,14 @@ public class BoardReplyProAction implements Action {
 		BoardBean article = new BoardBean();
 		String nowPage = req.getParameter("page"); 
 		
-	    article.setBOARD_NUM(Integer.parseInt(req.getParameter("BOARD_NUM")));
-	    article.setBOARD_NAME(req.getParameter("BOARD_NAME"));
-	    article.setBOARD_PASS(req.getParameter("BOARD_PASS"));
-	    article.setBOARD_SUBJECT(req.getParameter("BOARD_SUBJECT"));
-	    article.setBOARD_CONTENT(req.getParameter("BOARD_CONTENT"));	    
-	    article.setBOARD_RE_REF(Integer.parseInt(req.getParameter("BOARD_RE_REF")));
-	    article.setBOARD_RE_LEV(Integer.parseInt(req.getParameter("BOARD_RE_LEV")));
-	    article.setBOARD_RE_SEQ(Integer.parseInt(req.getParameter("BOARD_RE_SEQ")));
+	    article.setBoard_num(Integer.parseInt(req.getParameter("BOARD_NUM")));
+	    article.setBoard_name(req.getParameter("BOARD_NAME"));
+	    article.setBoard_pass(req.getParameter("BOARD_PASS"));
+	    article.setBoard_subject(req.getParameter("BOARD_SUBJECT"));
+	    article.setBoard_content(req.getParameter("BOARD_CONTENT"));	    
+	    article.setBoard_re_ref(Integer.parseInt(req.getParameter("BOARD_RE_REF")));
+	    article.setBoard_re_lev(Integer.parseInt(req.getParameter("BOARD_RE_LEV")));
+	    article.setBoard_re_seq(Integer.parseInt(req.getParameter("BOARD_RE_SEQ")));
 	    
 		BoardReplyProService boardReplyProService = new BoardReplyProService();
 		boolean isReplySuccess = boardReplyProService.replyArticle(article);

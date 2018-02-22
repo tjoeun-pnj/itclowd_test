@@ -32,10 +32,10 @@ public class BoardModifyProAction implements Action {
 			out.println("history.back();");
 			out.print("</script>");
 		}else {
-			article.setBOARD_NUM(board_num);
-			article.setBOARD_SUBJECT(req.getParameter("BOARD_SUBJECT"));
-			article.setBOARD_CONTENT(req.getParameter("BOARD_CONTENT"));
-			System.out.println(article.getBOARD_SUBJECT());
+			article.setBoard_num(board_num);
+			article.setBoard_subject(req.getParameter("BOARD_SUBJECT"));
+			article.setBoard_content(req.getParameter("BOARD_CONTENT"));
+			System.out.println(article.getBoard_subject());
 			isModifySuccess = boardModifyProService.modifyArticle(article);
 			
 			
@@ -49,7 +49,7 @@ public class BoardModifyProAction implements Action {
 			}else {
 				forward = new ActionForward();
 				forward.setRedirect(true);
-				forward.setPath("boardDetail.bo?board_num=" + article.getBOARD_NUM());
+				forward.setPath("boardDetail.bo?board_num=" + article.getBoard_num());
 			}
 
 		} 

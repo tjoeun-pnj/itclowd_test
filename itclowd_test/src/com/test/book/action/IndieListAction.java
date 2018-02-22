@@ -24,7 +24,7 @@ public class IndieListAction implements Action {
 		int limit = 20;
 		int cate = Integer.parseInt(req.getParameter("cate"));
 		String query = req.getParameter("query");
-		if(query.equals("undefined")) query = null;
+		if(query == null || query.equals("undefined")) query = null;
 		pMap.put("startRow", (page-1)*limit );
 		pMap.put("limit", limit );
 		pMap.put("cate",cate);

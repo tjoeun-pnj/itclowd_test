@@ -53,6 +53,7 @@ public class IndieListAction implements Action {
 			jObj.addProperty("result", true);
 			jObj.addProperty("json", json);
 			jObj.addProperty("page", pageJson);
+			req.getSession().setAttribute("indiePage",pageJson);
 		} else {
 			jObj.addProperty("result", false);
 		}

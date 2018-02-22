@@ -35,4 +35,8 @@
 	on a.ib_no = b.ib_no
 	where a.ib_no = #{ib_no};
 </select>
+<insert id="insertIndieGrade" parameterType="java.util.HashMap">
+	insert into indie_assessment(ib_no, m_no, ia_grade, ia_content)
+	values(#{ib_no}, #{m_no}, #{ia_grade}, #{ia_content});
+</insert>
 </mapper>

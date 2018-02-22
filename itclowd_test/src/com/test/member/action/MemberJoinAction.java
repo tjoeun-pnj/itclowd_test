@@ -24,7 +24,6 @@ public class MemberJoinAction implements Action {
 		mVo.setM_id(req.getParameter("m_id"));
 		mVo.setM_name(req.getParameter("m_name"));
 		mVo.setM_pass(req.getParameter("m_pass"));
-		System.out.println(mVo.getM_id());
 		MemberJoinServece mjService = new MemberJoinServece();
 		boolean isJoinSuccess = mjService.joinMember(mVo);
 		JsonObject json = new JsonObject();

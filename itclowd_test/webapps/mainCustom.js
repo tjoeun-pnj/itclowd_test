@@ -106,7 +106,7 @@ function checkJoin(inputObj, req){
 	if(req == 'namechk') document.getElementById("nameChk").innerHTML = '검사중';;
 	$.ajax({
         type:"POST",
-        url:"./member/"+req,
+        url:"/member/"+req,
         data : inputObj.name+'='+$('#'+inputObj.id).val(),
         dataType : "json",
         success: function(data){
@@ -156,7 +156,7 @@ function joinMember(){
 	if (!($("#join_pass").val() == $("#join_pass_chk").val())) return;
     $.ajax({
         type:"POST",
-        url:"./member/join",
+        url:"/member/join",
         data : $("#joinForm").serialize(),
         dataType : "json",
         success: function(data){
@@ -207,7 +207,7 @@ function loginMember(){
 	}
 	$.ajax({
         type:"POST",
-        url:"./member/login",
+        url:"/member/login",
         data : $("#loginForm").serialize(),
         dataType : "json",
         success: function(data){
@@ -240,7 +240,7 @@ function bookReadyMain() {
 	// 베스트
 	$.ajax({
         type:"POST",
-        url:"./book/mainBest",
+        url:"/book/mainBest",
         dataType : "json",
         success: function(data){
         	if(data.result) setBookBest(data.json);
@@ -253,7 +253,7 @@ function bookReadyMain() {
 	// 신간
 	$.ajax({
 		type:"POST",
-		url:"./book/mainNew",
+		url:"/book/mainNew",
 		dataType : "json",
 		success: function(data){
 			if(data.result) setBookNew(data.json);
@@ -266,7 +266,7 @@ function bookReadyMain() {
 	// 독립
 	$.ajax({
 		type:"POST",
-		url:"./book/mainBest",
+		url:"/book/mainBest",
 		dataType : "json",
 		success: function(data){
 			if(data.result) setBookIndie(data.json);
@@ -342,7 +342,7 @@ function reqBookMainIndie(page, cate, query){
 function setIndieList(json){
 	var list = JSON.parse(json.json);
 	var page = JSON.parse(json.page);
-	console.log(page);
+	
 	var bookContainer = document.getElementById('bookIndie-grid-container');
 	var pageContainer = document.getElementById('pageContainer');
 	var setHtml = "";
@@ -399,5 +399,4 @@ function indieDetail(ib_no){
 function replaceAll(str, searchStr, replaceStr) {
     return str.split(searchStr).join(replaceStr);
 }
-
 

@@ -53,11 +53,11 @@
 								<table width="100%" id="profile_table">
 									<tr>
 									<td width="25%%">
-									<img src="images/lion_profile.gif" width="60x" height="60px">
+									<img src="/images/lion_profile.gif" width="60x" height="60px">
 									</td>
 									<td width="25%">누구누구님</td>
 									<td align="right" rowspan="2">
-									<img src="images/lion_profile.gif" width="45x" height="45px">
+									<img src="/images/lion_profile.gif" width="45x" height="45px">
 									</td>
 									</tr>
 								</table>
@@ -67,19 +67,19 @@
 								<ul class="links">
 									<li>
 										<a>
-										<img width="60x" height="60px" alt="" src="images/lion_profile.gif">
+										<img width="60x" height="60px" alt="" src="/images/lion_profile.gif">
 										친구친구님
 										</a>
 									</li>
 									<li>
 										<a>
-										<img width="60x" height="60px" alt="" src="images/lion_profile.gif">
+										<img width="60x" height="60px" alt="" src="/images/lion_profile.gif">
 										친구친구님
 										</a>
 									</li>
 									<li>
 										<a>
-										<img width="60x" height="60px" alt="" src="images/lion_profile.gif">
+										<img width="60x" height="60px" alt="" src="/images/lion_profile.gif">
 										친구친구님
 										</a>
 									</li>

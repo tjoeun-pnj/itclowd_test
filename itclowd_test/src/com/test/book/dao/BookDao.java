@@ -29,6 +29,7 @@ public class BookDao {
 	}
 	public int getListCount(HashMap<String, Object> pMap) {
 		SqlSession session = null;
+		
 		try {
 			session = SqlUtil.getSession();
 			return session.selectOne("book.getListCount", pMap);
@@ -46,6 +47,20 @@ public class BookDao {
 			e.printStackTrace();
 			return null;
 		}
+	}
+	public int insertIndieGrade(HashMap<String, Object> pMap) {
+		SqlSession session = null;
+		int result = 0;
+		try {
+			session = SqlUtil.getSession();
+			result = session.insert("book.insertIndieGrade", pMap);
+			session.commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+			result = 0;
+			session.rollback();
+		}
+		return result;
 	}
 	
 }

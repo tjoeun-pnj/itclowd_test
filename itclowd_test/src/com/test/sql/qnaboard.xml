@@ -8,7 +8,7 @@
  
 <select id="selectArticleList" parameterType="java.util.HashMap" resultType="com.test.board.model.BoardBean">
 	select board_num, q.m_no, m.m_id, board_pass, board_subject, board_content, board_re_ref, board_re_lev, board_re_seq, board_readcount, board_date, q.ib_no, ib.ib_img
-	from select @ROWNUM:=@ROWNUM+1 AS ROWNUM, qna.* from qna, (select @ROWNUM:=0)R
+	from (select @ROWNUM:=@ROWNUM+1 AS ROWNUM, qna.* from qna, (select @ROWNUM:=0)R
 				order by board_re_ref asc, board_re_seq desc) q, member m, indie_book ib
 	where q.m_no = m.m_no and q.ib_no = ib.ib_no
 	<if test="m_no != 0 and m_no != null">

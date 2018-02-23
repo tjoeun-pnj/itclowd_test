@@ -302,6 +302,7 @@ public class BoardDAO {
 		try {
 			session = SqlUtil.getSession();
 			num = session.selectOne("qnaboard.insertref");
+			System.out.println(num);
 			if(num==0) num = 1;
 			article.setBoard_re_ref(num);
 			int updateCount = session.update("qnaboard.updateref", pMap);

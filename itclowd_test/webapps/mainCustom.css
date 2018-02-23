@@ -77,6 +77,15 @@
 .center-box {
 	position: absolute;   /* 추가 */
     width: 1000px;
+    height: 1500px;
+    top: 0;               /* 추가 */
+    left: 0;              /* 추가 */ 
+    right: 0;             /* 추가 */
+    margin: auto;     /* 추가 */
+}
+.center-box-book {
+	position: absolute;   /* 추가 */
+    width: 1000px;
     height: 1300px;
     top: 0;               /* 추가 */
     left: 0;              /* 추가 */ 
@@ -93,4 +102,8 @@
 
 .sections-wrapper{
 	padding: 0;
+}
+#body{
+  background-color: #f5f0ef;
+  background-size: auto;
 }

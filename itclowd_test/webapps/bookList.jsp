@@ -100,7 +100,7 @@
 </head>
 <body>
 	<div class="guideBook">
-        <div class="center-box">
+        <div class="center-box-book">
         <div id="bookCate">
         <ul>
         <li><a onclick="reqBookMainIndie(1, 0,null);">전체</a></li>

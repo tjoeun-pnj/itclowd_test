@@ -4,8 +4,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>독립책</title>
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<!-- <script src="assets/js/jquery.min.js"></script> -->
+<!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> -->
+<script src="assets/js/jquery.min.js"></script>
 <link rel="stylesheet" href="menubarcss.css" />
 <link rel="stylesheet" href="assets/css/mainmenu.css" />
 <link rel="stylesheet" href="what2.css" />
@@ -31,8 +31,8 @@
 		<jsp:include page="/bookList.jsp" flush="false" />				
 	</div>
 	
-	<div id="footer">
-		풋터
+	<div>
+		<jsp:include page="/footer.jsp" flush="false" />				
 	</div>
 </body>
 </html>

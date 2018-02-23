@@ -21,7 +21,7 @@
     </div>
     <div id="menu-container"> 
         <header id="header">
-						<h1><a href="/main.jsp">itcrowd</a></h1>
+						<h1><a href="/main.jsp">보담</a></h1>
 						<nav class="links">
 							<ul>
 								<li><a href="#">취향테스트</a></li>
@@ -105,6 +105,7 @@
 							</section>
 						</u:notLogin>
 					</section>
+    </div>
 <div id="modal_container">
 <!-- The Modal1 -->
   <div class="modal fade" id="myModal">
@@ -164,7 +165,6 @@
     </div>
   </div><!-- modal1 end -->
 </div>
-    </div>
 
 </body>
 

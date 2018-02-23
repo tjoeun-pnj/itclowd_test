@@ -59,7 +59,7 @@
 	</div>
 <div id="blog-container"> 
    
-   <div class="panel-heading"><h2>&nbsp;&nbsp;&nbsp;Q & A 수정</h2></div> 
+   <div class="panel-heading" style="text-align: center;"><h2>&nbsp;&nbsp;&nbsp;Q & A 수정</h2></div> 
   <div class="container"> 
    	<form action="boardModifyPro.bo" method="post" name="modifyform">
     <input type="hidden" name="BOARD_NUM" value="<%=article.getBoard_num()%>" />

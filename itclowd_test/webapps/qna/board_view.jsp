@@ -45,8 +45,9 @@
 	</div>
  
  <div id="blog-container">
+ 
 
-         <table class="type04" sytle="width: 100% align:center;">
+         <table class="type04" sytle="width: 70% align:center;">
          <tr>
     	 	<th>제목 </th>
     	 	<td><%=article.getBoard_subject() %></td>

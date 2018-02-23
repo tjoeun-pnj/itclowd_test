@@ -58,7 +58,7 @@
 		var isLogin = <%if(request.getSession() != null && request.getSession().getAttribute("authUser") != null){%>
 		true<%}else{%>false<%}%>
 		if(isLogin){
-			var member = <%=request.getSession().getAttribute("authUser")%>;
+			var member = <%=request.getSession().getAttribute("authUserJson")%>;
 			$('#indieGradeModal').modal('show');
 			document.getElementById("indieGradeNo").value = ib_no;
 			document.getElementById("indieMemberNo").value = member.m_no;
@@ -131,18 +131,14 @@
         			</tr>
         		</table>
         </div>
-      <ol class="sections-wrapper">
-    <li id="evalmore-section" class="evalmore responsive-mask section"><h2 class="title">독립출판물</h2>
-    <div class="slider-wrapper"  > <!-- 무비카드 컨테이너 -->
     <div class="vertical-list" >
+    	<h2>독립출판물</h4>
        <ul id="bookIndie-grid-container" class="grid-container" style="position: relative; width: 100%;" >
 		
 </ul>
 	
 
-</div></div><!-- slider wrap end -->
-</li>
-</ol>
+</div>
 	
 	<div id="pageContainer">
 	</div>

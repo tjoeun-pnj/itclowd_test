@@ -31,8 +31,8 @@
 		<jsp:include page="/mainContent.jsp" flush="false" />				
 	</div>
 	
-	<div id="footer">
-		풋터
+	<div>
+		<jsp:include page="/footer.jsp" flush="false" />
 	</div>
 </body>
 </html>

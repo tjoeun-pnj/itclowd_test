@@ -8,27 +8,20 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width", initial-scale="1"/>
-<link rel="stylesheet" href="css/view.css" />
-<link rel="stylesheet" href="css/button.css" />
-<script src="//code.jquery.com/jquery.min.js"></script>
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/latest/js/bootstrap.min.js"></script>
-<script src="assets/js/jquery.min.js"></script>
-<!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> -->
+<link rel="stylesheet" href="/css/view.css" />
+<link rel="stylesheet" href="/css/button.css" />
+<script src="/assets/js/jquery.min.js"></script>
 <link rel="stylesheet" href="menubarcss.css" />
 <link rel="stylesheet" href="assets/css/mainmenu.css" />
-<link rel="stylesheet" href="what2.css" />
-<script src="menubar.js"></script>
-<script src="assets/js/skel.min.js"></script>
-<script src="assets/js/util.js"></script>
-<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-<script src="assets/js/main.js"></script>
-  <script src="mainboot.js"></script>
-  <script src="pwstrength.js"></script>
+<script src="/menubar.js"></script>
+<script src="/assets/js/skel.min.js"></script>
+<script src="/assets/js/util.js"></script>
+<script src="/assets/js/main.js"></script>
+  <script src="/mainboot.js"></script>
+  <script src="/pwstrength.js"></script>
   <link rel="stylesheet" href="mainboot.css">
   <link rel="stylesheet" href="mainCustom.css">
-  <!-- <link rel="stylesheet" href="bootstrap.css"> -->
-  <!-- <script src="bootstrap.js"></script> -->
-  <script src="mainCustom.js"></script>
+  <script src="/mainCustom.js"></script> 
 <title>Q & A</title>
 <style>
 #body{
@@ -52,10 +45,6 @@
 	</div>
  
  <div id="blog-container">
- 	<div class="guide">
-        <div class="center-box">
- 
-
 
          <table class="type04" sytle="width: 100% align:center;">
          <tr>
@@ -84,11 +73,6 @@
     	 </tr>
  
      	</table>
-     	
-     	</div>
-     	</div>
-
-  
   
 
 </div>

@@ -32,6 +32,7 @@ public class MemberLoginAction implements Action {
 			return forward;
 		} else {
 			req.getSession().setAttribute("authUser", mVo);
+			req.getSession().setAttribute("authUserJson", new Gson().toJson(mVo));
 			json.addProperty("result", true);
 			res.getWriter().println(json);
 			return forward;

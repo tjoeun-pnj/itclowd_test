@@ -10,11 +10,11 @@
     <div id="blog-header-container">
         <div class="content" width="100%" id="header_logo_container">
         <ul id="header_menu">
-        <li><a href="boardList.bo">Q & A</a></li>
+        <li><a href="/boardList.bo">Q & A</a></li>
         <li><a>주문내역</a></li>
         <li><a>장바구니</a></li>
             <u:isLogin>
-           <li><a href="./member/logout">로그아웃</a></li>
+           <li><a href="/member/logout">로그아웃</a></li>
             </u:isLogin>
         </ul>
         </div>

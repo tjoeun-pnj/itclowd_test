@@ -4,7 +4,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title></title>
-<link rel="stylesheet" type="text/css" href="../optim.css">
+<link rel="stylesheet" type="text/css" href="/optim.css">
 <script type="text/javascript">
 	$(document).ready(function(){
 		var article = <%= request.getAttribute("article") %>;
@@ -57,7 +57,7 @@
 	});
 	
 	function goBasket(ib_no){
-		var member = <%=request.getSession().getAttribute("authUser")%>;
+		var member = <%=request.getSession().getAttribute("authUserJson")%>;
 		if(member == null){
 			alert('로그인 하십시오~');
 			return; 
@@ -109,12 +109,11 @@
 	}
 	
 	function indieGradeModal(ib_no, title) {
-		console.log('오기는 하냐??/');
 		$("body").removeClass("is-menu-visible");
 		var isLogin = <%if(request.getSession() != null && request.getSession().getAttribute("authUser") != null){%>
 		true<%}else{%>false<%}%>
 		if(isLogin){
-			var member = <%=request.getSession().getAttribute("authUser")%>;
+			var member = <%=request.getSession().getAttribute("authUserJson")%>;
 			$('#indieGradeModal').modal('show');
 			document.getElementById("indieGradeNo").value = ib_no;
 			document.getElementById("indieMemberNo").value = member.m_no;

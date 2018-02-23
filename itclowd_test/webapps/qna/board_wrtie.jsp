@@ -13,7 +13,6 @@
  <script src="assets/js/jquery.min.js"></script>
 <link rel="stylesheet" href="menubarcss.css" />
 <link rel="stylesheet" href="assets/css/mainmenu.css" />
-<link rel="stylesheet" href="what2.css" />
 <script src="menubar.js"></script>
 <script src="assets/js/skel.min.js"></script>
 <script src="assets/js/util.js"></script>

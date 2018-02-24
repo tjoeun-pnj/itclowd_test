@@ -4,16 +4,16 @@
 <head>
 <title></title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
   <link rel="stylesheet" href="footer.css" />
 </head>
 <body>
 
-	<footer class="footer">
+<div id="footer">
+       <br />
+      &nbsp; ITCROWD | branch 'master' of https://github.com/tjoeun-pnj/itclowd_test.git
 
-      <div id="footer">
-       ITCROWD   |    개인정보보호정책     |    이용약관     |   Contact Us 
-        </div>
-	</footer>
+</div>
    
 </body>
 </html>

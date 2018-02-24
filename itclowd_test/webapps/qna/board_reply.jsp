@@ -71,14 +71,14 @@
 			 <div class="col-md-6"> 
 			  <div class="form-group"> 
 			   <label for="BOARD_NAME">작성자</label> 
-			   <input type="text" class="form-control" name="BOARD_NAME" id="BOARD_NAME" placeholder="Enter name" required="required"> 
+			   <input type="text" class="form-control" name="BOARD_NAME" id="BOARD_NAME" placeholder="Enter name" required="required" disabled="disabled" value="관리자"> 
 			 </div> 
 			</div> 
 		    	  	
 		    <div class="col-md-6"> 
 			  <div class="form-group"> 
 				<label for="pass">비밀번호</label> 
-				<input type="password" class="form-control" name="BOARD_PASS" id="BOARD_PASS" placeholder="Enter password" required="required"> 
+				<input type="password" class="form-control" name="BOARD_PASS" id="BOARD_PASS" placeholder="Enter password"> 
 			  </div> 
 		    </div> 
     

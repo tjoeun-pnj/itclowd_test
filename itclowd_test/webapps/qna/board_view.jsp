@@ -1,8 +1,10 @@
+<%@page import="com.test.member.medel.MemberVo"%>
 <%@page import="com.test.board.model.BoardBean"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%
        BoardBean article = (BoardBean)request.getAttribute("article");
        String nowPage = (String)request.getAttribute("page");
+       MemberVo mVo = (MemberVo)request.getSession().getAttribute("authUser");
 %>
 <!DOCTYPE>
 <html>
@@ -43,56 +45,55 @@
 	<div id="main_header">
 		<jsp:include page="/header.jsp" flush="false" />
 	</div>
- 
- <div id="blog-container">
- 
+<div id="blog-container"> 
+   
+   <div class="panel-heading"><h2>&nbsp;&nbsp;&nbsp;Q & A</h2></div> 
+  <div class="container"> 
 
-         <table class="type04" sytle="width: 70% align:center;">
-         <tr>
-    	 	<th>제목 </th>
-    	 	<td><%=article.getBoard_subject() %></td>
-    	 </tr>
-    	  <tr>
-    	 	<th>작성자</th>
-    	 	<td><%=article.getBoard_name() %></td>
-    	 </tr>
-    	 
+			<div class="row"> 
+			  <div class="col-md-6"> 
+			  <div class="form-group"> 
+			   <label for="BOARD_Title">제목</label> 
+			   <input type="text" class="form-control" name="BOARD_Title" value="<%=article.getBoard_subject() %>" readonly="readonly" /></div> 
+			</div> 
+		    	  	
+		    <div class="col-md-6"> 
+			  <div class="form-group"> 
+				<label for="BOARD_NAME">작성자</label> 
+				<input type="password" class="form-control" name="BOARD_PASS" value="<%=article.getBoard_name() %>" readonly="readonly">
+		    </div> 
+		    </div>
+    
+     </div> <!--  container end -->
 
-          <tr>
-    	 	<td colspan="2"><textarea name="Board_CONTENT" id="" cols="100" rows="10" readonly="readonly"><%=article.getBoard_content()%>
-    	 	</textarea>
-    	 	</td>
-    	 </tr>
-    	
+    	  	
+			<div class="form-group"> 
+			  <label for="BOARD_CONTENT">내용</label> 
+			  <textarea class="form-control" rows="10" name="BOARD_CONTENT" readonly="readonly"><%=article.getBoard_content()%></textarea>
+			</div>  
+ 
+     
     	<tr align="center">
     	   <td colspan = "2">
+    	   <% if(mVo != null) { if(mVo.getM_grade() == 0){%>
     	   <button class="button btn" type="button" onclick="location.href='boardReplyForm.bo?board_num=<%=article.getBoard_num()%>&page=<%=nowPage%>'">답변</button>
+    	   <%}if(article.getM_no() == mVo.getM_no()) { %>
     	   <button class="button btn" type="button" onclick="location.href='boardModifyForm.bo?board_num=<%=article.getBoard_num()%>&page=<%=nowPage%>'">수정</button>
     	   <button class="button btn" type="button" onclick="location.href='boardDeleteForm.bo?board_num=<%=article.getBoard_num()%>&page=<%=nowPage%>'">삭제</button>
+    	   <%}}%>
     	   <button class="button btn" type="button" onclick="location.href='boardList.bo?page=<%=nowPage%>'">목록</button>&nbsp;&nbsp;
     	   </td>
     	 </tr>
+    	 
+       <h1>&nbsp;</h1>
  
-     	</table>
-  
-
-</div>
-
- 	<div>
+   	</div>
+   	</div>
+   
+   	 <div>
 		<jsp:include page="/footer.jsp" flush="false" />
 	</div> 
-</body>    
-
+	
+		   
+</body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-

@@ -27,6 +27,12 @@ public class MemberDao {
 			session = SqlUtil.getSession();
 			result = session.insert("member.insertMember", mVo);
 			session.commit();
+			int num = 0;
+			if(result > 0) {
+				num = session.selectOne("member.selectMemberNum", mVo.getM_id());
+				session.insert("member.insertGrade", num);
+			}
+			session.commit();
 		} catch (Exception e) {
 			session.rollback();
 			e.printStackTrace();

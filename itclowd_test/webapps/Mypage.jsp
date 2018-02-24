@@ -55,7 +55,7 @@
 			background-color:white;
 			padding: 6px 12px;
 			color:black;
-     		font-size: 6px; 
+     		font-size: 20px; 
 		}
 		ul.tab li.current{
 			background-color:white;
@@ -103,7 +103,6 @@
 	
 	
   <!-- My page -->
-
 	<div id="container">
 		<ul class="tab">
 			<li class="current" data-tab="tab1"><a href="#">책장</a></li>

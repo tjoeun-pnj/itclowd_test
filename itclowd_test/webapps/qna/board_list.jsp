@@ -1,3 +1,5 @@
+<%@page import="java.util.Date"%>
+<%@page import="com.test.member.medel.MemberVo"%>
 <%@page import="com.test.util.db.PageInfo"%>
 <%@page import="com.test.board.model.BoardBean"%>
 <%@page import="java.util.ArrayList"%>
@@ -6,6 +8,9 @@
 <%
      ArrayList<BoardBean> articleList = (ArrayList<BoardBean>)request.getAttribute("articleList");
      PageInfo pageInfo = (PageInfo)request.getAttribute("pageInfo");
+     MemberVo mVo = (MemberVo)request.getSession().getAttribute("authUser");
+     boolean isLogin = false;
+     if(mVo != null) isLogin = true;
      int listCount = pageInfo.getListCount();
      int nowPage = pageInfo.getPage();
      int maxPage = pageInfo.getMaxPage();
@@ -17,22 +22,18 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width", initial-scale="1"/>
-<!-- <link rel="stylesheet" href="css/button.css" />  -->
 <script src="assets/js/jquery.min.js"></script>
-<!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> -->
 <link rel="stylesheet" href="menubarcss.css" />
 <link rel="stylesheet" href="assets/css/mainmenu.css" />
 <script src="menubar.js"></script>
 <script src="assets/js/skel.min.js"></script>
 <script src="assets/js/util.js"></script>
-<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 <script src="assets/js/main.js"></script>
   <script src="pwstrength.js"></script>
   <script src="mainboot.js"></script>
   <link rel="stylesheet" href="mainboot.css">
-  <link rel="stylesheet" href="mainCustom.css">
   <!-- <link rel="stylesheet" href="bootstrap.css"> -->
-  <!-- <script src="bootstrap.js"></script> -->
+  <link rel="stylesheet" href="mainCustom.css">
   <script src="mainCustom.js"></script>
 <title>Q & A</title>
 </head>
@@ -50,6 +51,23 @@
 } 
 
 </style>
+<script type="text/javascript">
+	function boardDetailGo(board_num, page, bm_no, isSecret){
+		if(isSecret) {
+			if(<%=isLogin%>){
+				if(bm_no == <%if(isLogin){%><%=mVo.getM_no()%><%}else{%>-1<%}%>){
+					location.href = 'boardDetail.bo?board_num='+board_num+'&page='+page;
+					return;
+				}
+				alert('비밀글입니다.');
+				return;
+			}
+			alert('비밀글 입니다. 로그인하세요');
+			return;
+		}
+		location.href = 'boardDetail.bo?board_num='+board_num+'&page='+page;
+	}
+</script>
 <body>
 
 <body id="body">
@@ -60,10 +78,11 @@
 	
   <div id="blog-container">
       <center>
-    
-      <h2></h2>
+    	<input type="checkbox" value="dd">
+      <h2>질문게시판</h2>
+      	
     <div class="container">
-       <div class="row">
+       <div class="row" >
         <table class="table table-striped" style="text-align: center; border:1px solid #dddddd">
       	   <% if(articleList != null && listCount > 0) { %>
       		<thead>
@@ -76,7 +95,7 @@
                  <th style="background-color: #eeeeee; text-align: center;">조회수</th>
 	      		</tr>
 	      	  </thead>
-	      	  <tbody>
+	      	  <tbody style="background-color: white;">
 	      		<% 
 	      		int listNum = listCount-((nowPage-1)*10);
 	      		for(int i=0; i<articleList.size() ; i++) { %>
@@ -92,19 +111,25 @@
 
 		      			    <% } else { %>
       <!-- <img src="//img0001.echosting.cafe24.com/front/type_b/image/common/icon_re.gif"  alt="답변" />  -->
-		      			      <% } %>
-		      			<a href="boardDetail.bo?board_num=<%=articleList.get(i).getBoard_num() %>&page=<%=nowPage%>">
+		      			      <% } %>     
+		      			<a onclick="boardDetailGo(<%=articleList.get(i).getBoard_num() %>, <%=nowPage%>, <%=articleList.get(i).getM_no() %>, <%if(articleList.get(i).getBoard_pass() != null && articleList.get(i).getBoard_pass().equals("")){%>true<%}else{%>false<%}%>);">
 		      			    <%= articleList.get(i).getBoard_subject()%>
 		      			</a>
+		      			<%if(articleList.get(i).getBoard_pass() != null && articleList.get(i).getBoard_pass().equals("")){ %>
 		     <img src="//img0001.echosting.cafe24.com/front/type_b/image/common/icon_lock.gif"  alt="비밀글" />
+		     			<%} %>
 		      			</td>
-		      			<td><%= articleList.get(i).getIb_img() %></td>		
+		      			<% if(articleList.get(i).getIb_img() != null && articleList.get(i).getIb_no() > 0){ %>
+		      			<td><a onclick="indieDetail(<%=articleList.get(i).getIb_no()%>);"><img src="/image/<%= articleList.get(i).getIb_img() %>"/></a></td>		
+		      			<%}else{ %>
+		      			<td></td>		
+		      			<%} %>
 		      			<td><%= articleList.get(i).getM_name() %></td>
 		      			<td><%= articleList.get(i).getBoard_date() %></td>
 		      			<td><%= articleList.get(i).getBoard_readcount() %></td>
 		      		</tr>
 	      		<% } %>
-         </tbody>	
+        
 	      		<tr align="center">
 	      		    <td colspan="6">
 	      		         <% if(nowPage<=1) { %> 
@@ -129,10 +154,11 @@
 	      		         <%} %>
 	      		    </td>
 	      		</tr>
+	      	</tbody>	
 	   		<% } else { %>
 	   
 	   <div class="container">
-       <div class="row">
+       <div class="row" style="background-color: white;">
         <table class="table table-striped" style="text-align: center; border:1px solid #dddddd">
 
     		<tr align="center">
@@ -149,29 +175,16 @@
 		<% } %> 
 
       	</table>
-      	
-<%--        <a
-       <%
-        	if(session.getAttribute("isLogin") != null && (boolean)session.getAttribute("isLogin")){
-        %>
-        href="boardWriteForm.bo" 
-     <%}else{ %>
-       	onclick="alert('로그인하셈')" 
-         href="boardWriteForm.bo" 
-        <%} %>
-        class="btn btn-default">글쓰기</a> --%>
-        <u:isLogin>
-        <a href="boardWriteForm.bo" class="button btn" >글쓰기</a>
-        </u:isLogin>
-        <u:notLogin>
-        <a onclick="alert('로그인 하세요');return false;" class="button btn" >글쓰기</a>
-        </u:notLogin>
-        
-      </center>
-      
-      </div>   
-      
-
+	      	</div>
+	        </div>
+	        <u:isLogin>
+	        <a href="boardWriteForm.bo" class="button btn">질문하기</a>
+	        </u:isLogin>
+	        <u:notLogin>
+	        <a onclick="alert('로그인 하세요');return false;" class="button btn" >질문하기</a>
+	        </u:notLogin>
+		      </center>
+		      </div>   
     	<div>
 		<jsp:include page="/footer.jsp" flush="false" />
 	</div> 

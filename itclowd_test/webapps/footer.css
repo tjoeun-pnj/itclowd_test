@@ -1,5 +1,4 @@
 #footer {
-/*    position:fixed; */
    left:0px;
    bottom:0px;
    height:60px;
@@ -7,12 +6,3 @@
    background:black;
    color: white;
 }
-#footer p {
-   text-align: center;
-}
- 
-/* /* IE 6 */
-* html #footer {
-   position:absolute;
-   top:expression((0-(footer.offsetHeight)+(document.documentElement.clientHeight ? document.documentElement.clientHeight : document.body.clientHeight);
-} */

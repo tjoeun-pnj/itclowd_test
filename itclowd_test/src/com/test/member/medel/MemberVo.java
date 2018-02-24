@@ -10,7 +10,7 @@ public class MemberVo {
 	private Date m_date;
 	private int m_point;
 	private String m_img;
-	private String m_grade;
+	private int m_grade;
 	private Date log_date;
 	private String f_list;
 	public int getM_no() {
@@ -55,12 +55,6 @@ public class MemberVo {
 	public void setM_img(String m_img) {
 		this.m_img = m_img;
 	}
-	public String getM_grade() {
-		return m_grade;
-	}
-	public void setM_grade(String m_grade) {
-		this.m_grade = m_grade;
-	}
 	public Date getLog_date() {
 		return log_date;
 	}
@@ -72,6 +66,12 @@ public class MemberVo {
 	}
 	public void setF_list(String f_list) {
 		this.f_list = f_list;
+	}
+	public int getM_grade() {
+		return m_grade;
+	}
+	public void setM_grade(int m_grade) {
+		this.m_grade = m_grade;
 	}
 	
 	

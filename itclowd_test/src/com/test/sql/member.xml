@@ -10,6 +10,14 @@
 	insert into member(m_id, m_name, m_pass, m_date, m_point)
 		values(#{m_id}, #{m_name}, #{m_pass}, now(), 0); 	
  </insert>
+ <insert id="insertGrade" parameterType="com.test.member.medel.MemberVo">
+	insert into member_grade(m_no, m_grade)
+		values(#{m_no}, 1); 	
+ </insert>
+<select id="selectMemberNum" parameterType="String" resultType="int">
+	select m_no from member
+		where m_id = #{m_id};
+</select>
 <select id="joinIdChk" parameterType="String" resultType="int">
 	select count(m_no) from member
 		where m_id = #{m_id};
@@ -19,7 +27,7 @@
 		where m_name = #{m_name};
 </select>
 <select id="loginMember" parameterType="java.util.HashMap" resultType="com.test.member.medel.MemberVo">
-	select * from member
-		where m_id = #{m_id} and m_pass = #{m_pass};
+	select m.m_no, m_id, m_name, g.m_grade from member m, member_grade g
+		where m.m_id = #{m_id} and m_pass = #{m_pass} and m.m_no = g.m_no;
 </select>
 </mapper>

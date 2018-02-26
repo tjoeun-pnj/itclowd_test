@@ -1,10 +1,12 @@
 package com.test.book.dao;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 
+import com.test.book.model.BookDto;
 import com.test.book.model.IndieBookQueryVo;
 import com.test.book.model.IndieBookVo;
 import com.test.util.SqlUtil;
@@ -61,6 +63,16 @@ public class BookDao {
 			session.rollback();
 		}
 		return result;
+	}
+	public List<BookDto> tasteSetList() {
+		SqlSession session = null;
+		try {
+			session = SqlUtil.getSession();
+			return session.selectList("book.tasteSetList");
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null; 
+		}
 	}
 	
 }

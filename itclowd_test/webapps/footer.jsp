@@ -11,8 +11,7 @@
 
 <div id="footer">
        <br />
-      &nbsp; ITCROWD | branch 'master' of https://github.com/tjoeun-pnj/itclowd_test.git
-
+      &nbsp; ITCROWD | 
 </div>
    
 </body>

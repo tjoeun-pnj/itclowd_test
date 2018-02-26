@@ -24,7 +24,7 @@
 						<h1><a href="/main.jsp">보담</a></h1>
 						<nav class="links">
 							<ul>
-								<li><a href="#">취향테스트</a></li>
+								<li><a href="/tasteTest.jsp">취향테스트</a></li>
 								<li><a href="#">추천도서</a></li>
 								<li><a href="/bookMain.jsp">독립출판</a></li>
 								<li><a href="/Mypage.jsp">마이페이지</a></li>

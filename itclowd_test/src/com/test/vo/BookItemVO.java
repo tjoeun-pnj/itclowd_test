@@ -16,7 +16,7 @@ public class BookItemVO {
 	private String mallType;
 	private String stockstatus;
 	private int mileage;
-	private String cover;
+	private String cover;	   
 	private String publisher;
 	private int salesPoint;
 	private boolean fixedPrice;

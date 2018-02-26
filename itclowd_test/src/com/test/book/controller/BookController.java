@@ -19,6 +19,7 @@ import com.test.book.action.BookMainNewAction;
 import com.test.book.action.IndieBookDetailAction;
 import com.test.book.action.IndieGradeAction;
 import com.test.book.action.IndieListAction;
+import com.test.book.action.TasteSetAction;
 import com.test.util.ActionForward;
 import com.test.util.inter.Action;
 
@@ -79,6 +80,13 @@ public class BookController extends HttpServlet{
 			}
 		} else if(command.equals("/indieGrade")) {
 			action = new IndieGradeAction();
+			try {
+				forward = action.execute(req, res);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}  else if(command.equals("/taste")) {
+			action = new TasteSetAction();
 			try {
 				forward = action.execute(req, res);
 			} catch (Exception e) {

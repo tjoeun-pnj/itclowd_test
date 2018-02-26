@@ -28,11 +28,9 @@
 	<div id="main_header">
 		<jsp:include page="/header.jsp" flush="false" />
 	</div>
-
 	<div id="blog-container"> 
 		<jsp:include page="/mainContent.jsp" flush="false" />				
 	</div>
-	
 	<div>
 		<jsp:include page="/footer.jsp" flush="false" />
 	</div>

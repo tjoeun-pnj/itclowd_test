@@ -1,5 +1,9 @@
 package com.test.book.dao;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -9,6 +13,7 @@ import org.apache.ibatis.session.SqlSession;
 import com.test.book.model.BookDto;
 import com.test.book.model.IndieBookQueryVo;
 import com.test.book.model.IndieBookVo;
+import com.test.util.JDBCUtil;
 import com.test.util.SqlUtil;
 
 public class BookDao {
@@ -64,7 +69,7 @@ public class BookDao {
 		}
 		return result;
 	}
-	public List<BookDto> tasteSetList() {
+	/*public List<BookDto> tasteSetList() {
 		SqlSession session = null;
 		try {
 			session = SqlUtil.getSession();
@@ -73,6 +78,60 @@ public class BookDao {
 			e.printStackTrace();
 			return null; 
 		}
+	}*/
+	public ArrayList<BookDto> tasteSetList() {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			conn = JDBCUtil.getConnection();
+			String sql = "select a.b_no b_no, c_no, b_title, b_img, avg(ba_grade) ba_grade, count(ba_grade) ba_count " + 
+					"	from book a left outer join book_assessment b " + 
+					"	on a.b_no = b.b_no where 0 = 0 " + 
+					"	GROUP BY b_no " + 
+					"	order by rand() " + 
+					"	 limit 20";
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			ArrayList<BookDto> list = new ArrayList<BookDto>();
+			while(rs.next()) {
+				BookDto bDto = new BookDto();
+				bDto.setB_no(rs.getLong("b_no"));
+				bDto.setC_no(rs.getInt("c_no"));
+				bDto.setB_title(rs.getString("b_title"));
+				bDto.setB_img(rs.getString("b_img"));
+				bDto.setBa_grade(rs.getDouble("ba_grade"));
+				bDto.setBa_count(rs.getInt("ba_count"));
+				list.add(bDto);
+			}
+			return list;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null; 
+		} finally {
+			
+			try {
+				rs.close();
+				pstmt.close();
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	public int insertBookGrade(HashMap<String, Object> pMap) {
+		SqlSession session = null;
+		int result = 0;
+		try {
+			session = SqlUtil.getSession();
+			result = session.insert("book.insertBookGrade", pMap);
+			session.commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+			result = 0;
+			session.rollback();
+		}
+		return result;
 	}
 	
 }

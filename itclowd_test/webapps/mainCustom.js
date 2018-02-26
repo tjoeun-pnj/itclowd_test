@@ -418,7 +418,6 @@ function reqTasteSet(){
 // 책셋팅
 function setTasteList(json){
 	var list = JSON.parse(json.json);
-	console.log(json.json);
 	var bookContainer = document.getElementById('taste-grid-container');
 	var setHtml = "";
 	bookContainer.innerHTML = "";
@@ -433,7 +432,7 @@ function setTasteList(json){
 		} else if(x < 20) {
 			setHtml += '<div class="movie-card size-1x1 poster-type base_movie  user-action-m4d83i card grid-1 hei-1 top-3 left-'+(x%15)+'"><div class="poster-wrapper">';
 		}
-		setHtml += '<img class="poster" src="image/'+bVo.b_img+'" width="150px" height="220px"><div class="detail-opener gradation" onclick="indieDetail('+bVo.b_no+');"><br><span id="detail_text">평가하기</span></div><div class="bottom"></div><div class="action-wrapper">';
+		setHtml += '<img class="poster" src="image/'+bVo.b_img+'.jpg" width="150px" height="220px"><div class="detail-opener gradation" onclick="bookDetail('+bVo.b_no+');"><br><span id="detail_text">상세보기</span></div><div class="bottom"></div><div class="action-wrapper">';
 		setHtml += '<div class="movie-title">'+bVo.b_title+'</div>';
 		var count = bVo.ba_count;
 		if(count > 0){
@@ -448,7 +447,7 @@ function setTasteList(json){
 			setHtml += count+'명 평가 </div>';
 		}else setHtml += '<div class="rating"><span class="watcha-star half left" data-value="1"></span><span class="watcha-star half right" data-value="2"></span><span class="watcha-star half left" data-value="3"></span><span class="watcha-star half right" data-value="4"></span><span class="watcha-star half left" data-value="5"></span><span class="watcha-star half right" data-value="6"></span><span class="watcha-star half left" data-value="7"></span><span class="watcha-star half right" data-value="8"></span><span class="watcha-star half left" data-value="9"></span><span class="watcha-star half right" data-value="10"></span>0명 평가</div>';
 		
-		setHtml += '<div class="wish-comment"><div class="comment" onclick="indieGradeModal('+bVo.b_no+', \''+bVo.b_title+'\');"><span class="icon"></span><span class="text">평가하기</span></div></div></div></div></div>';
+		setHtml += '<div class="wish-comment"><div class="comment" onclick="bookGradeModal('+bVo.b_no+', \''+bVo.b_title+'\');"><span class="icon"></span><span class="text">평가하기</span></div></div></div></div></div>';
 	}
 	bookContainer.innerHTML = setHtml;
 }

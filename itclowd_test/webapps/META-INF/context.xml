@@ -7,7 +7,7 @@
       password="12345"
       driverClassName="com.mysql.jdbc.Driver"
       factory="org.apache.tomcat.dbcp.dbcp2.BasicDataSourceFactory"
-      url="jdbc:mysql://192.168.0.79:3306/itcrowd"
+      url="jdbc:mysql://192.168.0.7:3306/itcrowd"
       maxActive="50"
       
      />

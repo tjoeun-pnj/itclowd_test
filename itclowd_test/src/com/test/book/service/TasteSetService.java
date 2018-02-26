@@ -1,4 +1,4 @@
-package com.test.board.svc;
+package com.test.book.service;
 
 import java.util.ArrayList;
 

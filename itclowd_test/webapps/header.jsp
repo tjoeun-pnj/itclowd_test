@@ -24,10 +24,18 @@
 						<h1><a href="/main.jsp">보담</a></h1>
 						<nav class="links">
 							<ul>
-								<li><a href="/tasteTest.jsp">취향테스트</a></li>
-								<li><a href="#">추천도서</a></li>
-								<li><a href="/bookMain.jsp">독립출판</a></li>
-								<li><a href="/Mypage.jsp">마이페이지</a></li>
+								<u:isLogin>
+									<li><a href="/tasteTest.jsp">취향테스트</a></li>
+									<li><a href="/recommendBook.jsp">추천도서</a></li>
+									<li><a href="/bookMain.jsp">독립출판</a></li>
+									<li><a href="/Mypage.jsp">마이페이지</a></li>
+								</u:isLogin>
+								<u:notLogin>
+									<li><a onclick="alert('로그인 하셔야 사용하길 수 있습니다.');">취향테스트</a></li>
+									<li><a onclick="alert('로그인 하셔야 사용하길 수 있습니다.');">추천도서</a></li>
+									<li><a href="/bookMain.jsp">독립출판</a></li>
+									<li><a onclick="alert('로그인 하셔야 사용하길 수 있습니다.');">마이페이지</a></li>
+								</u:notLogin>
 							</ul> 
 						</nav>
 						<nav class="main">

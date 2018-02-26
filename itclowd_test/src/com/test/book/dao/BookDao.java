@@ -69,7 +69,7 @@ public class BookDao {
 		}
 		return result;
 	}
-	/*public List<BookDto> tasteSetList() {
+	public List<BookDto> tasteSetList() {
 		SqlSession session = null;
 		try {
 			session = SqlUtil.getSession();
@@ -78,8 +78,8 @@ public class BookDao {
 			e.printStackTrace();
 			return null; 
 		}
-	}*/
-	public ArrayList<BookDto> tasteSetList() {
+	}
+	/*public ArrayList<BookDto> tasteSetList() {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -118,7 +118,7 @@ public class BookDao {
 				e.printStackTrace();
 			}
 		}
-	}
+	}*/
 	public int insertBookGrade(HashMap<String, Object> pMap) {
 		SqlSession session = null;
 		int result = 0;
@@ -132,6 +132,49 @@ public class BookDao {
 			session.rollback();
 		}
 		return result;
+	}
+	public List<IndieBookVo> recommCate(int cate) {
+		
+		SqlSession session = null;
+		try {
+			session = SqlUtil.getSession();
+			return session.selectList("book.recommCate", cate);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null; 
+		}
+	}
+	public int memberTasteCate(int m_no) {
+		SqlSession session = null;
+		
+		try {
+			session = SqlUtil.getSession();
+			return session.selectOne("book.memberTasteCate", m_no);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return 0;
+		}
+	}
+	
+	public int indieGradeMember(int m_no) {
+		SqlSession session = null;
+		try {
+			session = SqlUtil.getSession();
+			return session.selectOne("book.indieGradeMember", m_no);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return 0;
+		}
+	}
+	public ArrayList<IndieBookVo> recommGrade(int c_no) {
+		SqlSession session = null;
+		try {
+			session = SqlUtil.getSession();
+			return session.selectOne("book.recommGrade", c_no);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 	
 }

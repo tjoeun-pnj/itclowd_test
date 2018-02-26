@@ -40,7 +40,7 @@
 	values(#{ib_no}, #{m_no}, #{ia_grade}, #{ia_content});
 </insert>
 
-<select id="tasteSetList"  resultType="com.test.book.model.BookDto" useCache="false" timeout="1000">
+<select id="tasteSetList"  resultType="com.test.book.model.BookDto" flushCache="true">
 	select a.b_no b_no, c_no, b_title, b_img, avg(ba_grade) ba_grade, count(ba_grade) ba_count 
 	from book a left outer join book_assessment b
 	on a.b_no = b.b_no where 0 = 0
@@ -52,4 +52,39 @@
 	insert into book_assessment(b_no, m_no, ba_grade, ba_content)
 	values(#{b_no}, #{m_no}, #{ba_grade}, #{ba_content});
 </insert>
+
+<select id="memberTasteCate" parameterType="int" resultType="int">
+	select c_no from  (
+select c_no, max(conn) from
+(select c_no, count(c_no) conn, m_no from 
+	(select c_no, m_no from book_assessment a, book b where a.b_no = b.b_no
+		union all
+		select c_no, m_no from indie_assessment a, indie_book b where a.ib_no = b.ib_no) cate
+		where m_no = #{m_no}
+		GROUP BY c_no
+	ORDER BY conn desc) a) a;
+</select>
+<select id="recommCate" parameterType="int" resultType="com.test.book.model.IndieBookVo">
+	select a.ib_no ib_no, c_no, ib_title, ib_img, avg(ia_grade) ia_grade, count(ia_grade) ia_count 
+	from indie_book a left outer join indie_assessment b
+	on a.ib_no = b.ib_no where c_no = #{c_no}
+	GROUP BY ib_no
+	order by ia_grade desc
+	 limit 5;
+</select>
+<select id="indieGradeMember" parameterType="int" resultType="int">
+	select count(ib_no) from indie_assessment
+	where m_no = #{m_no}
+</select>
+<select id="recommGrade" parameterType="java.util.HashMap" resultType="com.test.book.model.IndieBookVo">
+	select a.ib_no ib_no, c_no, ib_title, ib_img, avg(ia_grade) ia_grade, count(ia_grade) ia_count 
+	from indie_book a left outer join indie_assessment b
+	on a.ib_no = b.ib_no
+	<if test="c_no > 0">
+		where c_no = #{c_no} 
+	</if>
+	GROUP BY ib_no
+	order by ia_grade desc
+	 limit 5;
+</select>
 </mapper>

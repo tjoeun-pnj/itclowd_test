@@ -25,7 +25,7 @@ public class InsertBookProAction implements Action {
 		bookBean.setIb_price(Integer.parseInt(req.getParameter("ib_price")));
 
 		String date = req.getParameter("ib_date");
-		bookBean.setIb_date(Date.valueOf(date));
+		bookBean.setIb_date(Integer.parseInt(date));
 		bookBean.setIp_no(Integer.parseInt(req.getParameter("ip_no")));
 		bookBean.setIb_intro(req.getParameter("ib_intro"));
 		bookBean.setIb_page(Integer.parseInt(req.getParameter("ib_page")));

@@ -9,7 +9,7 @@ public class BookBean { //'RE'는 게시글의 답변형 형태의 글의 레벨
 	private String ib_title; // 책 제목 (o)
 	private String ib_writer; //작가명 (o)
 	private int ib_price; //책 가격 (o)
-	private Date ib_date; // 출판 년도 (o)
+	private int ib_date; // 출판 년도 (o)
 	private	int ip_no; //출판사 번호 (o)
 	private String ib_intro; //책 소개 (o)
  	private int ib_page; //총 페이지 수 (o)
@@ -49,10 +49,11 @@ public class BookBean { //'RE'는 게시글의 답변형 형태의 글의 레벨
 	public void setIb_price(int ib_price) {
 		this.ib_price = ib_price;
 	}
-	public Date getIb_date() {
+	
+	public int getIb_date() {
 		return ib_date;
 	}
-	public void setIb_date(Date ib_date) {
+	public void setIb_date(int ib_date) {
 		this.ib_date = ib_date;
 	}
 	public int getIp_no() {

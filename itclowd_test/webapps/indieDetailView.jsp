@@ -34,7 +34,7 @@
 				+ '<p align="left">'+replaceAll(article.ib_intro,'.','.<br/>' )+'</p><p align="left"><br></p><p align="left"><br></p><p align="left"><br></p>'
 				+ '<p align="left"><strong>저자</strong></p><strong><p align="left"><br></p></strong><p align="left">'+article.ib_writer+'</p>'
 				+ '<p align="left"><br></p><p align="left"><br></p><p align="left"><br></p><p align="left"><br></p><p align="left"><br></p>'
-				+ '<p align="left">발행년도: '+article.date+' </p><p align="left">사이즈: '+article.ib_size+'&nbsp; </p><p align="left">페이지: '+article.ib_page+'p</p><p align="left"><br></p>'
+				+ '<p align="left">발행년도: '+article.ib_date+' </p><p align="left">사이즈: '+article.ib_size+'&nbsp; </p><p align="left">페이지: '+article.ib_page+'p</p><p align="left"><br></p>'
 		document.getElementById('detailArea2').innerHTML = setHTML;
 		setHTML = '<a onclick="indieGradeModal('+article.ib_no+',\''+article.ib_title+'\');"><h4>평점주기</h4></a>';
 		$('#prdReview .boardBtn').html(setHTML);

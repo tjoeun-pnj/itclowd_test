@@ -349,7 +349,6 @@ function setIndieList(json){
 	bookContainer.innerHTML = "";
 	for(var x=0;x<list.length;x++){
 		var ibVo = list[x];
-		console.log(ibVo.ib_title.indexOf('http')+", "+ibVo.ib_title);
 		if(x < 5){
 			setHtml += '<div class="movie-card size-1x1 poster-type base_movie  user-action-m4d83i card grid-1 hei-1 top-0 left-'+x+'"><div class="poster-wrapper">';
 		} else if(x < 10) {

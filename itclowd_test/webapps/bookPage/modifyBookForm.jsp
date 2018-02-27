@@ -27,6 +27,10 @@
 <script src="https://ucarecdn.com/libs/widget/3.2.1/uploadcare.full.min.js" charset="utf-8"></script>
 </head>
 <body id="body">
+<div id="main_header">
+		<jsp:include page="/header.jsp" flush="false" />
+	</div>
+	<div id="blog-container">
 	<center>
 		<h2>책 정보 수정</h2>
 		<form action="modiFyBookPro.bk" method="post">
@@ -61,7 +65,7 @@
 				</tr>
 				<tr>
 					<td>출판년도</td>
-					<td><input type="date" name="ib_date" id="ib_date" value="<%=book.getIb_date() %>" required="required" /></td>
+					<td><input type="text" name="ib_date" id="ib_date" value="<%=book.getIb_date() %>" required="required" /></td>
 				</tr>
 				<tr>
 					<td>출판사 번호</td>
@@ -143,5 +147,9 @@
 			</table>
 		</form>
 	</center>
+	</div>
+	<div>
+		<jsp:include page="/footer.jsp" flush="false" />
+	</div>
 </body>
 </html>

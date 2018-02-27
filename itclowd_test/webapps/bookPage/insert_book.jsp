@@ -59,7 +59,7 @@
 				</tr>
 				<tr>
 					<td>출판년도</td>
-					<td><input type="date" name="ib_date" id="ib_date" required="required" /></td>
+					<td><input type="text" name="ib_date" id="ib_date" required="required" /></td>
 				</tr>
 				<tr>
 					<td>출판사 번호</td>

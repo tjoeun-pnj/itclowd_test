@@ -70,7 +70,7 @@ public class BookDAO {
 				book.setIb_title(rs.getString("ib_title"));
 				book.setIb_writer(rs.getString("ib_writer"));
 				book.setIb_price(rs.getInt("ib_price"));
-				book.setIb_date(rs.getDate("ib_date"));
+				book.setIb_date(rs.getInt("ib_date"));
 				book.setIp_no(rs.getInt("ip_no"));
 				book.setIb_intro(rs.getString("ib_intro"));
 				book.setIb_page(rs.getInt("ib_page"));
@@ -107,7 +107,7 @@ public class BookDAO {
 			pstmt.setString(3, book.getIb_writer());
 			pstmt.setInt(4, book.getIb_price());
 
-			pstmt.setInt(5, book.getIb_date().getYear());
+			pstmt.setInt(5, book.getIb_date());
 			pstmt.setInt(6, book.getIp_no());
 			pstmt.setString(7, book.getIb_intro());
 			pstmt.setInt(8, book.getIb_page());
@@ -142,11 +142,7 @@ public class BookDAO {
 				book.setIb_title(rs.getString("ib_title"));
 				book.setIb_writer(rs.getString("ib_writer"));
 				book.setIb_price(rs.getInt("ib_price"));
-				try {
-					book.setIb_date(new SimpleDateFormat("YYYY").parse(rs.getInt("ib_date")+""));
-				} catch (ParseException e) {
-					e.printStackTrace();
-				}
+				book.setIb_date(rs.getInt("ib_date"));
 				book.setIp_no(rs.getInt("ip_no"));
 				book.setIb_intro(rs.getString("ib_intro"));
 				book.setIb_page(rs.getInt("ib_page"));
@@ -179,7 +175,7 @@ public class BookDAO {
 			pstmt.setString(2, book.getIb_title());
 			pstmt.setString(3, book.getIb_writer());
 			pstmt.setInt(4, book.getIb_price());
-			pstmt.setInt(5,book.getIb_date().getYear());
+			pstmt.setInt(5,book.getIb_date());
 			pstmt.setInt(6, book.getIp_no());
 			pstmt.setString(7, book.getIb_intro());
 			pstmt.setInt(8, book.getIb_page());

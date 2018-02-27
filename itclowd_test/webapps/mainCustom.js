@@ -623,7 +623,7 @@ function setMyPageBookList(json, m_no){
 		if(bVo.b_img.indexOf('http') != -1) setHtml += '<img class="poster" src="'+bVo.b_img+'" width="150px" height="220px"><div class="detail-opener gradation" onclick="indieDetail('+bVo.b_no+');"><br><span id="detail_text">상세보기</span></div><div class="bottom"></div><div class="action-wrapper">';
 		else setHtml += '<img class="poster" src="image/'+bVo.b_img+'.jpg" width="150px" height="220px"><div class="detail-opener gradation" onclick="indieDetail('+bVo.b_no+');"><br><span id="detail_text">상세보기</span></div><div class="bottom"></div><div class="action-wrapper">';
 		setHtml += '<div class="movie-title">'+bVo.b_title+'</div>';
-		var count = bVo.a_count;
+		var count = bVo.ba_count;
 		if(count > 0){
 			var grade = Math.round(list[x].ba_grade);
 			setHtml += '<div class="rating">';

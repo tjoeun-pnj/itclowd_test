@@ -94,7 +94,31 @@
 				$('#' + activeTab).addClass('current');
 			})
 			reqMyPageGrade(member.m_no, null);
+			
 		});
+		function myBookGradeModal(b_no, title, content, grade) {
+			$("body").removeClass("is-menu-visible");
+			var isLogin = <%if(request.getSession() != null && request.getSession().getAttribute("authUser") != null){%>
+			true<%}else{%>false<%}%>
+			if(isLogin){
+				var member = <%=request.getSession().getAttribute("authUserJson")%>;
+				$('#myBookGradeModal').modal('show');
+				document.getElementById("indieGradeNo").value = b_no;
+				document.getElementById("indieMemberNo").value = member.m_no;
+				document.getElementById("indieGradeTitle").innerHTML = title;
+				document.getElementById("myBookRatingText").innerHTML = content;
+				var setHtml = '';
+				for(var y=1; y<=10;y++){
+					if(y%2==0) setHtml += '<span class="watcha-star half right';
+					else setHtml += '<span class="watcha-star half left';
+					if(grade >= y) setHtml += ' over horver" data-value="'+y+'"></span>';
+					else setHtml += '" data-value="'+y+'"></span>';
+				}
+				document.getElementById("myBookRating").innerHTML = setHtml;
+			}else{
+				alert('로그인 하셔야만 이 기능을 사용하실 수 있습니다.')
+			}
+		}
 	</script>
 	
 		<div id="main_header">
@@ -166,6 +190,36 @@
 	
 	
 
-
+<!-- The Modal1 -->
+  <div class="modal fade" id="myBookGradeModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      	<form id="indieGradeForm">
+      	<input type="hidden" id="indieGradeNo" name="ib_no" value="">
+      	<input type="hidden" id="indieMemberNo" name="m_no" value="">
+      	<input type="hidden" id="indieGradeStar" name="ia_grade" value="">
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">내 평점</h4>
+          <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+        </div>
+        <!-- Modal body -->
+        <div class="modal-body" align="center">
+          <section>
+			<ul class="actions vertical">
+				<h4 id="indieGradeTitle"></h4>
+				<div id="myBookRating" class="rating"></div>
+				<br/>
+				<textarea id="myBookRatingText" name="ia_content" cols="2" readonly="readonly"></textarea>
+				<br>
+				<div>
+				</div>
+			</ul>
+			</section>
+        </div>
+      	</form>
+      </div>
+    </div>
+  </div><!-- modal1 end -->
 </body>
 </html>

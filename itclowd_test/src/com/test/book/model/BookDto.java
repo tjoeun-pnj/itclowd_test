@@ -16,7 +16,14 @@ public class BookDto {
 	 private double ba_grade;
 	 private int ba_count;
 	 private int ba_no;
+	 private String ba_content;
 	 
+	public String getBa_content() {
+		return ba_content;
+	}
+	public void setBa_content(String ba_content) {
+		this.ba_content = ba_content;
+	}
 	public int getBa_no() {
 		return ba_no;
 	}

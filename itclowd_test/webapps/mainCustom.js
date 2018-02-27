@@ -633,10 +633,10 @@ function setMyPageBookList(json, m_no){
 				if(grade >= y) setHtml += ' over horver" data-value="'+y+'"></span>';
 				else setHtml += '" data-value="'+y+'"></span>';
 			}
-			setHtml += count+'명 평가 </div>';
+			setHtml += '내 평점</div>';
 		}else setHtml += '<div class="rating"><span class="watcha-star half left" data-value="1"></span><span class="watcha-star half right" data-value="2"></span><span class="watcha-star half left" data-value="3"></span><span class="watcha-star half right" data-value="4"></span><span class="watcha-star half left" data-value="5"></span><span class="watcha-star half right" data-value="6"></span><span class="watcha-star half left" data-value="7"></span><span class="watcha-star half right" data-value="8"></span><span class="watcha-star half left" data-value="9"></span><span class="watcha-star half right" data-value="10"></span>0명 평가</div>';
 		
-		setHtml += '<div class="wish-comment"><div class="comment" onclick="indieGradeModal('+bVo.b_no+', \''+bVo.b_title+'\');"><span class="icon"></span><span class="text">내 리뷰보기</span></div></div></div></div></div>';
+		setHtml += '<div class="wish-comment"><div class="comment" onclick="myBookGradeModal('+bVo.b_no+', \''+bVo.b_title+'\', \''+bVo.ba_content+'\', '+bVo.ba_grade+');"><span class="icon"></span><span class="text">내 리뷰보기</span></div></div></div></div></div>';
 	}
 	bookContainer.innerHTML = setHtml;
 	// 페이징처리

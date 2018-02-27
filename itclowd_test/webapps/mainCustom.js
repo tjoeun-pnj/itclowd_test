@@ -606,7 +606,7 @@ function setMyPageBookList(json, m_no){
 	var page = JSON.parse(json.page);
 	console.log(list);
 	var bookContainer = document.getElementById('myPageBook-grid-container');
-	var pageContainer = document.getElementById('pageContainer');
+	var pageContainer = document.getElementById('pageContainer1');
 	var setHtml = "";
 	bookContainer.innerHTML = "";
 	for(var x=0;x<list.length;x++){
@@ -636,7 +636,7 @@ function setMyPageBookList(json, m_no){
 			setHtml += count+'명 평가 </div>';
 		}else setHtml += '<div class="rating"><span class="watcha-star half left" data-value="1"></span><span class="watcha-star half right" data-value="2"></span><span class="watcha-star half left" data-value="3"></span><span class="watcha-star half right" data-value="4"></span><span class="watcha-star half left" data-value="5"></span><span class="watcha-star half right" data-value="6"></span><span class="watcha-star half left" data-value="7"></span><span class="watcha-star half right" data-value="8"></span><span class="watcha-star half left" data-value="9"></span><span class="watcha-star half right" data-value="10"></span>0명 평가</div>';
 		
-		setHtml += '<div class="wish-comment"><div class="comment" onclick="indieGradeModal('+bVo.b_no+', \''+bVo.b_title+'\');"><span class="icon"></span><span class="text">코멘트 쓰기</span></div></div></div></div></div>';
+		setHtml += '<div class="wish-comment"><div class="comment" onclick="indieGradeModal('+bVo.b_no+', \''+bVo.b_title+'\');"><span class="icon"></span><span class="text">내 리뷰보기</span></div></div></div></div></div>';
 	}
 	bookContainer.innerHTML = setHtml;
 	// 페이징처리

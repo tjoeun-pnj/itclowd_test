@@ -11,6 +11,7 @@ public class RecommCateService {
 	public ArrayList<IndieBookVo> recommCate(int m_no) {
 		int c_no = BookDao.getInstance().memberTasteCate(m_no);
 		ArrayList<IndieBookVo> list = null;
+		System.out.println(c_no);
 		if(c_no <1) {
 			HashMap<String, Integer> pMap = new HashMap<String, Integer>();
 			pMap.put("c_no", (int) (Math.random()*6+1));

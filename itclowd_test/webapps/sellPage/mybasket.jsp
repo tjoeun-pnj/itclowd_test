@@ -40,7 +40,6 @@ ArrayList<BookBean> books = (ArrayList<BookBean>)request.getAttribute("book");
 	<center>
 		<%-- <h2>hello, <%= user.getName() %></h2> --%>
 		<table border="2px">
-	
 			<tr>
 				<th width="100">choice buy</th>
 				<th width="100">Product ID</th>
@@ -75,9 +74,7 @@ ArrayList<BookBean> books = (ArrayList<BookBean>)request.getAttribute("book");
 				<td align="center">
    						<a href="delete.ba?c_no=<%=basket.getC_no()%>&m_no=<%=basket.getM_no()%>">Delete</a>
 				</td>
-				
 			</tr>
-
 			<% } %>
 				<input type="submit" value="Buy Selection"/>
 			</form>
@@ -85,7 +82,6 @@ ArrayList<BookBean> books = (ArrayList<BookBean>)request.getAttribute("book");
 				<input type="hidden" name="m_no" value="<%= baskets.get(0).getM_no() %>" />				
 				<input type="submit" value="Buy All" />
 			</form>
-
  	  </table>
 	</center>					
 	</div>

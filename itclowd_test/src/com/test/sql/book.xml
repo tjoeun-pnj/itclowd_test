@@ -118,4 +118,15 @@ select c_no, max(conn) from
 	on a.b_no = b.b_no where m_no = 11
 	GROUP BY a.b_no) a
 </select>
+<select id="indieBookGradeList" parameterType="java.util.HashMap" resultType="com.test.book.model.IndieAssessmentVo">
+	select ia_no, ib_no, a.m_no m_no, ia_grade, ia_content, m_name
+	 from indie_assessment a, member b
+		where ib_no = #{ib_no} and a.m_no = b.m_no
+		ORDER BY ia_no desc
+		limit #{startRow}, #{limit}
+</select>
+<select id="indieBookGradeListCount" parameterType="int" resultType="int">
+	select count(ia_no) from indie_assessment
+		where ib_no = #{ib_no}
+</select>
 </mapper>

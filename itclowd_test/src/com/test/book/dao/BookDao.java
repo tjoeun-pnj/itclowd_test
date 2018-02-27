@@ -228,5 +228,25 @@ public class BookDao {
 			return null;
 		}
 	}
+	public List<IndieAssessmentVo> indieBookGradeList(HashMap<String, Object> pMap) {
+		SqlSession session = null;
+		try {
+			session = SqlUtil.getSession();
+			return session.selectList("book.indieBookGradeList", pMap);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	public int indieBookGradeListCount(int ib_no) {
+		SqlSession session = null;
+		try {
+			session = SqlUtil.getSession();
+			return session.selectOne("book.indieBookGradeListCount", ib_no);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return 0;
+		}
+	}
 	
 }

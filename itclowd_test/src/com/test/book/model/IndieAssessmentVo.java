@@ -6,6 +6,14 @@ public class IndieAssessmentVo {
 	private String ia_content;
 	private int m_no;
 	private int ib_no;
+	private String m_name;
+	
+	public String getM_name() {
+		return m_name;
+	}
+	public void setM_name(String m_name) {
+		this.m_name = m_name;
+	}
 	public int getIa_no() {
 		return ia_no;
 	}

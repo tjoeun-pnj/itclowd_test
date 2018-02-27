@@ -14,7 +14,7 @@ import com.test.util.ActionForward;
 import com.test.util.inter.Action;
 import com.test.vo.PageInfo;
 
-public class IndieBookDetailAction implements Action {
+public class IndieGradeListAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest req, HttpServletResponse res) throws Exception {
@@ -26,11 +26,7 @@ public class IndieBookDetailAction implements Action {
 		pMap.put("limit", limit );
 		pMap.put("ib_no", ib_no );
 		IndieBookDetailService ibService = new IndieBookDetailService();
-		ActionForward forward = new ActionForward();
-		req.setAttribute("article", new Gson().toJson(ibService.indieBookDetail(ib_no)));
-		ArrayList<IndieAssessmentVo> list = ibService.indieBookGradeList(pMap);
-		JsonObject jObj = new JsonObject();
-		jObj.addProperty("json", new Gson().toJson(list));
+		ArrayList<IndieAssessmentVo> list =  ibService.indieBookGradeList(pMap); 
 		int listCount = ibService.indieBookGradeListCount(ib_no);
 		int maxPage = (int)((double)listCount/limit+0.95);
 		int startPage = (((int)((double)page/10+0.9))-1)*10+1;
@@ -42,10 +38,18 @@ public class IndieBookDetailAction implements Action {
 		pageInfo.setStartPage(startPage);
 		pageInfo.setPage(page);
 		pageInfo.setListCount(listCount);
-		jObj.addProperty("page", new Gson().toJson(pageInfo));
-		req.setAttribute("listIndieGrade", jObj); 
-		forward.setPath("/indieDetail.jsp");
-		return forward;
+		String pageJson = new Gson().toJson(pageInfo);
+		JsonObject jObj = new JsonObject();
+		res.setContentType("application/x-json;charset=utf-8");
+		if(list != null) {
+			jObj.addProperty("result", true);
+			jObj.addProperty("json", new Gson().toJson(list));
+			jObj.addProperty("page", pageJson);
+		} else {
+			jObj.addProperty("result", false);
+		}
+		res.getWriter().print(jObj);
+		return null;
 	}
 
 }

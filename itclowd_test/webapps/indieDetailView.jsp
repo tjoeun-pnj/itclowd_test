@@ -12,6 +12,7 @@
 <script type="text/javascript">
 	$(document).ready(function(){
 		var article = <%= request.getAttribute("article") %>;
+		var listIndieGrade = <%=request.getAttribute("listIndieGrade") %>;
 		
 		var prdinfo = document.getElementById('prdInfo');
 		var setHTML = '';
@@ -36,7 +37,7 @@
 				+ '<p align="left"><br></p><p align="left"><br></p><p align="left"><br></p><p align="left"><br></p><p align="left"><br></p>'
 				+ '<p align="left">발행년도: '+article.ib_date+' </p><p align="left">사이즈: '+article.ib_size+'&nbsp; </p><p align="left">페이지: '+article.ib_page+'p</p><p align="left"><br></p>'
 		document.getElementById('detailArea2').innerHTML = setHTML;
-		setHTML = '<a onclick="indieGradeModal('+article.ib_no+',\''+article.ib_title+'\');"><h4>평점주기</h4></a>';
+		setHTML = '<a href="javascript:void(0);" onclick="indieGradeModal('+article.ib_no+',\''+article.ib_title+'\');"><h4>평점주기</h4></a>';
 		$('#prdReview .boardBtn').html(setHTML);
 		$('#quantity').change(function(){
 			var value = $(this).val();
@@ -51,6 +52,8 @@
 		
 		
 		
+		
+		
 		var rating = 0;
 		var clicked = false;
 		var grade = document.getElementById("indieGradeStar");
@@ -62,7 +65,10 @@
 		     clicked = true;
 		     return false;
 		});
+		
+		setIndieGradeList(listIndieGrade);
 	});
+	
 	
 	function goBasket(ib_no){
 		var member = <%=request.getSession().getAttribute("authUserJson")%>;
@@ -164,8 +170,6 @@
 <body>
 <div class="guideBookDetail">
         <div class="center-box-detail">
-    
-    
 <!-- S:헤더 -->    
     
   
@@ -194,50 +198,26 @@
  <!-- 상품 사용 후기 -->
     <div id="prdReview">
 
-        <div class="d_bbs"><h4>간단평</h4></div>
+        <div class="d_bbs" style="text-align: center;"><h2>간단평</h2></div>
         <div class="boardBtn">
                 
         </div>
         <div id="reviewArea">
-            <p class="nodata">게시물이 없습니다</p> 
             <table border="1" summary="상품의 사용후기입니다." class="boardList">
-                <tbody>
-				<tr class="first xans-record-">
-				<td width="40px">3</td>
-				                       
-				                        <td class="subject" style="padding:7px 0 0 20px"><img src="//img.echosting.cafe24.com/design/skin/admin/ko_KR/ico_lock.gif" alt="비밀글"> <a href="/product/provider/review_read.xml?no=95&amp;board_no=6&amp;spread_flag=T">재입고문의!!!</a> </td>
-				                        <td> 류****</td>
-				                        <td>2018-02-19</td>
-				                        <td>0</td>
-				                    </tr>
-				<tr class="xans-record-">
-				<td width="40px">2</td>
-				                       
-				                        <td class="subject" style="padding:7px 0 0 20px"> <a href="/product/provider/review_read.xml?no=63&amp;board_no=6&amp;spread_flag=T">혹시 3차입고 예정은 없나요?</a> </td>
-				                        <td> 손****</td>
-				                        <td>2018-01-11</td>
-				                        <td>22</td>
-				                    </tr>
-				<tr class="xans-record-">
-				<td width="40px">1</td>
-				                       
-				                        <td class="subject" style="padding:7px 0 0 20px">&nbsp;&nbsp;&nbsp;<img src="//img.echosting.cafe24.com/design/skin/admin/ko_KR/ico_re.gif" alt="답변">  <a href="/product/provider/review_read.xml?no=67&amp;board_no=6&amp;spread_flag=T">혹시 3차입고 예정은 없나요?</a> </td>
-				                        <td> itcrowd</td>
-				                        <td>2018-01-12</td>
-				                        <td>7</td>
-				                    </tr><tr id="product-qna-read"><td colspan="6" align="left"><div class="contArea"><p></p><p>안녕하세요.</p>
-				<p>itcrowd입니다</p>
+                <tbody id="detailIndieReviewTable">
 				</tbody>
+				<tfoot>
+					<tr><td id="detailIndieReviewTablePage" colspan="3" align="center"></td><tr>
+				</tfoot>
 				</table>           
         </div>
     </div>
     <!-- //상품 사용 후기 -->
     <!-- 상품 Q&A -->
     <div id="prdQnA">
-        <div class="d_bbs"><img src="/web/upload/detail_qna.jpg"></div>
+        <div class="d_bbs">질문게시판</div>
         <div class="boardBtn">
-                <a href="/board/product/list.html?board_no=6" class="btn_design3"><img src="/web/upload/detail_list.jpg"></a>
-                <a href="/board/product/write.html?board_no=6&amp;product_no=822&amp;cate_no=44&amp;display_group=1" class="btn_design3"><img src="/web/upload/detail_write.jpg"></a>
+               질문하기
         </div>   
         <div id="qnaArea">
             <p class="nodata">게시물이 없습니다</p>            

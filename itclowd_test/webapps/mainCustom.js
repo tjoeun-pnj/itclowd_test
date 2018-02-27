@@ -358,8 +358,8 @@ function setIndieList(json){
 		} else if(x < 20) {
 			setHtml += '<div class="movie-card size-1x1 poster-type base_movie  user-action-m4d83i card grid-1 hei-1 top-3 left-'+(x%15)+'"><div class="poster-wrapper">';
 		}
-		if(ibVo.ib_img.indexOf('http') != -1) setHtml += '<img class="poster" src="'+ibVo.ib_img+'" width="150px" height="220px"><div class="detail-opener gradation" onclick="indieDetail('+ibVo.ib_no+');"><br><span id="detail_text">상세보기</span></div><div class="bottom"></div><div class="action-wrapper">';
-		else setHtml += '<img class="poster" src="image/'+ibVo.ib_img+'" width="150px" height="220px"><div class="detail-opener gradation" onclick="indieDetail('+ibVo.ib_no+');"><br><span id="detail_text">상세보기</span></div><div class="bottom"></div><div class="action-wrapper">';
+		if(ibVo.ib_img.indexOf('http') != -1) setHtml += '<img class="poster" src="'+ibVo.ib_img+'" width="150px" height="220px"><div class="detail-opener gradation" onclick="indieDetail('+ibVo.ib_no+','+null+');"><br><span id="detail_text">상세보기</span></div><div class="bottom"></div><div class="action-wrapper">';
+		else setHtml += '<img class="poster" src="image/'+ibVo.ib_img+'" width="150px" height="220px"><div class="detail-opener gradation" onclick="indieDetail('+ibVo.ib_no+','+null+');"><br><span id="detail_text">상세보기</span></div><div class="bottom"></div><div class="action-wrapper">';
 		setHtml += '<div class="movie-title">'+ibVo.ib_title+'</div>';
 		var count = ibVo.ia_count;
 		if(count > 0){
@@ -392,9 +392,64 @@ function setIndieList(json){
 }
 
 /*독립책 상세보기*/
-function indieDetail(ib_no){
-	location.href = "/book/indieBookDetail?ib_no="+ib_no;
+function indieDetail(ib_no, page){
+	if(page == null) page = 1;
+	location.href = "/book/indieBookDetail?ib_no="+ib_no+"&page="+page;
 }
+
+function reqIndieGradeList(ib_no, page){
+	$.ajax({
+        type:"POST",
+        url:"/book/indieGradeList?ib_no="+ib_no+"&page="+page,
+        dataType : "json",
+        success: function(data){
+        	if(data.result) setTasteList(data, ib_no);
+        },
+        error: function(xhr, status, error) {
+            alert('셋팅실패');
+        }  
+    });
+}
+
+
+
+function setIndieGradeList(json, ib_no){
+	var list = JSON.parse(json.json);
+	var page = JSON.parse(json.page);
+	
+	var indieGradeContainer = document.getElementById('detailIndieReviewTable');
+	var indieGradePageContainer = document.getElementById('detailIndieReviewTablePage');
+	var setHtml = "";
+	indieGradeContainer.innerHTML = "";
+	
+	for(var x=0;x<list.length;x++){
+		var article = list[x];
+		console.log(article);
+		setHtml += '<tr><td>'+article.m_name+'</td><td>'+article.ia_content+'</td><td>';
+		var grade = article.ia_grade;
+		for(var y=1;y<=10;y++){
+			if(y%2==0) setHtml += '<span class="watcha-star half right';
+			else setHtml += '<span class="watcha-star half left';
+			if(grade >= y) setHtml += ' over horver" data-value="'+y+'"></span>';
+			else setHtml += '" data-value="'+y+'"></span>';
+		}
+		setHtml += '</td></tr>';
+	}
+	indieGradeContainer.innerHTML = setHtml;
+	// 페이징처리
+	setHtml = "";
+	indieGradePageContainer.innerHTML = "";
+	setHtml += '<a href="javascript:void(0);" onclick="reqIndieGradeList('+ib_no+', '+1+');">맨앞</a>&nbsp';
+	if(page.page>1) setHtml += '<a href="javascript:void(0);" onclick="reqIndieGradeList('+ib_no+','+(page.page-1)+');">이전</a>&nbsp';
+	for(var i=page.startPage;i<=page.endPage; i++){
+		if(i==page.page) setHtml += '<a>'+i+'</a>&nbsp';
+		else setHtml += '<a href="javascript:void(0);" onclick="reqIndieGradeList('+ib_no+','+i+');">'+i+'</a>&nbsp';
+	}
+	if(page.page< page.maxPage) setHtml += '<a  href="javascript:void(0);" onclick="reqIndieGradeList('+ib_no+','+(page.page+1)+');">다음</a>&nbsp';
+	setHtml += '<a href="javascript:void(0);" onclick="reqIndieGradeList('+ib_no+','+page.maxPage+');">맨뒤</a>';
+	indieGradePageContainer.innerHTML = setHtml;
+}
+
 
 // 문자열 치환 기능
 function replaceAll(str, searchStr, replaceStr) {
@@ -508,8 +563,8 @@ function setRecommCate(json){
 	for(var x=0;x<list.length;x++){
 		var ibVo = list[x];
 		setHtml += '<div class="movie-card size-1x1 poster-type base_movie  user-action-m4d83i card grid-1 hei-1 top-0 left-'+x+'"><div class="poster-wrapper">';
-		if(ibVo.ib_img.indexOf('http') != -1) setHtml += '<img class="poster" src="'+ibVo.ib_img+'" width="150px" height="220px"><div class="detail-opener gradation" onclick="indieDetail('+ibVo.ib_no+');"><br><span id="detail_text">상세보기</span></div><div class="bottom"></div><div class="action-wrapper">';
-		else setHtml += '<img class="poster" src="image/'+ibVo.ib_img+'" width="150px" height="220px"><div class="detail-opener gradation" onclick="indieDetail('+ibVo.ib_no+');"><br><span id="detail_text">상세보기</span></div><div class="bottom"></div><div class="action-wrapper">';
+		if(ibVo.ib_img.indexOf('http') != -1) setHtml += '<img class="poster" src="'+ibVo.ib_img+'" width="150px" height="220px"><div class="detail-opener gradation" onclick="indieDetail('+ibVo.ib_no+','+null+');"><br><span id="detail_text">상세보기</span></div><div class="bottom"></div><div class="action-wrapper">';
+		else setHtml += '<img class="poster" src="image/'+ibVo.ib_img+'" width="150px" height="220px"><div class="detail-opener gradation" onclick="indieDetail('+ibVo.ib_no+','+null+');"><br><span id="detail_text">상세보기</span></div><div class="bottom"></div><div class="action-wrapper">';
 		setHtml += '<div class="movie-title">'+ibVo.ib_title+'</div>';
 		var count = ibVo.ia_count;
 		if(count > 0){
@@ -537,8 +592,8 @@ function setRecommIndie(json){
 	for(var x=0;x<list.length;x++){
 		var ibVo = list[x];
 		setHtml += '<div class="movie-card size-1x1 poster-type base_movie  user-action-m4d83i card grid-1 hei-1 top-0 left-'+x+'"><div class="poster-wrapper">';
-		if(ibVo.ib_img.indexOf('http') != -1) setHtml += '<img class="poster" src="'+ibVo.ib_img+'" width="150px" height="220px"><div class="detail-opener gradation" onclick="indieDetail('+ibVo.ib_no+');"><br><span id="detail_text">상세보기</span></div><div class="bottom"></div><div class="action-wrapper">';
-		else setHtml += '<img class="poster" src="image/'+ibVo.ib_img+'" width="150px" height="220px"><div class="detail-opener gradation" onclick="indieDetail('+ibVo.ib_no+');"><br><span id="detail_text">상세보기</span></div><div class="bottom"></div><div class="action-wrapper">';
+		if(ibVo.ib_img.indexOf('http') != -1) setHtml += '<img class="poster" src="'+ibVo.ib_img+'" width="150px" height="220px"><div class="detail-opener gradation" onclick="indieDetail('+ibVo.ib_no+','+null+');"><br><span id="detail_text">상세보기</span></div><div class="bottom"></div><div class="action-wrapper">';
+		else setHtml += '<img class="poster" src="image/'+ibVo.ib_img+'" width="150px" height="220px"><div class="detail-opener gradation" onclick="indieDetail('+ibVo.ib_no+','+null+');"><br><span id="detail_text">상세보기</span></div><div class="bottom"></div><div class="action-wrapper">';
 		setHtml += '<div class="movie-title">'+ibVo.ib_title+'</div>';
 		var count = ibVo.ia_count;
 		if(count > 0){
@@ -566,8 +621,8 @@ function setRecommPeo(json){
 		var ibVo = list[x];
 		setHtml += '<div class="movie-card size-1x1 poster-type base_movie  user-action-m4d83i card grid-1 hei-1 top-0 left-'+x+'"><div class="poster-wrapper">';
 		
-		if(ibVo.ib_img.indexOf('http') != -1) setHtml += '<img class="poster" src="'+ibVo.ib_img+'" width="150px" height="220px"><div class="detail-opener gradation" onclick="indieDetail('+ibVo.ib_no+');"><br><span id="detail_text">상세보기</span></div><div class="bottom"></div><div class="action-wrapper">';
-		else setHtml += '<img class="poster" src="image/'+ibVo.ib_img+'" width="150px" height="220px"><div class="detail-opener gradation" onclick="indieDetail('+ibVo.ib_no+');"><br><span id="detail_text">상세보기</span></div><div class="bottom"></div><div class="action-wrapper">';
+		if(ibVo.ib_img.indexOf('http') != -1) setHtml += '<img class="poster" src="'+ibVo.ib_img+'" width="150px" height="220px"><div class="detail-opener gradation" onclick="indieDetail('+ibVo.ib_no+','+null+');"><br><span id="detail_text">상세보기</span></div><div class="bottom"></div><div class="action-wrapper">';
+		else setHtml += '<img class="poster" src="image/'+ibVo.ib_img+'" width="150px" height="220px"><div class="detail-opener gradation" onclick="indieDetail('+ibVo.ib_no+','+null+');"><br><span id="detail_text">상세보기</span></div><div class="bottom"></div><div class="action-wrapper">';
 		setHtml += '<div class="movie-title">'+ibVo.ib_title+'</div>';
 		var count = ibVo.ia_count;
 		if(count > 0){
@@ -620,8 +675,8 @@ function setMyPageBookList(json, m_no){
 		} else if(x < 20) {
 			setHtml += '<div class="movie-card size-1x1 poster-type base_movie  user-action-m4d83i card grid-1 hei-1 top-3 left-'+(x%15)+'"><div class="poster-wrapper">';
 		}
-		if(bVo.b_img.indexOf('http') != -1) setHtml += '<img class="poster" src="'+bVo.b_img+'" width="150px" height="220px"><div class="detail-opener gradation" onclick="indieDetail('+bVo.b_no+');"><br><span id="detail_text">상세보기</span></div><div class="bottom"></div><div class="action-wrapper">';
-		else setHtml += '<img class="poster" src="image/'+bVo.b_img+'.jpg" width="150px" height="220px"><div class="detail-opener gradation" onclick="indieDetail('+bVo.b_no+');"><br><span id="detail_text">상세보기</span></div><div class="bottom"></div><div class="action-wrapper">';
+		if(bVo.b_img.indexOf('http') != -1) setHtml += '<img class="poster" src="'+bVo.b_img+'" width="150px" height="220px"><div class="detail-opener gradation" onclick="bookDetail('+bVo.b_no+');"><br><span id="detail_text">상세보기</span></div><div class="bottom"></div><div class="action-wrapper">';
+		else setHtml += '<img class="poster" src="image/'+bVo.b_img+'.jpg" width="150px" height="220px"><div class="detail-opener gradation" onclick="bookDetail('+bVo.b_no+');"><br><span id="detail_text">상세보기</span></div><div class="bottom"></div><div class="action-wrapper">';
 		setHtml += '<div class="movie-title">'+bVo.b_title+'</div>';
 		var count = bVo.ba_count;
 		if(count > 0){
@@ -651,4 +706,8 @@ function setMyPageBookList(json, m_no){
 	if(page.page< page.maxPage) setHtml += '<a class="button small" onclick="reqBookMainIndie('+m_no+','+(page.page+1)+');">다음</a>&nbsp';
 	setHtml += '<a class="button small" onclick="reqBookMainIndie('+m_no+','+page.maxPage+');">맨뒤</a>';
 	pageContainer.innerHTML = setHtml;
+}
+
+function bookDetail(b_no){
+	
 }

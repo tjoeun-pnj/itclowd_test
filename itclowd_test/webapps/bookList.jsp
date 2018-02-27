@@ -1,4 +1,8 @@
+<%@page import="com.test.member.medel.MemberVo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%
+	MemberVo mVo = (MemberVo)request.getSession().getAttribute("authUser");
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -96,6 +100,9 @@
 		$('#indieRating').children('.watcha-star').removeClass('over horver');
 		reqBookMainIndie(1,0,null);
 	}
+	function reqInsertForm(){
+		location.href = "/insertBookForm.bk";
+	} 
 </script>
 </head>
 <body>
@@ -110,6 +117,13 @@
         <li><a onclick="reqBookMainIndie(1, 4,null);">사진</a></li>
         <li><a onclick="reqBookMainIndie(1, 5,null);">디자인</a></li>
         <li><a onclick="reqBookMainIndie(1, 6,null);">일러스트/회화</a></li>
+        <%
+			HttpSession httpSession = request.getSession();
+			if(httpSession != null && httpSession.getAttribute("authUser") != null){
+				if(mVo.getM_grade()==0){%>
+				
+        <li><a class="button middle" onclick="reqInsertForm();">글등록</a></li>
+        <%}} %>
         </ul>
         </div>
         <div id="searchIndie">

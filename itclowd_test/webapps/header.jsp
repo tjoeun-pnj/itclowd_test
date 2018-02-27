@@ -1,5 +1,10 @@
+<%@page import="com.test.member.medel.MemberVo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
 <%@ taglib prefix="u" tagdir="/WEB-INF/tags" %>
+<%
+	MemberVo mVo = (MemberVo)request.getSession().getAttribute("authUser");
+	String json = (String)request.getSession().getAttribute("authUserJson");
+%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -56,14 +61,16 @@
 				<!-- Menu -->
 					<section id="menu">
 						<!-- Search -->
-						<u:isLogin>
+						<%
+							HttpSession httpSession = request.getSession();
+							if(httpSession != null && httpSession.getAttribute("authUser") != null){ %>
 							<section id="profile_section">
 								<table width="100%" id="profile_table">
 									<tr>
-									<td width="25%%">
+									<td width="25%">
 									<img src="/images/lion_profile.gif" width="60x" height="60px">
 									</td>
-									<td width="25%">누구누구님</td>
+									<td width="25%"><%=mVo.getM_name() %>님</td>
 									<td align="right" rowspan="2">
 									<img src="/images/lion_profile.gif" width="45x" height="45px">
 									</td>
@@ -93,7 +100,7 @@
 									</li>
 								</ul>
 							</section>
-						</u:isLogin>
+						<%} %>
 						<u:notLogin>
 						<!-- Actions -->
 							<section>
@@ -106,7 +113,7 @@
 									<li align="center"><a href="#" onclick="myModal1();">비밀번호 찾기</a>&nbsp;&nbsp;<a href="#">비회원 주문조회하기</a></li>
 									<li><a href="#" class="button big fit" onclick="loginMember();">보담 로그인</a></li>
 									<li><a href="#"  class="button big fit" onclick="myModal();" data-toggle="modal" data-target="#myModal">보담 회원가입</a></li>
-									<li><a href="#" ><img src="images/kakao_login_btn1.png" width="100%"/></a></li>
+									<!-- <li><a href="#" ><img src="images/kakao_login_btn1.png" width="100%"/></a></li> -->
 									<li></li>
 								</ul>
 								

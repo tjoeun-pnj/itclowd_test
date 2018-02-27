@@ -10,7 +10,9 @@ import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 
+import com.test.book.model.BookAssessmentVo;
 import com.test.book.model.BookDto;
+import com.test.book.model.IndieAssessmentVo;
 import com.test.book.model.IndieBookQueryVo;
 import com.test.book.model.IndieBookVo;
 import com.test.util.JDBCUtil;
@@ -166,11 +168,41 @@ public class BookDao {
 			return 0;
 		}
 	}
-	public ArrayList<IndieBookVo> recommGrade(int c_no) {
+	public List<IndieBookVo> recommGrade(HashMap<String, Integer> pMap) {
 		SqlSession session = null;
 		try {
 			session = SqlUtil.getSession();
-			return session.selectOne("book.recommGrade", c_no);
+			return session.selectList("book.recommGrade", pMap);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	public List<BookAssessmentVo> recommSelectMyBookGrade(int m_no) {
+		SqlSession session = null;
+		try {
+			session = SqlUtil.getSession();
+			return session.selectList("book.recommSelectMyBookGrade", m_no);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	public List<BookAssessmentVo> recommSelectYourBookGrade(long b_no) {
+		SqlSession session = null;
+		try {
+			session = SqlUtil.getSession();
+			return session.selectList("book.recommSelectYourBookGrade", b_no);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	public List<IndieAssessmentVo> recommSelectMyIndieGrade(int m_no) {
+		SqlSession session = null;
+		try {
+			session = SqlUtil.getSession();
+			return session.selectList("book.recommSelectMyIndieGrade", m_no);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;

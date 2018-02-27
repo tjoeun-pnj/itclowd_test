@@ -78,7 +78,6 @@
 	
   <div id="blog-container">
       <center>
-    	<input type="checkbox" value="dd">
       <h2>질문게시판</h2>
       	
     <div class="container">
@@ -190,21 +189,3 @@
 	</div> 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

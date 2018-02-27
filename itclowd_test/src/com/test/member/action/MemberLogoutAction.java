@@ -22,7 +22,7 @@ public class MemberLogoutAction implements Action {
 		if(session != null) session.invalidate();
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(true);
-		forward.setPath(req.getContextPath()+"/main.jsp");
+		forward.setPath("/main.jsp");
 		return forward;
 	}
 

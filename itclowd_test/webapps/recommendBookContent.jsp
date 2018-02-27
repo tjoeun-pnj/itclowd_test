@@ -6,6 +6,8 @@
 $(document).ready(function(){
 	var member = <%=request.getSession().getAttribute("authUserJson")%>;
 	reqRecommCate(member.m_no);	
+	reqRecommIndie();
+	reqRecommPeo(member.m_no);
 });
 </script>
 </head>

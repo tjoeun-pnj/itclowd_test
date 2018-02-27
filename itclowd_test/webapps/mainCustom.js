@@ -349,6 +349,7 @@ function setIndieList(json){
 	bookContainer.innerHTML = "";
 	for(var x=0;x<list.length;x++){
 		var ibVo = list[x];
+		console.log(ibVo.ib_title.indexOf('http')+", "+ibVo.ib_title);
 		if(x < 5){
 			setHtml += '<div class="movie-card size-1x1 poster-type base_movie  user-action-m4d83i card grid-1 hei-1 top-0 left-'+x+'"><div class="poster-wrapper">';
 		} else if(x < 10) {
@@ -358,7 +359,8 @@ function setIndieList(json){
 		} else if(x < 20) {
 			setHtml += '<div class="movie-card size-1x1 poster-type base_movie  user-action-m4d83i card grid-1 hei-1 top-3 left-'+(x%15)+'"><div class="poster-wrapper">';
 		}
-		setHtml += '<img class="poster" src="image/'+ibVo.ib_img+'" width="150px" height="220px"><div class="detail-opener gradation" onclick="indieDetail('+ibVo.ib_no+');"><br><span id="detail_text">상세보기</span></div><div class="bottom"></div><div class="action-wrapper">';
+		if(ibVo.ib_img.indexOf('http') != -1) setHtml += '<img class="poster" src="'+ibVo.ib_img+'" width="150px" height="220px"><div class="detail-opener gradation" onclick="indieDetail('+ibVo.ib_no+');"><br><span id="detail_text">상세보기</span></div><div class="bottom"></div><div class="action-wrapper">';
+		else setHtml += '<img class="poster" src="image/'+ibVo.ib_img+'" width="150px" height="220px"><div class="detail-opener gradation" onclick="indieDetail('+ibVo.ib_no+');"><br><span id="detail_text">상세보기</span></div><div class="bottom"></div><div class="action-wrapper">';
 		setHtml += '<div class="movie-title">'+ibVo.ib_title+'</div>';
 		var count = ibVo.ia_count;
 		if(count > 0){
@@ -457,7 +459,7 @@ function setTasteList(json){
 function reqRecommCate(m_no){
 	$.ajax({
 	    type:"POST",
-	    url:"./book/recommCate?m_no="+m_no,
+	    url:"/book/recommCate?m_no="+m_no,
 	    dataType : "json",
 	    success: function(data){
 	    	if(data.result) setRecommCate(data.json);
@@ -466,6 +468,34 @@ function reqRecommCate(m_no){
 	    error: function(xhr, status, error) {
 	        alert('셋팅실패');
 	    }  
+	});
+}
+function reqRecommIndie(){
+	$.ajax({
+		type:"POST",
+		url:"/book/recommIndie",
+		dataType : "json",
+		success: function(data){
+			if(data.result) setRecommIndie(data.json);
+			else alert('셋팅실패');
+		},
+		error: function(xhr, status, error) {
+			alert('셋팅실패');
+		}  
+	});
+}
+function reqRecommPeo(m_no){
+	$.ajax({
+		type:"POST",
+		url:"/book/recommPeo?m_no="+m_no,
+		dataType : "json",
+		success: function(data){
+			if(data.result) setRecommPeo(data.json);
+			else alert('셋팅실패');
+		},
+		error: function(xhr, status, error) {
+			alert('셋팅실패');
+		}  
 	});
 }
 
@@ -479,7 +509,66 @@ function setRecommCate(json){
 	for(var x=0;x<list.length;x++){
 		var ibVo = list[x];
 		setHtml += '<div class="movie-card size-1x1 poster-type base_movie  user-action-m4d83i card grid-1 hei-1 top-0 left-'+x+'"><div class="poster-wrapper">';
-		setHtml += '<img class="poster" src="image/'+ibVo.ib_img+'" width="150px" height="220px"><div class="detail-opener gradation" onclick="indieDetail('+ibVo.ib_no+');"><br><span id="detail_text">상세보기</span></div><div class="bottom"></div><div class="action-wrapper">';
+		if(ibVo.ib_img.indexOf('http') != -1) setHtml += '<img class="poster" src="'+ibVo.ib_img+'" width="150px" height="220px"><div class="detail-opener gradation" onclick="indieDetail('+ibVo.ib_no+');"><br><span id="detail_text">상세보기</span></div><div class="bottom"></div><div class="action-wrapper">';
+		else setHtml += '<img class="poster" src="image/'+ibVo.ib_img+'" width="150px" height="220px"><div class="detail-opener gradation" onclick="indieDetail('+ibVo.ib_no+');"><br><span id="detail_text">상세보기</span></div><div class="bottom"></div><div class="action-wrapper">';
+		setHtml += '<div class="movie-title">'+ibVo.ib_title+'</div>';
+		var count = ibVo.ia_count;
+		if(count > 0){
+			var grade = Math.round(list[x].ia_grade);
+			setHtml += '<div class="rating">';
+			for(var y=1; y<=10;y++){
+				if(y%2==0) setHtml += '<span class="watcha-star half right';
+				else setHtml += '<span class="watcha-star half left';
+				if(grade >= y) setHtml += ' over horver" data-value="'+y+'"></span>';
+				else setHtml += '" data-value="'+y+'"></span>';
+			}
+			setHtml += count+'명 평가 </div>';
+		}else setHtml += '<div class="rating"><span class="watcha-star half left" data-value="1"></span><span class="watcha-star half right" data-value="2"></span><span class="watcha-star half left" data-value="3"></span><span class="watcha-star half right" data-value="4"></span><span class="watcha-star half left" data-value="5"></span><span class="watcha-star half right" data-value="6"></span><span class="watcha-star half left" data-value="7"></span><span class="watcha-star half right" data-value="8"></span><span class="watcha-star half left" data-value="9"></span><span class="watcha-star half right" data-value="10"></span>0명 평가</div>';
+		setHtml += '<div class="wish-comment"><div class="comment" onclick="indieGradeModal('+ibVo.ib_no+', \''+ibVo.ib_title+'\');"><span class="icon"></span><span class="text">코멘트 쓰기</span></div></div></div></div></div>';
+	}
+	bookContainer.innerHTML = setHtml;
+}
+function setRecommIndie(json){
+	console.log(json);
+	var list = JSON.parse(json);
+	
+	var bookContainer = document.getElementById('recommIndie-grid-container');
+	var setHtml = "";
+	bookContainer.innerHTML = "";
+	for(var x=0;x<list.length;x++){
+		var ibVo = list[x];
+		setHtml += '<div class="movie-card size-1x1 poster-type base_movie  user-action-m4d83i card grid-1 hei-1 top-0 left-'+x+'"><div class="poster-wrapper">';
+		if(ibVo.ib_img.indexOf('http') != -1) setHtml += '<img class="poster" src="'+ibVo.ib_img+'" width="150px" height="220px"><div class="detail-opener gradation" onclick="indieDetail('+ibVo.ib_no+');"><br><span id="detail_text">상세보기</span></div><div class="bottom"></div><div class="action-wrapper">';
+		else setHtml += '<img class="poster" src="image/'+ibVo.ib_img+'" width="150px" height="220px"><div class="detail-opener gradation" onclick="indieDetail('+ibVo.ib_no+');"><br><span id="detail_text">상세보기</span></div><div class="bottom"></div><div class="action-wrapper">';
+		setHtml += '<div class="movie-title">'+ibVo.ib_title+'</div>';
+		var count = ibVo.ia_count;
+		if(count > 0){
+			var grade = Math.round(list[x].ia_grade);
+			setHtml += '<div class="rating">';
+			for(var y=1; y<=10;y++){
+				if(y%2==0) setHtml += '<span class="watcha-star half right';
+				else setHtml += '<span class="watcha-star half left';
+				if(grade >= y) setHtml += ' over horver" data-value="'+y+'"></span>';
+				else setHtml += '" data-value="'+y+'"></span>';
+			}
+			setHtml += count+'명 평가 </div>';
+		}else setHtml += '<div class="rating"><span class="watcha-star half left" data-value="1"></span><span class="watcha-star half right" data-value="2"></span><span class="watcha-star half left" data-value="3"></span><span class="watcha-star half right" data-value="4"></span><span class="watcha-star half left" data-value="5"></span><span class="watcha-star half right" data-value="6"></span><span class="watcha-star half left" data-value="7"></span><span class="watcha-star half right" data-value="8"></span><span class="watcha-star half left" data-value="9"></span><span class="watcha-star half right" data-value="10"></span>0명 평가</div>';
+		setHtml += '<div class="wish-comment"><div class="comment" onclick="indieGradeModal('+ibVo.ib_no+', \''+ibVo.ib_title+'\');"><span class="icon"></span><span class="text">코멘트 쓰기</span></div></div></div></div></div>';
+	}
+	bookContainer.innerHTML = setHtml;
+}
+function setRecommPeo(json){
+	var list = JSON.parse(json);
+	
+	var bookContainer = document.getElementById('recommPeo-grid-container');
+	var setHtml = "";
+	bookContainer.innerHTML = "";
+	for(var x=0;x<list.length;x++){
+		var ibVo = list[x];
+		setHtml += '<div class="movie-card size-1x1 poster-type base_movie  user-action-m4d83i card grid-1 hei-1 top-0 left-'+x+'"><div class="poster-wrapper">';
+		
+		if(ibVo.ib_img.indexOf('http') != -1) setHtml += '<img class="poster" src="'+ibVo.ib_img+'" width="150px" height="220px"><div class="detail-opener gradation" onclick="indieDetail('+ibVo.ib_no+');"><br><span id="detail_text">상세보기</span></div><div class="bottom"></div><div class="action-wrapper">';
+		else setHtml += '<img class="poster" src="image/'+ibVo.ib_img+'" width="150px" height="220px"><div class="detail-opener gradation" onclick="indieDetail('+ibVo.ib_no+');"><br><span id="detail_text">상세보기</span></div><div class="bottom"></div><div class="action-wrapper">';
 		setHtml += '<div class="movie-title">'+ibVo.ib_title+'</div>';
 		var count = ibVo.ia_count;
 		if(count > 0){

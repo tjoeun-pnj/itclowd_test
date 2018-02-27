@@ -87,4 +87,19 @@ select c_no, max(conn) from
 	order by ia_grade desc
 	 limit 5;
 </select>
+<select id="recommSelectMyIndieGrade" parameterType="int" resultType="com.test.book.model.IndieAssessmentVo">
+	select * from indie_assessment
+		where m_no = #{m_no}
+		ORDER BY ia_grade desc
+</select>
+<select id="recommSelectMyBookGrade" parameterType="int" resultType="com.test.book.model.BookAssessmentVo">
+	select * from book_assessment
+		where m_no = #{m_no}
+		ORDER BY ba_grade desc
+</select>
+<select id="recommSelectYourBookGrade" parameterType="long" resultType="com.test.book.model.BookAssessmentVo">
+	select * from book_assessment
+		where b_no = #{b_no}
+		ORDER BY ba_grade desc
+</select>
 </mapper>

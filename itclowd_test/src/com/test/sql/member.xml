@@ -27,7 +27,7 @@
 		where m_name = #{m_name};
 </select>
 <select id="loginMember" parameterType="java.util.HashMap" resultType="com.test.member.medel.MemberVo">
-	select m.m_no, m_id, m_name, g.m_grade from member m, member_grade g
+	select m.m_no as m_no, m_id, m_name, g.m_grade as m_grade from member m, member_grade g
 		where m.m_id = #{m_id} and m_pass = #{m_pass} and m.m_no = g.m_no;
 </select>
 </mapper>

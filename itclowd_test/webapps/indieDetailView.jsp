@@ -1,4 +1,8 @@
+<%@page import="com.test.member.medel.MemberVo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%
+	MemberVo mVo = (MemberVo)request.getSession().getAttribute("authUser");
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -11,7 +15,9 @@
 		
 		var prdinfo = document.getElementById('prdInfo');
 		var setHTML = '';
-		setHTML = '<div class="keyImg"><img src="/image/'+article.ib_img+'" alt="" class="BigImage "></div>';
+		if(article.ib_img.indexOf('http') != -1) setHTML = '<div class="keyImg"><img src="'+article.ib_img+'" alt="" class="BigImage "></div>';
+		else setHTML = '<div class="keyImg"><img src="/image/'+article.ib_img+'" alt="" class="BigImage "></div>';
+		
 		document.getElementById('imgArea').innerHTML = setHTML;
 		setHTML = '<table border="1"><tbody><tr class=""><td class="name" colspan="2">'+article.ib_title+'</td></tr><tr><td colspan="2" style="padding:0px 0 20px 0px">저자:  '+article.ib_writer+'  / 발행년도:  '+article.ib_date
 					+'  / 사이즈:  '+article.ib_size+'  / 페이지: '+article.ib_page+'</tr></tbody></table><table><tbody><tr class=""><th style="padding:4px 0 10px 0">가격</th><td style="padding:4px 0 10px 0px">'
@@ -19,10 +25,12 @@
 					+'</td></tr></tbody><tbody><tr><th style="padding:3px 0 10px 0">수량</th><td style="padding:3px 0 10px 0px">'
 					+'<p><input id="quantity" name="quantity_opt[]" style="" value="1" type="text"><img src="http://img.echosting.cafe24.com/design/skin/mono/product/btn_basketUp.gif" alt="up" class="QuantityUp" onclick="indieBookChangeCount(true)"><img src="http://img.echosting.cafe24.com/design/skin/mono/product/btn_basketDown.gif" alt="down" class="QuantityDown" onclick="indieBookChangeCount(false)"></p>'
 					+'</td></tr></tbody></table><table><tbody class="xans-element- xans-product xans-product-option xans-record-"></tbody></table><div id="zoom_wrap"></div>'
-					+'<div class="xans-element- xans-product xans-product-action btnArea "><a class="button small">구매하기</a>&nbsp;<a class="button small " onclick="goBasket('+article.ib_no+')">장바구니</a>';
+					+'<div class="xans-element- xans-product xans-product-action btnArea "><a class="button small">구매하기</a>&nbsp;<a class="button small " onclick="goBasket('+article.ib_no+')">장바구니</a>'
+					+'<%HttpSession httpSession = request.getSession();if(httpSession != null && httpSession.getAttribute("authUser") != null){if(mVo.getM_grade()==0){%><a class="button small" href="/modifyBook.bk?ib_no='+article.ib_no+'">글수정</a> <%}} %>';
 		document.getElementById('prdInfo').innerHTML = setHTML;
-		setHTML = '<p align="center"><img alt="" src="/image/'+article.ib_img1+'"></p><p align="left">&nbsp;</p><p align="center"><img alt="" src="/image/'+article.ib_img2+'"></p><p align="left">&nbsp;</p><p align="center"><img alt="" src="/image/'+article.ib_img3+'"></p><p align="left">&nbsp;</p>'
-				+ '<p align="left"><strong>'+article.ib_title+'</strong></p><p align="left"><strong><br></strong></p><p align="left"><br></p><p align="left"><strong>책소개 </strong></p><p align="left"><br></p>'
+		if(article.ib_img.indexOf('http') != -1) setHTML = '<p align="center"><img alt="" src="'+article.ib_img1+'"></p><p align="left">&nbsp;</p><p align="center"><img alt="" src="'+article.ib_img2+'"></p><p align="left">&nbsp;</p><p align="center"><img alt="" src="'+article.ib_img3+'"></p><p align="left">&nbsp;</p>'
+		else setHTML = '<p align="center"><img alt="" src="/image/'+article.ib_img1+'"></p><p align="left">&nbsp;</p><p align="center"><img alt="" src="/image/'+article.ib_img2+'"></p><p align="left">&nbsp;</p><p align="center"><img alt="" src="/image/'+article.ib_img3+'"></p><p align="left">&nbsp;</p>';
+		setHTML += '<p align="left"><strong>'+article.ib_title+'</strong></p><p align="left"><strong><br></strong></p><p align="left"><br></p><p align="left"><strong>책소개 </strong></p><p align="left"><br></p>'
 				+ '<p align="left">'+replaceAll(article.ib_intro,'.','.<br/>' )+'</p><p align="left"><br></p><p align="left"><br></p><p align="left"><br></p>'
 				+ '<p align="left"><strong>저자</strong></p><strong><p align="left"><br></p></strong><p align="left">'+article.ib_writer+'</p>'
 				+ '<p align="left"><br></p><p align="left"><br></p><p align="left"><br></p><p align="left"><br></p><p align="left"><br></p>'
@@ -105,7 +113,7 @@
 	function indieBookChangePrice(count){
 		var price =	document.getElementById('product_price').value;
 		var priceText = document.getElementById('span_product_price_text');
-		priceText.innerHTML = price * count;
+		priceText.innerHTML = price * count+'원';
 	}
 	
 	function indieGradeModal(ib_no, title) {
@@ -175,7 +183,6 @@
 <!-- 상세정보 내역 -->
 <div id="prdInfo"></div></div></div>
 <!-- //상단 제품 정보 -->
-
 
 
 <div class="xans-element- xans-product xans-product-additional "><!-- 상품상세정보 -->

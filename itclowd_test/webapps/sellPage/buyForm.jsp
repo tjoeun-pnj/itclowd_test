@@ -154,12 +154,10 @@
 <script>
 	var name;
 	
-	window.onload = function(){
-		document.getElementById('Radio_On').style.display="none";
-		document.getElementById('Radio_Off').style.display="none";
-	}
 				
 	$(document).ready(function() {
+		document.getElementById('Radio_On').style.display="none";
+		document.getElementById('Radio_Off').style.display="none";
 		$("input:radio[name=radioBuyButton]").click(function(){
 			name= this.value;
 			//alert(name);

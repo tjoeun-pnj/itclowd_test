@@ -7,7 +7,7 @@
 <mapper namespace="book">
  
 <select id="indieBookList" parameterType="java.util.HashMap" resultType="com.test.book.model.IndieBookVo">
-	select a.ib_no ib_no, c_no, ib_title, ib_img, avg(ia_grade) ia_grade, count(ia_grade) ia_count 
+	select a.ib_no ib_no, c_no, ib_title, ib_img, avg(ia_grade) ia_grade, count(ia_grade) ia_count , m_no
 	from indie_book a left outer join indie_assessment b
 	on a.ib_no = b.ib_no where 0 = 0
 	<if test="cate != 0">
@@ -41,7 +41,7 @@
 </insert>
 
 <select id="tasteSetList"  resultType="com.test.book.model.BookDto" flushCache="true">
-	select a.b_no b_no, c_no, b_title, b_img, avg(ba_grade) ba_grade, count(ba_grade) ba_count 
+	select a.b_no b_no, c_no, b_title, b_img, avg(ba_grade) ba_grade, count(ba_grade) ba_count
 	from book a left outer join book_assessment b
 	on a.b_no = b.b_no where 0 = 0
 	GROUP BY b_no
@@ -101,5 +101,21 @@ select c_no, max(conn) from
 	select * from book_assessment
 		where b_no = #{b_no}
 		ORDER BY ba_grade desc
+</select>
+
+<select id="getMyPageGradeList" parameterType="java.util.HashMap" resultType="com.test.book.model.BookDto">
+	select ba_no, a.b_no b_no, c_no, b_title, b_img, avg(ba_grade) ba_grade, count(ba_grade) ba_count 
+	from book a left outer join book_assessment b
+	on a.b_no = b.b_no where m_no = #{m_no}
+	GROUP BY b_no
+	ORDER BY ba_no desc
+	 limit #{startRow}, #{limit}
+</select>
+<select id="getMyPageGradeListCount" resultType="int" parameterType="int">
+	select COALESCE(count(ba_no), 0) count from
+		(select ba_no, a.b_no b_no, c_no, b_title, b_img, avg(ba_grade) ba_grade, count(ba_grade) ba_count 
+	from book a left outer join book_assessment b
+	on a.b_no = b.b_no where m_no = 11
+	GROUP BY a.b_no) a
 </select>
 </mapper>

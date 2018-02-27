@@ -15,7 +15,14 @@ public class BookDto {
 	 private int b_page  ;           //
 	 private double ba_grade;
 	 private int ba_count;
+	 private int ba_no;
 	 
+	public int getBa_no() {
+		return ba_no;
+	}
+	public void setBa_no(int ba_no) {
+		this.ba_no = ba_no;
+	}
 	public double getBa_grade() {
 		return ba_grade;
 	}

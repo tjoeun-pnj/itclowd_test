@@ -208,5 +208,25 @@ public class BookDao {
 			return null;
 		}
 	}
+	public int getMyPageGradeListCount(int m_no) {
+		SqlSession session = null;
+		try {
+			session = SqlUtil.getSession();
+			return session.selectOne("book.getMyPageGradeListCount", m_no);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return 0;
+		}
+	}
+	public List<BookDto> getMyPageGradeList(HashMap<String, Object> pMap) {
+		SqlSession session = null;
+		try {
+			session = SqlUtil.getSession();
+			return session.selectList("book.getMyPageGradeList", pMap);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
 	
 }

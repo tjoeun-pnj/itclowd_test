@@ -19,6 +19,7 @@ import com.test.book.action.BookMainNewAction;
 import com.test.book.action.IndieBookDetailAction;
 import com.test.book.action.IndieGradeAction;
 import com.test.book.action.IndieListAction;
+import com.test.book.action.MyPageGradeAction;
 import com.test.book.action.RecommCateAction;
 import com.test.book.action.RecommIndieAction;
 import com.test.book.action.RecommPeopleAction;
@@ -119,6 +120,13 @@ public class BookController extends HttpServlet{
 			}
 		} else if(command.equals("/recommPeo")) {
 			action = new RecommPeopleAction();
+			try {
+				forward = action.execute(req, res);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if(command.equals("/myPageGrade")) {
+			action = new MyPageGradeAction();
 			try {
 				forward = action.execute(req, res);
 			} catch (Exception e) {

@@ -20,9 +20,8 @@
   <!-- <link rel="stylesheet" href="bootstrap.css"> -->
   <!-- <script src="bootstrap.js"></script> -->
   <script src="mainCustom.js"></script> 
-	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>	
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
 	<style>
 		#container {
 			width:1150px;
@@ -86,6 +85,7 @@
 
 	<script>
 		$(function() {
+			var member = <%=request.getSession().getAttribute("authUserJson")%>;
 			$('ul.tab li').click(function() {
 				var activeTab = $(this).attr('data-tab');
 				$('ul.tab li').removeClass('current');
@@ -93,6 +93,7 @@
 				$(this).addClass('current');
 				$('#' + activeTab).addClass('current');
 			})
+			reqMyPageGrade(member.m_no, null);
 		});
 	</script>
 	
@@ -110,40 +111,14 @@
 		</ul>
 		
    <!-- 내가 매긴 별점 모음 (별점 매긴 순으로 등록됨) -->
-		<div id="tab1" class="tabcontent current">
-
-            <h1>&nbsp;</h1>  
-
-            <div>
-            <img class="small" src="book4.jpg" alt="" />
-            <img class="small" src="book4.jpg" alt="" />
-            <img class="small" src="book4.jpg" alt="" />
-            <img class="small" src="book4.jpg" alt="" />
-            </div>
-            
-            <div>
-            <img class="small" src="book4.jpg" alt="" />
-            <img class="small" src="book4.jpg" alt="" />
-            <img class="small" src="book4.jpg" alt="" />
-            <img class="small" src="book4.jpg" alt="" />
-            </div>
-            
-            <div>
-            <img class="small" src="book4.jpg" alt="" />
-            <img class="small" src="book4.jpg" alt="" />
-            <img class="small" src="book4.jpg" alt="" />
-            <img class="small" src="book4.jpg" alt="" />
-            </div>
-            
-            <div>
-            <img class="small" src="book4.jpg" alt="" />
-            <img class="small" src="book4.jpg" alt="" />
-            <img class="small" src="book4.jpg" alt="" />
-            <img class="small" src="book4.jpg" alt="" />
-            </div>
-            
-            <h1>&nbsp;</h1>
-     
+		<div id="tab1" class="tabcontent current" >
+			 <div class="vertical-list" style="height: 1000px;">
+       			<ul id="myPageBook-grid-container" class="grid-container" style="position: relative; width: 100%;" >
+		
+				</ul>
+				<div id="pageContainer">
+				</div>
+				</div>
 			</div>						
 				
    <!-- 개인 상세정보 -->

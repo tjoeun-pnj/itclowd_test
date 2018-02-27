@@ -130,7 +130,6 @@ public class BasketDAO {
 	public void basketDelete(int m_no, int c_no) {
 		Connection conn =null;
 		PreparedStatement stmt =null;
-		ResultSet rs = null;
 		String sql = "delete from cart where m_no=? and c_no =?";
 		int result = 0;
 		
@@ -148,7 +147,6 @@ public class BasketDAO {
 		} catch (Exception e) {
 			System.out.println("장바구니 삭제 실패");
 		} finally {
-			close(rs);
 			close(stmt);
 			close(conn);
 		}

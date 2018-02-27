@@ -6,15 +6,17 @@
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <% 
-	BookBean book = (BookBean)request.getAttribute("book");
-	int c_amount = (int)request.getAttribute("c_amount");
+	ArrayList<Basket> baskets = (ArrayList<Basket>)request.getAttribute("baskets");
+	ArrayList<BookBean> books = (ArrayList<BookBean>)request.getAttribute("books");
 	SonBean sonBean = new SonBean();
-	String json = new Gson().toJson(book);
+	sonBean.setBooks(books);
+	sonBean.setBaskets(baskets);
+	String json = new Gson().toJson(sonBean);
 	int point=0;
 	int sum=0;
 	MemberVo mVo = (MemberVo)request.getSession(false).getAttribute("authUser");
 %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -22,7 +24,7 @@
 </head>
 <body>
 		<center>
-		<form action="buyBookPro.bu">
+		<form action="buyInBasketPro.ba">
 			<table>
 				<tr>
 					<th>이미지</th>
@@ -31,22 +33,24 @@
 					<th>수량</th>
 					<th>적립금</th>
 				</tr>
+				<% for(int i=0; i<baskets.size(); i++) { %>
 				<tr>
-					<td><img src="<%= book.getIb_img() %>" alt="없음" width="70" height="100"/></td>
+					<td><img src="<%= books.get(i).getIb_img() %>" alt="없음" width="70" height="100"/></td>
 					<td>
-						<%=book.getIb_title() %>
+						<%=books.get(i).getIb_title() %>
 					</td>
-					<td><%=book.getIb_price() %></td>
-					<td><%= c_amount %></td>
+					<td><%=books.get(i).getIb_price() %></td>
+					<td><%=baskets.get(i).getC_amount() %></td>
 					<td>
 						<% 
-							int tmp = book.getIb_price() * c_amount;
+							int tmp = books.get(i).getIb_price() * baskets.get(i).getC_amount();
 							sum+=tmp;
 							point =tmp/100;	
 						%>
 						<%= point %>
 					</td>
 				</tr>
+				<%} %>
 				<hr />
 				<h6>상품구매금액<%= sum%>+배송비 : 2500 = 합계 : <%= sum+=2500 %></h6></td>	
 				<hr />
@@ -212,8 +216,7 @@
 				</div>
 			</div>
 			<input type="hidden" name="sum" value="<%= sum %>" />
-			<input type="hidden" name="c_amount" value="<%= c_amount %>" />
-			<input type="hidden" name="book" value='<%= json  %>' />
+			<input type="hidden" name="list" value='<%= json  %>' />
 			</form>
 			<h4>무이자 할부 이용안내</h4>
 		<h6>무이자할부가 적용되지 않은 상품과 무이자할부가 가능한 상품을 동시에 구매할 경우 전체 주문 상품 금액에 대해 무이자할부가 적용되지 않습니다.<br>

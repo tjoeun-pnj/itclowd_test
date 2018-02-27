@@ -15,12 +15,16 @@
     <div id="blog-header-container">
         <div class="content" width="100%" id="header_logo_container">
         <ul id="header_menu">
-        <li><a href="/boardList.bo">Q & A</a></li>
-        <li><a>주문내역</a></li>
-        <li><a href="/basket.ba">장바구니</a></li>
+		        <li><a href="/boardList.bo">Q & A</a></li>
             <u:isLogin>
-           <li><a href="/member/logout">로그아웃</a></li>
+        		<li><a>주문내역</a></li>
+        		<li><a href="/basket.ba">장바구니</a></li>
+           		<li><a href="/member/logout">로그아웃</a></li>
             </u:isLogin>
+            <u:notLogin>
+        		<li><a href="" onclick="alert('로그인 하셔야 사용하길 수 있습니다.');">주문내역</a></li>
+        		<li><a href="" onclick="alert('로그인 하셔야 사용하길 수 있습니다.');">장바구니</a></li>
+            </u:notLogin>
         </ul>
         </div>
     </div>
@@ -36,10 +40,10 @@
 									<li><a href="/Mypage.jsp">마이페이지</a></li>
 								</u:isLogin>
 								<u:notLogin>
-									<li><a onclick="alert('로그인 하셔야 사용하길 수 있습니다.');">취향테스트</a></li>
-									<li><a onclick="alert('로그인 하셔야 사용하길 수 있습니다.');">추천도서</a></li>
+									<li><a href="" onclick="alert('로그인 하셔야 사용하길 수 있습니다.');">취향테스트</a></li>
+									<li><a href="" onclick="alert('로그인 하셔야 사용하길 수 있습니다.');">추천도서</a></li>
 									<li><a href="/bookMain.jsp">독립출판</a></li>
-									<li><a onclick="alert('로그인 하셔야 사용하길 수 있습니다.');">마이페이지</a></li>
+									<li><a href="" onclick="alert('로그인 하셔야 사용하길 수 있습니다.');">마이페이지</a></li>
 								</u:notLogin>
 							</ul> 
 						</nav>

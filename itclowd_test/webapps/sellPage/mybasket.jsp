@@ -70,7 +70,7 @@ ArrayList<BookBean> books = (ArrayList<BookBean>)request.getAttribute("book");
 				<td align="center">
 					<a href=""><%= basket.getC_amount() %></a>
 				</td>
-				<td align="center"><img src="<%= book.getIb_img() %>" alt="없음" width="50" height="80"/></td>
+				<td align="center"><img src="/image/<%= book.getIb_img() %>" alt="없음" width="50" height="80"/></td>
 				<td align="center">
    						<a href="delete.ba?c_no=<%=basket.getC_no()%>&m_no=<%=basket.getM_no()%>">Delete</a>
 				</td>

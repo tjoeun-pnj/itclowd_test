@@ -49,11 +49,6 @@
 			}
 			indieBookChangePrice($(this).val());
 		});
-		
-		
-		
-		
-		
 		var rating = 0;
 		var clicked = false;
 		var grade = document.getElementById("indieGradeStar");
@@ -65,11 +60,8 @@
 		     clicked = true;
 		     return false;
 		});
-		
 		setIndieGradeList(listIndieGrade);
 	});
-	
-	
 	function goBasket(ib_no){
 		var member = <%=request.getSession().getAttribute("authUserJson")%>;
 		if(member == null){
@@ -96,9 +88,7 @@
         form.appendChild(hiddenField);
         document.body.appendChild(form);
         form.submit();
-
 	}
-	
 	function indieBookChangeCount(upDown){
 		var quantity =	document.getElementById('quantity');
 		var value = quantity.value*1;
@@ -136,8 +126,6 @@
 			alert('로그인 하셔야만 이 기능을 사용하실 수 있습니다.')
 		}
 	}
-	
-	
 	function indieGradeInsert(){
 		var grade = document.getElementById("indieGradeStar");
 		if ($('#indieRatingText').val().replace(/\s/g, "") == ""){
@@ -197,10 +185,8 @@
         
  <!-- 상품 사용 후기 -->
     <div id="prdReview">
-
         <div class="d_bbs" style="text-align: center;"><h2>간단평</h2></div>
         <div class="boardBtn">
-                
         </div>
         <div id="reviewArea">
             <table border="1" summary="상품의 사용후기입니다." class="boardList">
@@ -218,16 +204,14 @@
         <div class="d_bbs">질문게시판</div>
         <div class="boardBtn">
                질문하기
-        </div>   
+        </div>
         <div id="qnaArea">
-            <p class="nodata">게시물이 없습니다</p>            
-                    </div>
+            <p class="nodata">게시물이 없습니다</p>       
+        </div>
     </div>
     <!-- //상품 Q&A -->
-  
 </div>
 </div>
-
 </div>
 <!-- L:본문 -->
   <!-- The Modal1 -->

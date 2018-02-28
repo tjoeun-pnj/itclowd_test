@@ -578,7 +578,7 @@ function setRecommCate(json){
 			}
 			setHtml += count+'명 평가 </div>';
 		}else setHtml += '<div class="rating"><span class="watcha-star half left" data-value="1"></span><span class="watcha-star half right" data-value="2"></span><span class="watcha-star half left" data-value="3"></span><span class="watcha-star half right" data-value="4"></span><span class="watcha-star half left" data-value="5"></span><span class="watcha-star half right" data-value="6"></span><span class="watcha-star half left" data-value="7"></span><span class="watcha-star half right" data-value="8"></span><span class="watcha-star half left" data-value="9"></span><span class="watcha-star half right" data-value="10"></span>0명 평가</div>';
-		setHtml += '<div class="wish-comment"><div class="comment" onclick="indieGradeModal('+ibVo.ib_no+', \''+ibVo.ib_title+'\');"><span class="icon"></span><span class="text">코멘트 쓰기</span></div></div></div></div></div>';
+		setHtml += '</div></div></div></div>';
 	}
 	bookContainer.innerHTML = setHtml;
 }
@@ -607,7 +607,7 @@ function setRecommIndie(json){
 			}
 			setHtml += count+'명 평가 </div>';
 		}else setHtml += '<div class="rating"><span class="watcha-star half left" data-value="1"></span><span class="watcha-star half right" data-value="2"></span><span class="watcha-star half left" data-value="3"></span><span class="watcha-star half right" data-value="4"></span><span class="watcha-star half left" data-value="5"></span><span class="watcha-star half right" data-value="6"></span><span class="watcha-star half left" data-value="7"></span><span class="watcha-star half right" data-value="8"></span><span class="watcha-star half left" data-value="9"></span><span class="watcha-star half right" data-value="10"></span>0명 평가</div>';
-		setHtml += '<div class="wish-comment"><div class="comment" onclick="indieGradeModal('+ibVo.ib_no+', \''+ibVo.ib_title+'\');"><span class="icon"></span><span class="text">코멘트 쓰기</span></div></div></div></div></div>';
+		setHtml += '</div></div></div></div>';
 	}
 	bookContainer.innerHTML = setHtml;
 }
@@ -636,7 +636,7 @@ function setRecommPeo(json){
 			}
 			setHtml += count+'명 평가 </div>';
 		}else setHtml += '<div class="rating"><span class="watcha-star half left" data-value="1"></span><span class="watcha-star half right" data-value="2"></span><span class="watcha-star half left" data-value="3"></span><span class="watcha-star half right" data-value="4"></span><span class="watcha-star half left" data-value="5"></span><span class="watcha-star half right" data-value="6"></span><span class="watcha-star half left" data-value="7"></span><span class="watcha-star half right" data-value="8"></span><span class="watcha-star half left" data-value="9"></span><span class="watcha-star half right" data-value="10"></span>0명 평가</div>';
-		setHtml += '<div class="wish-comment"><div class="comment" onclick="indieGradeModal('+ibVo.ib_no+', \''+ibVo.ib_title+'\');"><span class="icon"></span><span class="text">코멘트 쓰기</span></div></div></div></div></div>';
+		setHtml += '</div></div></div></div>';
 	}
 	bookContainer.innerHTML = setHtml;
 }

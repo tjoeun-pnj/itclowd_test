@@ -22,7 +22,6 @@
   <!-- <link rel="stylesheet" href="bootstrap.css"> -->
   <!-- <script src="bootstrap.js"></script> -->
   <script src="mainCustom.js"></script>
-  
 </head>
 <body id="body">
 	<div id="main_header">
@@ -31,7 +30,6 @@
 	<div id="blog-container"> 
 		<jsp:include page="/recommendBookContent.jsp" flush="false" />				
 	</div>
-	
 	<div>
 		<jsp:include page="/footer.jsp" flush="false" />				
 	</div>

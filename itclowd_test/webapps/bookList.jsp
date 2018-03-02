@@ -12,7 +12,6 @@
 	$(document).ready(function(){
 		reqBookMainIndie(null,null,null);
 		var rating = 0;
-		var clicked = false;
 		var grade = document.getElementById("indieGradeStar");
 		/*  $('#indieRating .watcha-star').mouseenter(function(){
 		     if(clicked) {
@@ -42,7 +41,6 @@
 		     $(this).addClass('over horver').prevAll(".watcha-star").addClass('over horver');
 		     rating = $(this).data('value')-1;
 		     grade.value = $(this).data('value');
-		     clicked = true;
 		     return false;
 		});
 	});
